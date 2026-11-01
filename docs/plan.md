@@ -51,8 +51,20 @@ These need a person at the display, and come **before** milestone 0 (§5).
    tries to run `gnome-software`. The red team and I had both inferred "hidden" from a symbol
    import; that inference was wrong. Consequence for §6: a shim on PATH makes the stock button
    work in Quoin and in every other GTK 3 app, with no Quoin code.
-2. **The exact argv GTK sends.** Put a logging stub on PATH as `gnome-software`, try several
-   types including `image/svg+xml`, then remove the stub.
+2. ~~The exact argv GTK sends.~~ **Answered 2026-11-01** with a logging stub on PATH,
+   driven from Quoin's dialog. GTK sends exactly **one argument**, `--search=<type>`:
+
+   | Selection in Quoin | argv |
+   |---|---|
+   | file with no extension | `--search=application/octet-stream` |
+   | `.svg` | `--search=image/svg+xml` (`+` intact) |
+   | `.pdf` | `--search=application/pdf` |
+   | two types (`.3mf` + `.blend`) | `--search=application/octet-stream` |
+
+   `--mode=overview` never appeared: Quoin always gives the dialog a type. It stays supported
+   (other apps may send it), but the `application/octet-stream` rule in §6 is what Quoin's
+   unknown-type and several-types cases actually hit. These four lines are the seeds for
+   `request.c`'s tests and fuzz corpus.
 3. **The real PackageKit traffic.** `dbus-monitor --system` without root is refused
    `BecomeMonitor` and sees nothing. So **you** run `sudo dbus-monitor --system
    "sender='org.freedesktop.PackageKit'" "destination='org.freedesktop.PackageKit'"` (the `!`
@@ -338,8 +350,7 @@ isn't worth it for two projects; build it if a third C project appears.
 Each milestone ends with: `./build check` green, separately briefed reviews (SH-4), a
 harvest into `docs/claude-notes.md`, and a commit.
 
-0. **Step zero, by eye** (§1.2 item 2; item 1 is answered): the argv stub, about 10 minutes.
-   It shapes `request.c` and §6.
+0. ~~Step zero, by eye~~: done 2026-11-01 (§1.2 items 1 and 2).
 1. **Skeleton:** `git init`, `CLAUDE.md` with deviations, notes (seeded with Quoin's
    build-output lessons), Docker, `build`, meson with fixtures and bans, vendored lifetime
    with its contract test, `check-source`, `analysis`, an empty window, and the full gate.
@@ -360,6 +371,18 @@ the shim is no longer "optional, if other apps prove a nuisance": it is the chea
 make the button Quoin already shows do the right thing, and it covers every GTK 3 app at once.
 Whether Quoin still needs its own button (for `--mode=overview` with several types, below) is
 decided once §1.2 item 2 shows the exact argv. The shim moves up to milestone 5.
+
+Confirmed by Quoin's session (2026-11-01): Quoin never names `gnome-software`. The button
+and its spawn are stock `GtkAppChooserDialog`, and GTK 3.24 has no public API to hide or
+retarget it. So "Quoin just launches Chandler instead" is not a one-line change. It means
+Quoin replaces the stock dialog with its own around `GtkAppChooserWidget` (the handoff's
+original preference). The desktop session's PATH, read from the running Quoin and
+`xfce4-panel`, includes `~/.local/bin` ahead of `/usr/bin`, so a shim there is found.
+
+**Decided (owner, 2026-11-01): build the shim; no Quoin change.** It is the integration, not an
+option. It ships with milestone 5 (`install.sh` installs it next to `chandler`). Chandler
+treats `--search=application/octet-stream` as an empty search, because that is what Quoin
+sends for several types, and "apps that open arbitrary bytes" is never the question asked.
 
 - **Quoin (`appchoose.c`):** add a "Find New Applications…" button. It spawns
   `chandler --search=<type>` through Quoin's `launch` module. When the dialog has no single
