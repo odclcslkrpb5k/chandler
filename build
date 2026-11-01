@@ -1,0 +1,83 @@
+#!/usr/bin/env bash
+# Host entry point. Everything real happens inside the Docker build image.
+#
+#   ./build check     every check: sanitizer tests, analyzers, hardened build + tests
+#   ./build debug     sanitizer (ASan+UBSan) build + tests
+#   ./build analyze   GCC -fanalyzer build (any finding fails)
+#   ./build format    rewrite the C sources with clang-format (check refuses unformatted ones)
+#   ./build release   check, on a clean tree (the embedded git hash identifies the
+#                     source), then marks the hardened binary as releasable.
+#   ./build shell     interactive shell in the build image
+#   ./build image     (re)build the build image
+#
+# Every run ends with one line, "build: <command> PASS" or "build: <command> FAIL (exit N)",
+# and exits with the check's own status: read that line or the exit status, never filtered
+# output (a grep over the log once hid failures).
+#
+# The environment is Dockerfile + compose.yaml; every command rebuilds the image first
+# (cached), so a run never uses an image older than the Dockerfile.
+set -euo pipefail
+
+root=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+cmd=${1:-}
+# A failure before the container runs (git, hostname, compose) still ends with a verdict.
+verdict=
+trap 'status=$?; [[ -n $verdict || -z $cmd ]] || echo "build: $cmd FAIL (exit $status)"' EXIT
+
+export CHANDLER_UID CHANDLER_GID CHANDLER_VERSION CHANDLER_PRIVATE_WORDS
+CHANDLER_UID=$(id -u)
+CHANDLER_GID=$(id -g)
+CHANDLER_VERSION=unset
+# The user's name and the host's: committed test data must contain neither (DP-1).
+CHANDLER_PRIVATE_WORDS="$(id -un) $(hostname)"
+compose=(docker compose --project-directory "$root" -f "$root/compose.yaml")
+
+case "$cmd" in
+  check|debug|analyze|release|shell|format)
+    # Left by a scripted edit that didn't apply: the tree is half changed, so nothing built
+    # from it means anything until that is sorted out.
+    if [[ -e $root/out/EDIT-FAILED ]]; then
+      echo "build: a scripted edit failed (out/EDIT-FAILED); fix it, then remove that file." >&2
+      cat "$root/out/EDIT-FAILED" >&2
+      exit 1
+    fi
+    ;;
+  image) "${compose[@]}" build build; verdict=PASS; echo "build: image PASS"; exit 0 ;;
+  *) verdict=usage; sed -n '2,12p' "$0" | sed 's/^# \{0,1\}//'; exit 2 ;;
+esac
+
+version=$(git -C "$root" rev-parse --short=12 HEAD)
+if [[ -n $(git -C "$root" status --porcelain) ]]; then
+  if [[ $cmd == release ]]; then
+    echo "release: working tree is dirty; commit first so the build hash means something." >&2
+    git -C "$root" status --short >&2
+    exit 1
+  fi
+  version+="-dirty"
+fi
+CHANDLER_VERSION=$version
+
+# The analyzers' baseline as committed at origin/main (as last fetched): the gate refuses a
+# count above it, so one commit can't raise the baseline and add the finding.
+mkdir -p "$root/out/analysis"
+git -C "$root" show origin/main:tools/analysis-baseline.txt > "$root/out/analysis/origin-baseline.txt" 2>/dev/null \
+  || printf '# origin/main has no baseline\n' > "$root/out/analysis/origin-baseline.txt"
+
+tty=()
+[[ -t 0 && -t 1 ]] || tty=(-T)
+
+service=build
+[[ $cmd == check ]] && service=check
+args=("$@")
+[[ $cmd == check ]] && args=()
+[[ $cmd == shell ]] && verdict=shell && exec "${compose[@]}" run --build --quiet-build --rm "${tty[@]}" build shell
+
+status=0
+"${compose[@]}" run --build --quiet-build --rm "${tty[@]}" "$service" "${args[@]}" || status=$?
+verdict=done
+if [[ $status -eq 0 ]]; then
+  echo "build: $cmd PASS"
+else
+  echo "build: $cmd FAIL (exit $status)"
+fi
+exit "$status"

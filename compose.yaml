@@ -1,0 +1,24 @@
+# The build environment. ./build runs everything through it; `./build check` is the one
+# command that runs every check. Run directly, compose needs the variables ./build sets.
+#
+# No network, and only the repository mounted: the host's system bus (/run/dbus) does not
+# exist in here, so no test can reach the real PackageKit (TS-1, by construction).
+name: chandler
+services:
+  build: &build
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: chandler-build:compose
+    network_mode: none
+    user: "${CHANDLER_UID:?run through ./build}:${CHANDLER_GID:?run through ./build}"
+    environment:
+      HOME: /tmp
+      CHANDLER_VERSION: "${CHANDLER_VERSION:?run through ./build}"
+      # Words that must never appear in committed test data (tools/check-source.py fixtures).
+      CHANDLER_PRIVATE_WORDS: "${CHANDLER_PRIVATE_WORDS:?run through ./build}"
+    volumes:
+      - .:/src
+  check:
+    <<: *build
+    command: ["check"]

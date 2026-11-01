@@ -1,0 +1,8 @@
+# Vendored from github.com/odclcslkrpb5k/quoin at commit 356344d2005fac1f388266d538277181fd1cebe3.
+# Copied unchanged (RP-4). A fix goes to Quoin, then is copied again. tools/check-vendor.py verifies.
+# sha256 mode path
+ab5afc0877c832727f174429118a431b0857679724516747f94c62b92c71df2e 644 src/analyzer-glib.h
+18c20e05f2488085a4c517c4327a8dd358f83bd31fcfdef9df4a32b08f506907 644 src/fatal.h
+131e46f50ae034a5a0864bbcc202c4c3aa7fd74edf2effd071b41b04ac6c817f 644 src/lifetime.c
+a070fd3677457a94487ffaec11227987bd08991004a70c3f5979e198f72ee5bd 644 src/lifetime.h
+60c017f498a80f98e7e17985c8f667da36d59eda6ed2722107c198adbfce0f5c 644 tests/test-lifetime.c
