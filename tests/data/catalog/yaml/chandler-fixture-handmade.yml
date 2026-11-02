@@ -49,3 +49,16 @@ Summary:
 Provides:
   mediatypes:
   - application/pdf
+---
+Type: desktop-application
+ID: chandler.test.StockPath
+Package: chandler-test-stockpath
+Name:
+  C: Stock Path Viewer
+Summary:
+  C: Its stock icon name is a path
+Icon:
+  stock: /usr/share/icons/hicolor/48x48/apps/evil.png
+Provides:
+  mediatypes:
+  - application/x-chandler-stockpath

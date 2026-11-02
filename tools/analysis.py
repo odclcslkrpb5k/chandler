@@ -172,8 +172,6 @@ def run():
 # CD-8: these leave the baseline, which is for violations to burn down, and live here).
 # A count that falls fails too, so a stale entry can't linger.
 PERMANENT = {
-    ("cppcheck", "constParameterPointer", "src/window.c"):
-        (1, "GObject _class_init: its signature is declared by G_DEFINE_TYPE"),
     ("cppcheck", "constParameterPointer", "src/catalog.c"):
         (1, "GObject _init: its signature is declared by G_DEFINE_TYPE"),
     ("cppcheck", "constParameterPointer", "vendor/quoin/tests/test-lifetime.c"):

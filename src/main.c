@@ -19,9 +19,22 @@ show_request (GtkApplication *app, int argc, const char *const *argv)
   if (window == nullptr)
     {
       window = GTK_WINDOW (chandler_window_new (app));
-      gtk_widget_show_all (GTK_WIDGET (window));
+      gtk_widget_show (GTK_WIDGET (window));
     }
-  /* Milestone 3: the window shows the request's results. */
+  switch (request.kind)
+    {
+    case CHANDLER_REQUEST_EMPTY:
+    case CHANDLER_REQUEST_TYPE:
+    case CHANDLER_REQUEST_TEXT:
+      chandler_window_show_request (CHANDLER_WINDOW (window), &request);
+      break;
+    case CHANDLER_REQUEST_LIST:
+    case CHANDLER_REQUEST_VERSION:
+    case CHANDLER_REQUEST_USAGE:
+      /* Another launch's --list or --help is answered by that process (main): reaching here
+       * means a crafted action call. Ignore it, but show the window. */
+      break;
+    }
   gtk_window_present (window);
   chandler_request_clear (&request);
 }
@@ -56,6 +69,12 @@ run_window (int argc, char **argv)
   gbk_connect (G_OBJECT (app), request, "activate", G_CALLBACK (on_request), app);
   gbk_connect (G_OBJECT (app), app, "activate", G_CALLBACK (on_activate), nullptr);
   g_action_map_add_action (G_ACTION_MAP (app), G_ACTION (request));
+  /* The window's current search, readable over D-Bus (tests/check-unique.py); disabled, so
+   * nobody can activate it. */
+  g_autoptr (GSimpleAction) query
+      = g_simple_action_new_stateful ("query", nullptr, g_variant_new_string (""));
+  g_simple_action_set_enabled (query, false);
+  g_action_map_add_action (G_ACTION_MAP (app), G_ACTION (query));
   g_autoptr (GError) error = nullptr;
   if (!g_application_register (G_APPLICATION (app), nullptr, &error))
     {

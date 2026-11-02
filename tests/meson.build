@@ -75,6 +75,17 @@ if not get_option('fuzzing')
     link_with : test_libs,
     dependencies : deps,
   )
+  # The window against the fake PackageKit: GUI, so one at a time on the Xvfb display.
+  window_pk_exe = executable('test-window-pk', 'test-window-pk.c',
+    include_directories : test_inc,
+    link_with : [gui_lib] + test_libs,
+    dependencies : deps,
+  )
+  test('window-pk', python,
+    args : [meson.current_source_dir() / 'with-fake-pk.py',
+            meson.current_source_dir() / 'fake-packagekit.py',
+            meson.current_source_dir() / 'data' / 'pk' / 'window', window_pk_exe],
+    env : test_env, timeout : 300, is_parallel : false)
   test('resolve', python,
     args : [meson.current_source_dir() / 'with-fake-pk.py',
             meson.current_source_dir() / 'fake-packagekit.py',

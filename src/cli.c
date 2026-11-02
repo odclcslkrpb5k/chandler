@@ -100,8 +100,9 @@ on_catalog (ChandlerCatalog *catalog, const GError *error, GObject *owner, void 
 }
 
 static void
-on_aliases (const ChandlerAliases *aliases, GObject *owner, void *data)
+on_aliases (ChandlerAliases *aliases_owned, GObject *owner, void *data)
 {
+  g_autoptr (ChandlerAliases) aliases = aliases_owned;
   List *list = data;
   list->types = chandler_aliases_expand (aliases, &list->type);
   chandler_catalog_open (owner, on_catalog, list);

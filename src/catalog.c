@@ -164,7 +164,9 @@ take_icons (const ChandlerCatalog *catalog, AsComponent *cpt, ChandlerApp *app)
       switch (as_icon_get_kind (icon))
         {
         case AS_ICON_KIND_STOCK:
-          if (app->icon_stock == nullptr && as_icon_get_name (icon) != nullptr)
+          /* A theme icon's name, never a path: GTK must not be handed a file to open. */
+          if (app->icon_stock == nullptr && as_icon_get_name (icon) != nullptr
+              && strchr (as_icon_get_name (icon), '/') == nullptr)
             app->icon_stock = chandler_text_valid (as_icon_get_name (icon));
           break;
         case AS_ICON_KIND_CACHED:

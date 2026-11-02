@@ -299,6 +299,30 @@ the handoff's "contains a `/`".
 - Search re-queries after 200 ms idle. **Enter on a row focuses its button and does not
   press it**, so a stray Enter can't install anything during polkit's keep window.
 - Esc closes the window.
+- **Built in milestone 3 (2026-11-02):**
+  - `window.c` (layout, search, states), `row.c` (one app) and `icon.c` (theme icon, else the
+    cached PNG read asynchronously, else a generic icon).
+  - The entry is a plain `GtkEntry`, because `GtkSearchEntry` takes Esc for itself.
+  - A new search drops the previous resolve's owner, which cancels that resolve on the daemon
+    (the `requery-cancels` scenario).
+  - The application has a disabled, stateful `query` action holding the window's search, so
+    `check-unique.py` can see that a second launch reached the first window. Being
+    disabled, it cannot be activated from outside.
+  - The Install button exists but is insensitive until milestone 4. An insensitive button
+    can't take focus, so the "Enter focuses, never presses" test lands with milestone 4.
+    **Milestone 4 must also guard key auto-repeat:** a held Enter focuses the button and
+    then presses it. Ignore repeated key events, or arm the button only after a short delay.
+  - At most 100 rows, with an info line saying so. A text search needs two characters.
+    Typing a search clears the launch's unsupported-flag note. Only an unmodified Esc
+    closes the window. A stock icon name containing `/` is dropped (Engineer; each guard
+    has a test and a mutation).
+  - Accepted (review, 2026-11-02):
+    - The `query` state is readable by any process in the user's session. So is the first
+      launch's argv. `SetState` may overwrite the state, which drives nothing.
+    - The cached-icon root check resolves `..`, not symlinks. The roots are root-owned and
+      apt-managed.
+    - The order in which the catalog, aliases and PackageKit arrive is handled, but not
+      pinned by a test.
 
 ## 4. Applying the standard
 

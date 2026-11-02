@@ -136,7 +136,7 @@ on_loaded (GObject *source G_GNUC_UNUSED, GAsyncResult *result, GObject *owner, 
   if (owner != nullptr)
     {
       const Load *load = data;
-      load->done (aliases, owner, load->data);
+      load->done (g_steal_pointer (&aliases), owner, load->data);
     }
 }
 

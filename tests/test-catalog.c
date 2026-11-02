@@ -153,6 +153,18 @@ test_icon_outside_root (void)
   g_assert_null (escape->icon_cached);
 }
 
+/* A stock icon is a theme name: one that is a path is dropped, so GTK is never handed a file
+ * the metadata chose. */
+static void
+test_stock_path (void)
+{
+  g_autoptr (ChandlerCatalog) catalog = load ();
+  const char *const types[] = { "application/x-chandler-stockpath", nullptr };
+  g_autoptr (GPtrArray) apps = chandler_catalog_for_types (catalog, types);
+  const ChandlerApp *app = need (apps, "chandler.test.StockPath");
+  g_assert_null (app->icon_stock);
+}
+
 typedef struct
 {
   bool done;
@@ -208,6 +220,7 @@ main (int argc, char **argv)
   g_test_add_func ("/catalog/addon-excluded", test_addon_excluded);
   g_test_add_func ("/catalog/search", test_search);
   g_test_add_func ("/catalog/icon-outside-root", test_icon_outside_root);
+  g_test_add_func ("/catalog/stock-path", test_stock_path);
   g_test_add_func ("/catalog/system-has-decoy", test_system_has_decoy);
   return g_test_run ();
 }

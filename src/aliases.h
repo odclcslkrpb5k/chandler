@@ -20,7 +20,7 @@ unsigned chandler_aliases_add_text (ChandlerAliases *aliases, const char *text, 
 char **chandler_aliases_expand (const ChandlerAliases *aliases, const ChandlerMediaType *type);
 
 /* Reads mime/aliases from the user's and the system's data directories on a worker thread.
- * `done` runs on the main thread while `owner` is alive, with the table (never nullptr: a
- * missing file is no aliases); then the table is freed. */
-typedef void (*ChandlerAliasesFunc) (const ChandlerAliases *aliases, GObject *owner, void *data);
+ * `done` runs on the main thread while `owner` is alive, and is given the table to keep
+ * (never nullptr: a missing file is no aliases). */
+typedef void (*ChandlerAliasesFunc) (ChandlerAliases *aliases, GObject *owner, void *data);
 void chandler_aliases_load (GObject *owner, ChandlerAliasesFunc done, void *data);

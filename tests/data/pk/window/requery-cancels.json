@@ -1,0 +1,52 @@
+{
+ "about": "a new search while the last one's packages are still being asked about cancels that question on the daemon",
+ "transactions": [
+  {
+   "hand-written": "a slow daemon, to give the second search time to start",
+   "call": "Resolve",
+   "flags": 2359300,
+   "args": [
+    "retext"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "gap_ms": 1000,
+   "expect_cancel": true
+  }
+ ]
+}

@@ -1,0 +1,134 @@
+{
+ "about": "application/pdf: one row in each state",
+ "transactions": [
+  {
+   "hand-written": "the fixture catalog's packages are not all real, and their states are chosen to cover every row state",
+   "call": "Resolve",
+   "flags": 2359300,
+   "args": [
+    "evince",
+    "xournal",
+    "chandler-test-markup",
+    "chandler-test-escape"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "Packages",
+     [
+      [
+       [
+        1,
+        "evince;46.3-1;amd64;manual:ubuntu-resolute-main",
+        "Document viewer"
+       ]
+      ]
+     ]
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ]
+  },
+  {
+   "hand-written": "the fixture catalog's packages are not all real, and their states are chosen to cover every row state",
+   "call": "Resolve",
+   "flags": 2424840,
+   "args": [
+    "xournal",
+    "chandler-test-markup",
+    "chandler-test-escape"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "Packages",
+     [
+      [
+       [
+        2,
+        "xournal;0.4.8.2016-4;amd64;ubuntu-resolute-universe",
+        "GTK+ Application for note taking"
+       ],
+       [
+        2,
+        "chandler-test-escape;1.0;amd64;ubuntu-resolute-main",
+        "Escape"
+       ],
+       [
+        2,
+        "chandler-test-escape;0.9;amd64;ubuntu-resolute-main",
+        "Escape"
+       ]
+      ]
+     ]
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ]
+  }
+ ]
+}

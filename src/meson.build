@@ -32,6 +32,8 @@ core_lib = static_library('chandler-core',
 
 # GUI: needs a display (tests run under Xvfb).
 gui_lib = static_library('chandler-gui',
+  'icon.c',
+  'row.c',
   'window.c',
   include_directories : config_inc,
   link_with : [core_lib, lifetime_lib],

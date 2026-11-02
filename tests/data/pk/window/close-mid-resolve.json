@@ -1,0 +1,52 @@
+{
+ "about": "the window closes while the daemon is answering: the question is cancelled on the daemon",
+ "transactions": [
+  {
+   "hand-written": "a slow daemon, to give the window time to close",
+   "call": "Resolve",
+   "flags": 2359300,
+   "args": [
+    "retext"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "gap_ms": 1000,
+   "expect_cancel": true
+  }
+ ]
+}
