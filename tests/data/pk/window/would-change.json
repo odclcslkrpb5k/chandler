@@ -1,0 +1,266 @@
+{
+ "about": "hello: the simulation would remove, downgrade, obsolete, reinstall, and install something unsigned: refused before any password, every change named",
+ "transactions": [
+  {
+   "hand-written": "the installed-filter resolve of hello before its install was not recorded (it answers nothing)",
+   "call": "Resolve",
+   "flags": 2359300,
+   "args": [
+    "hello"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "recorded": "06-install",
+   "index": 0,
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "hand-written": "the installed-filter resolve of hello before its install was not recorded (it answers nothing)",
+   "call": "Resolve",
+   "flags": 2359300,
+   "args": [
+    "hello"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "recorded": "01-simulate",
+   "index": 0,
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "hand-written": "a removing or downgrading simulation can't be produced on demand (plan \u00a74.3)",
+   "call": "InstallPackages",
+   "flags": 6,
+   "args": [
+    "hello;2.10-5build1;amd64;ubuntu-resolute-main"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 11
+     }
+    ],
+    [
+     "properties",
+     {
+      "TransactionFlags": 6
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "Packages",
+     [
+      [
+       [
+        12,
+        "hello;2.10-5build1;amd64;+manual:ubuntu-resolute-main",
+        "example package based on GNU hello"
+       ],
+       [
+        13,
+        "libfoo1;1.0-1;amd64;manual:ubuntu-resolute-main",
+        "a library something relies on"
+       ],
+       [
+        20,
+        "libbar2;0.9-1;amd64;+auto:ubuntu-resolute-main",
+        "a library going back a version"
+       ],
+       [
+        15,
+        "libold3;3.1-2;amd64;manual:ubuntu-resolute-main",
+        "a library being replaced"
+       ],
+       [
+        19,
+        "libsame4;4.0-1;amd64;manual:ubuntu-resolute-main",
+        "a library being reinstalled"
+       ],
+       [
+        23,
+        "libunsigned5;5.0-1;amd64;+auto:ppa",
+        "an unsigned library"
+       ],
+       [
+        0,
+        "libodd6;6.0-1;amd64;+auto:ubuntu-resolute-main",
+        "a change PackageKit can't name"
+       ]
+      ]
+     ]
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      600
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "hand-written": "the installed-filter resolve of hello before its install was not recorded (it answers nothing)",
+   "call": "Resolve",
+   "flags": 2359300,
+   "args": [
+    "hello"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "recorded": "06-install",
+   "index": 0,
+   "expect_hints": [
+    "interactive=false"
+   ]
+  }
+ ]
+}

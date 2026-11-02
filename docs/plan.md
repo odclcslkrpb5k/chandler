@@ -116,11 +116,29 @@ These need a person at the display, and come **before** milestone 0 (§5).
    - **Not recorded yet, for milestone 4:** a `Cancel` of a running transaction (the fake's
      answer to one is hand-written), and the hints a client sends (the fake accepts any).
      Milestone 4's pre-auth cancel gets a recording step of its own before it relies on them.
+     **Settled in milestone 4 without a recording:**
+     - Chandler no longer cancels an install. The window refuses to close during the prompt
+       instead (§3.3), so a recorded cancel isn't needed. Resolves are still cancelled when
+       the search changes; their hand-written answer stays as it is.
+     - The hints are read from packagekit-glib2 1.3.4's source: `locale`, `background`,
+       `interactive`, `cache-age`, `supports-plural-signals`, plus `frontend-socket` for
+       install roles. The fake now records them, and a scenario's `expect_hints` requires
+       `interactive=true` on the install and `interactive=false` on everything else.
    - **EULA / debconf:** simulating `ttf-mscorefonts-installer` sends no `EulaRequired`. Its
      licence is a debconf question, and for an interactive install packagekit-glib2 sends a
      `frontend-socket` hint pointing at `pk-debconf-socket` in the user's runtime directory.
      What a real install does with that question is still unknown; milestone 4 decides (one
      option: refuse packages whose install would ask, if simulate can tell).
+     **Milestone 4, from the source:**
+     - packagekit-glib2 always makes the debconf socket for install roles when
+       `/usr/bin/debconf-communicate` exists. With a display it runs that program with
+       `DEBIAN_FRONTEND=gnome`, and the apt backend passes the questions to it.
+     - Chandler can't change this.
+     - Simulate can't tell which packages will ask, so refusing them isn't possible.
+     - Whether a GTK debconf dialog appears on this Xubuntu depends on `libgtk3-perl`.
+     - Proposed: accept it (Protect). A failed configure shows `BROKEN` ("use Synaptic or
+       apt") and removes nothing. Acceptance step 7 tries it once, with the owner's
+       agreement. **Owner to decide.**
    - **No daemon:** found by the fake rather than the recording. With nothing on the bus,
      `pk_control_get_properties` *succeeds* from defaults. `packages.c` therefore also
      requires `connected` and a version (Engineer; the `no-daemon` scenario pins it).
@@ -225,24 +243,50 @@ simulation. Chandler wants neither, so `PkTask` is not used (Eliminate).
   4. Install `ONLY_TRUSTED` with **the same ID set**. There is no "install anyway".
   5. Resolve again. The row reads Installed only if PackageKit now says so.
 - **Residual risk, accepted and flagged (Protect):** apt can change its plan between simulate
-  and install, which is a window of seconds. PackageKit cannot execute a fixed plan, so
+  and install. After review the gap is the seconds between simulate and install, plus the
+  time spent at the password prompt.
+  - A confirm is no longer trusted as it was shown: confirming simulates again, and any
+    difference in what the simulation does shows a new confirm with "What the install
+    brings has changed". This is `chandler_plan_same`, and the `confirm-changed` scenario
+    pins it.
+  - Considered, not taken: cancelling a running install when its progress reports a
+    removal. A cancel part-way through dpkg can leave packages half-configured, which is
+    worse than what it would prevent. PackageKit cannot execute a fixed plan, so
   there is no higher rung. The re-resolve in step 5 shows the outcome; it cannot prevent it.
-- **Closing the window during an install:** if the transaction hasn't passed
-  `WAITING_FOR_AUTH` / `WAITING_FOR_LOCK` (no download or install yet), Chandler cancels it.
-  That way a password prompt can never appear after Chandler's window has gone. A prompt
-  with no visible owner looks like phishing, and it trains people to type their password
-  blind. Past authorization, the application holds itself until the transaction finishes.
-  Nothing is notified: the app chooser shows the new app when it lands. The install's
-  cancellable belongs to `ChandlerResults`, not to a row.
+- **Closing the window during an install:** a password prompt must never outlive Chandler's
+  window. A prompt with no visible owner looks like phishing, and it trains people to type
+  their password blind.
+  - **Revised in milestone 4 (Eliminate, replacing a cancel):** PackageKit 1.3.4's source
+    shows that `Cancel` during `WAITING_FOR_AUTH` reports the transaction cancelled at once,
+    but leaves the polkit check, and so the prompt, running until the transaction object is
+    disposed. Cancelling therefore can't make the prompt go. Instead, **until PackageKit
+    reports a working status, the window refuses to close** and says "Answer the password
+    prompt first". Dismissing the prompt ends the install, and the window can then close.
+    Chandler never cancels an install, so no cancel recording is needed for it.
+  - "Working" means any status except `UNKNOWN`, `WAIT`, `WAITING_FOR_AUTH`, `FINISHED`
+    and `CANCEL`: a switch with no default, in `packages.c`.
+  - Once it's working, closing **hides** the window. It is destroyed when the install and
+    the revoke are done. A second launch shows it again and keeps it.
+  - Nothing is notified: the app chooser shows the new app when it lands.
 - **One install at a time, enforced across processes.** The `GtkApplication` is unique
   (Eliminate). A second launch, such as Quoin's button pressed again, re-searches the open
   window and raises it. Other rows' buttons are disabled during an install. That deviates from
   the handoff's "other rows remain clickable", but scrolling and searching still work.
-- **polkit's 5-minute `auth_admin_keep`:** after Chandler's install completes, it revokes the
-  temporary authorization it obtained (polkit `RevokeTemporaryAuthorizations` for its
-  session; the method is to be verified in milestone 4). Otherwise every process in the
-  session can install packages for five minutes without a prompt. This narrows the
-  window (Engineer); see §8.
+- **polkit's 5-minute `auth_admin_keep`:** after each install transaction ends, however it
+  ended, Chandler revokes its session's temporary authorizations. The steps are logind's
+  `session/auto` `Id`, then polkit's `RevokeTemporaryAuthorizations` with a `unix-session`
+  subject. It is best effort: a failure is logged at debug level. This is Engineer, and
+  `revokes` in the fake's scenarios pins it.
+  - **Corrected in milestone 4, from polkit's source:**
+    - polkit keys a kept authorization to the **process** that asked: PackageKit's
+      bus-name subject is converted to Chandler's process. It is not every process in the
+      session, as this plan first said. What the revoke stops is Chandler installing again
+      within five minutes without a prompt.
+    - Revoke works by session: polkit allows only a `unix-session` subject, and only the
+      caller's own. So it also drops any other kept authorization in the session, which
+      costs at most an extra prompt elsewhere.
+    - Still to see on the real system: the release acceptance runs `pkcheck` or a second
+      install to confirm a prompt comes back (Administer, §4.3).
 - **PackageKit availability:** at startup, `pk_control_get_properties_async`. Any failure
   gives `NO_DAEMON`, whatever its cause: not installed, masked, or not starting.
 
@@ -316,6 +360,41 @@ the handoff's "contains a `/`".
     Typing a search clears the launch's unsupported-flag note. Only an unmodified Esc
     closes the window. A stock icon name containing `/` is dropped (Engineer; each guard
     has a test and a mutation).
+  - **Milestone 4 (2026-11-02):**
+    - Install works, and Enter on a row focuses its button.
+    - **The key-repeat guard (revised after review):**
+      - `keys.c` follows the window's key events before its focused widget sees them. A
+        press of a key already down, with no release seen since, is an auto-repeat.
+      - A keyboard click on Install or on the confirm button counts only when the press
+        that began it was not a repeat. GtkButton finishes a keyboard activation on the
+        release or after a delay, so the click is judged by its press.
+      - Clicks no key began, from a pointer or an accessibility action, always count.
+      - The first design armed the button on any key release, so tapping Shift during a
+        held Enter re-armed it. It also refused clicks that came with no event at all,
+        which is what a screen reader sends.
+    - Tests: `enter-focus` and `confirm` focus the row and send a held Enter as real key
+      events: the press that activates the row, then repeats with Shift tapped among them,
+      then the release.
+    - A confirm is dropped when another row's Install is pressed, or the search changes. An
+      install that has begun survives a new search, and its row shows "Installing…" if the
+      new search lists that app.
+    - PackageKit's own words for `OTHER` sit behind a Details expander.
+  - **Milestone 4 review (sonnet, 2026-11-02), no blocker:**
+    - Fixed:
+      - the key guard's two holes (above)
+      - the stale confirm (§3.3)
+      - a 5 s limit on each revoke step
+      - a progress callback after the end is ignored
+      - an unsplittable resolved ID reads as `GONE` instead of aborting
+      - `WAIT` after `WAITING_FOR_AUTH` counts as authorized (queued after the prompt)
+      - a failed re-resolve keeps the install's own outcome
+    - Tests added:
+      - `would-change` now names remove, downgrade, replace, reinstall, unsigned and
+        unknown
+      - `other-version`, `confirm-changed`, `reshow`, `revoke-fails`
+    - Accepted: extras of a foreign architecture count among "also installs N" without
+      being singled out. An amd64 app can legitimately bring an i386 stack, and adding
+      packages is not what the owner fears.
   - Accepted (review, 2026-11-02):
     - The `query` state is readable by any process in the user's session. So is the first
       launch's argv. `SetState` may overwrite the state, which drives nothing.
@@ -351,8 +430,8 @@ isn't worth it for two projects; build it if a third C project appears.
 | Wrong architecture or several versions installed | Resolve filters; exactly one ID per name | Engineer |
 | An install that removes, downgrades or obsoletes | The simulate allowlist. TOCTOU residual is Protect | Engineer |
 | Untrusted packages | `ONLY_TRUSTED`; `PkClient` without `PkTask` | Eliminate |
-| Password prompt with no visible owner | Cancel pre-auth transactions when the window closes | Eliminate |
-| Silent installs in polkit's keep window | Revoke after install; Enter doesn't install; unique app | Engineer + Eliminate |
+| Password prompt with no visible owner | The window refuses to close until PackageKit reports a working status (milestone 4: a cancel leaves the prompt up) | Eliminate |
+| Silent installs in polkit's keep window | Revoke after each install; Enter only focuses, and a held key never presses; unique app | Engineer + Eliminate |
 | Async callback after its owner has gone | `async.c`: every `*_async` call in an adapter goes through `chandler_async_*`, which holds a `GWeakRef` and `GCancellable` and drops a late result. `check-source` rule `async` refuses a raw `*_async` call without it. Vendored lifetime for signals and sources. | Engineer |
 | Frozen window | **Poisoned:** `as_pool_load`, `pk_client_*_sync`, `pk_control_*_sync`, `g_dbus_connection_call_sync`, `gdk_pixbuf_new_from_file*`, `g_file_load_contents`, each with a configure probe. The stall watch times `chandler_async_*` completions too. | Eliminate + Engineer |
 | Markup injection | Markup APIs poisoned | Eliminate |
@@ -385,6 +464,11 @@ isn't worth it for two projects; build it if a third C project appears.
     `CannotCancel` error.
   - Signals `Package` and `Packages` (§1.2 item 3: both are used), `ItemProgress`,
     `ErrorCode`, `Finished` and `Destroy`.
+  - **Milestone 4:** the fake also stands in for logind's `session/auto` and polkit's
+    `RevokeTemporaryAuthorizations`; a scenario's `revokes` sets how many calls it expects.
+    It checks `expect_hints`, and `with-fake-pk.py` gives each case its own `TMPDIR` for
+    packagekit-glib2's debconf socket. There are 18 install scenarios in
+    `tests/data/pk/window/`. The by-hand checks are in `docs/acceptance.md`.
   - **Built 2026-11-01:** `tests/fake-packagekit.py` replays scenarios
     (`tests/data/pk/scenarios/`), each transaction either taken from a recording or marked
     `hand-written` with its reason. `tests/with-fake-pk.py` gives each scenario its own private
@@ -531,5 +615,6 @@ the `0xff` offset, the FLAC alias counts, no dbusmock template, and the filter e
 
 | 34 | (Owner, after review) The stock button is not hidden; the "hidden" inference from a symbol import was wrong | — | §1.2 item 1 answered; §6 revised: the shim becomes the main integration |
 
-Still unverified: polkit's `RevokeTemporaryAuthorizations`, which is checked in milestone 4,
-and everything listed in §1.2.
+Still unverified: polkit's `RevokeTemporaryAuthorizations` against the real polkit. Its
+source was read in milestone 4 (§3.3); `docs/acceptance.md` step 3 checks it on the system.
+Also still unverified: everything listed in §1.2.

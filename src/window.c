@@ -1,6 +1,7 @@
 #include "window.h"
 #include "aliases.h"
 #include "catalog.h"
+#include "keys.h"
 #include "lifetime.h"
 #include "packages.h"
 #include "row.h"
@@ -36,6 +37,17 @@ typedef enum
   QUERY_TEXT,
 } QueryKind;
 
+/* One install at a time (plan §3.3): where it is. */
+typedef enum
+{
+  JOB_NONE,
+  JOB_CHECKING, /* resolving again and simulating: no prompt can appear (also after a confirm,
+                   to check that the plan still stands) */
+  JOB_CONFIRM,  /* it brings other packages: waiting for the second click */
+  JOB_PROMPT,   /* installing, not yet authorized: the window stays (no orphan prompt) */
+  JOB_WORKING,  /* installing, authorized: closing hides the window until it ends */
+} JobPhase;
+
 struct _ChandlerWindow
 {
   GtkApplicationWindow parent;
@@ -44,6 +56,8 @@ struct _ChandlerWindow
   GtkLabel *heading;
   GtkInfoBar *info;
   GtkLabel *info_label;
+  GtkExpander *details; /* PackageKit's own words, for OTHER */
+  GtkLabel *details_label;
   GtkStack *stack; /* "status" or "results" */
   GtkLabel *status;
   GtkListBox *list;
@@ -62,6 +76,17 @@ struct _ChandlerWindow
   guint row_limit;
   bool truncated; /* more apps matched than row_limit */
   guint debounce;
+
+  JobPhase phase;
+  char *job_app;         /* the application being installed */
+  char **job_pkgnames;
+  GObject *job_ticket;   /* owns the check: clearing it cancels that */
+  ChandlerPlan *plan;    /* JOB_CONFIRM; kept while a confirm is checked again */
+  bool plan_changed;     /* the check after a confirm found a different plan */
+  char *detail; /* goes with `problem`: what the install would do, or PackageKit's words */
+  bool close_refused; /* the user tried to close during the password prompt */
+  bool asking;        /* PackageKit is waiting for the password */
+  bool closed; /* closed during the install: hidden, and destroyed when it ends */
 };
 
 G_DEFINE_FINAL_TYPE (ChandlerWindow, chandler_window, GTK_TYPE_APPLICATION_WINDOW)
@@ -71,6 +96,7 @@ chandler_window_dispose (GObject *object)
 {
   ChandlerWindow *self = CHANDLER_WINDOW (object);
   g_clear_object (&self->ticket);
+  g_clear_object (&self->job_ticket);
   g_clear_object (&self->catalog);
   g_clear_object (&self->packages);
   G_OBJECT_CLASS (chandler_window_parent_class)->dispose (object);
@@ -83,6 +109,10 @@ chandler_window_finalize (GObject *object)
   g_clear_pointer (&self->aliases, chandler_aliases_free);
   g_free (self->query);
   g_free (self->unsupported);
+  g_free (self->job_app);
+  g_strfreev (self->job_pkgnames);
+  g_clear_pointer (&self->plan, chandler_plan_free);
+  g_free (self->detail);
   G_OBJECT_CLASS (chandler_window_parent_class)->finalize (object);
 }
 
@@ -104,6 +134,11 @@ show_info (ChandlerWindow *self)
         : nullptr,
     self->packages_state == PACKAGES_ABSENT ? chandler_outcome_text (CHANDLER_OUTCOME_NO_DAEMON)
                                             : nullptr,
+    self->close_refused ? "Answer the password prompt first: Chandler can close once it has gone."
+                        : nullptr,
+    self->plan_changed
+        ? "What the install brings has changed since you looked: check it and confirm again."
+        : nullptr,
     chandler_outcome_text (self->problem),
     self->truncated ? "Showing the first matches only: make the search longer to narrow it."
                     : nullptr,
@@ -112,6 +147,17 @@ show_info (ChandlerWindow *self)
   for (size_t i = 0; i < G_N_ELEMENTS (lines); i++)
     if (lines[i] != nullptr)
       g_string_append_printf (text, "%s%s", text->len > 0 ? "\n" : "", lines[i]);
+  /* What a refused install would have done is part of the sentence; PackageKit's own words
+   * sit behind an expander (plan §3.4). Both are outside text: filtered. */
+  bool changes = self->problem == CHANDLER_OUTCOME_WOULD_CHANGE
+                 || self->problem == CHANDLER_OUTCOME_UNTRUSTED;
+  g_autofree char *detail
+      = self->detail != nullptr ? chandler_text_for_terminal (self->detail) : nullptr;
+  if (changes && detail != nullptr)
+    g_string_append_printf (text, "\nIt would %s.", detail);
+  bool details = self->problem == CHANDLER_OUTCOME_OTHER && detail != nullptr;
+  gtk_label_set_text (self->details_label, details ? detail : "");
+  gtk_widget_set_visible (GTK_WIDGET (self->details), details);
   gtk_label_set_text (self->info_label, text->str);
   gtk_widget_set_visible (GTK_WIDGET (self->info), text->len > 0);
 }
@@ -165,6 +211,82 @@ set_all_rows (ChandlerWindow *self, ChandlerRowState state)
     chandler_row_set_state (g_ptr_array_index (all, i), state);
 }
 
+/* --- The install under way, over the rows' own states --- */
+
+static bool
+job_busy (const ChandlerWindow *self)
+{
+  return self->phase == JOB_CHECKING || self->phase == JOB_PROMPT || self->phase == JOB_WORKING;
+}
+
+static void
+apply_job (ChandlerWindow *self)
+{
+  g_autoptr (GPtrArray) all = rows (self);
+  for (guint i = 0; i < all->len; i++)
+    {
+      ChandlerRow *row = g_ptr_array_index (all, i);
+      bool mine
+          = self->job_app != nullptr && g_str_equal (chandler_row_get_id (row), self->job_app);
+      chandler_row_set_blocked (row, job_busy (self) && !mine);
+      if (!mine)
+        continue;
+      ChandlerRowState state = chandler_row_get_state (row);
+      switch (self->phase)
+        {
+        case JOB_NONE: break;
+        case JOB_CHECKING:
+          if (state != CHANDLER_ROW_CHECKING)
+            chandler_row_set_state (row, CHANDLER_ROW_CHECKING);
+          break;
+        case JOB_CONFIRM:
+          if (state != CHANDLER_ROW_CONFIRM)
+            chandler_row_set_confirm (row, chandler_plan_extra (self->plan),
+                                      chandler_plan_updates (self->plan));
+          break;
+        case JOB_PROMPT:
+          chandler_row_set_installing (row,
+                                       self->asking ? "Waiting for authentication…" : "Starting…");
+          break;
+        case JOB_WORKING: chandler_row_set_installing (row, "Installing…"); break;
+        }
+    }
+}
+
+/* Forgets the install: done, refused, or dropped before it began. */
+static void
+end_job (ChandlerWindow *self)
+{
+  /* An install that never began leaves its row as it was: Install. */
+  g_autoptr (GPtrArray) all = rows (self);
+  for (guint i = 0; i < all->len && self->job_app != nullptr; i++)
+    {
+      ChandlerRow *row = g_ptr_array_index (all, i);
+      ChandlerRowState state = chandler_row_get_state (row);
+      if (g_str_equal (chandler_row_get_id (row), self->job_app)
+          && (state == CHANDLER_ROW_CHECKING || state == CHANDLER_ROW_CONFIRM))
+        chandler_row_set_state (row, CHANDLER_ROW_AVAILABLE);
+    }
+  self->phase = JOB_NONE;
+  self->close_refused = false;
+  self->asking = false;
+  self->plan_changed = false;
+  g_clear_pointer (&self->job_app, g_free);
+  g_clear_pointer (&self->job_pkgnames, g_strfreev);
+  g_clear_pointer (&self->plan, chandler_plan_free);
+  g_clear_object (&self->job_ticket);
+  apply_job (self);
+}
+
+static void
+set_problem (ChandlerWindow *self, ChandlerOutcome outcome, const char *detail)
+{
+  self->problem = outcome;
+  g_free (self->detail);
+  self->detail = g_strdup (detail);
+  show_info (self);
+}
+
 /* --- Package states --- */
 
 static void
@@ -174,9 +296,11 @@ on_resolved (const ChandlerResolved *resolved, ChandlerOutcome outcome,
   ChandlerWindow *self = data; /* alive: it owns the ticket that owns this call */
   if (resolved == nullptr)
     {
-      self->problem = outcome;
+      /* After an install, its own outcome says more than this one. */
+      if (self->problem == CHANDLER_OUTCOME_OK)
+        set_problem (self, outcome, nullptr);
       set_all_rows (self, CHANDLER_ROW_UNKNOWN);
-      show_info (self);
+      apply_job (self);
       return;
     }
   g_autoptr (GPtrArray) all = rows (self);
@@ -186,6 +310,7 @@ on_resolved (const ChandlerResolved *resolved, ChandlerOutcome outcome,
       chandler_row_set_state (row, chandler_row_state_from_pkg (chandler_resolved_app_state (
                                        resolved, chandler_row_get_pkgnames (row))));
     }
+  apply_job (self);
 }
 
 static void
@@ -209,10 +334,166 @@ resolve_rows (ChandlerWindow *self)
       for (const char *const *p = chandler_row_get_pkgnames (row); *p != nullptr; p++)
         g_strv_builder_add (builder, *p);
     }
+  apply_job (self);
   g_auto (GStrv) names = g_strv_builder_end (builder);
   self->ticket = g_object_new (G_TYPE_OBJECT, nullptr);
   chandler_packages_resolve (self->packages, self->ticket, (const char *const *) names, on_resolved,
                              self);
+}
+
+/* --- Installing: click, check, confirm, install (plan §3.3) --- */
+
+static void
+on_installed (ChandlerOutcome outcome, const char *detail, GObject *owner G_GNUC_UNUSED, void *data)
+{
+  ChandlerWindow *self = data; /* the owner */
+  end_job (self);
+  set_problem (self, outcome == CHANDLER_OUTCOME_ALREADY ? CHANDLER_OUTCOME_OK : outcome, detail);
+  if (self->closed)
+    {
+      gtk_widget_destroy (GTK_WIDGET (self));
+      return;
+    }
+  /* The row reads Installed only if PackageKit now says so. */
+  resolve_rows (self);
+}
+
+static void
+on_stage (ChandlerInstallStage stage, GObject *owner G_GNUC_UNUSED, void *data)
+{
+  ChandlerWindow *self = data;
+  switch (stage)
+    {
+    case CHANDLER_INSTALL_ASKING:
+      self->asking = true;
+      apply_job (self);
+      return;
+    case CHANDLER_INSTALL_WORKING: break;
+    }
+  self->phase = JOB_WORKING;
+  self->close_refused = false;
+  show_info (self);
+  apply_job (self);
+}
+
+static void
+start_install (ChandlerWindow *self)
+{
+  self->phase = JOB_PROMPT;
+  apply_job (self);
+  chandler_packages_install (self->packages, G_OBJECT (self), self->plan, on_stage, on_installed,
+                             self);
+}
+
+static void
+on_checked (ChandlerPlan *plan, ChandlerOutcome outcome, const char *detail,
+            GObject *owner G_GNUC_UNUSED, void *data)
+{
+  ChandlerWindow *self = data; /* alive: it owns the ticket that owns this call */
+  g_autoptr (ChandlerPlan) confirmed = g_steal_pointer (&self->plan);
+  self->plan = plan;
+  if (outcome != CHANDLER_OUTCOME_OK)
+    {
+      end_job (self);
+      set_problem (self, outcome == CHANDLER_OUTCOME_ALREADY ? CHANDLER_OUTCOME_OK : outcome,
+                   detail);
+      resolve_rows (self);
+      return;
+    }
+  /* Only the app's own packages: straight on. Anything more is the user's to agree to,
+   * before any password prompt, and only as it was when they agreed: a confirm is checked
+   * again, and a plan that has changed since is shown for a new confirm (plan §3.3). */
+  if (chandler_plan_extra (plan) == 0
+      || (confirmed != nullptr && chandler_plan_same (confirmed, plan)))
+    {
+      self->plan_changed = false;
+      start_install (self);
+      return;
+    }
+  self->plan_changed = confirmed != nullptr;
+  self->phase = JOB_CONFIRM;
+  show_info (self);
+  apply_job (self);
+}
+
+static void
+check (ChandlerWindow *self)
+{
+  self->phase = JOB_CHECKING;
+  apply_job (self);
+  g_clear_object (&self->job_ticket);
+  self->job_ticket = g_object_new (G_TYPE_OBJECT, nullptr);
+  chandler_packages_check (self->packages, self->job_ticket,
+                           (const char *const *) self->job_pkgnames, on_checked, self);
+}
+
+static void
+start_check (ChandlerWindow *self, const ChandlerRow *row)
+{
+  self->job_app = g_strdup (chandler_row_get_id (row));
+  g_autoptr (GStrvBuilder) names = g_strv_builder_new ();
+  for (const char *const *p = chandler_row_get_pkgnames (row); *p != nullptr; p++)
+    g_strv_builder_add (names, *p);
+  self->job_pkgnames = g_strv_builder_end (names);
+  set_problem (self, CHANDLER_OUTCOME_OK, nullptr);
+  check (self);
+}
+
+static void
+on_row_install (ChandlerRow *row, void *data)
+{
+  ChandlerWindow *self = data;
+  if (self->packages_state != PACKAGES_READY)
+    return;
+  bool mine = self->job_app != nullptr && g_str_equal (chandler_row_get_id (row), self->job_app);
+  switch (self->phase)
+    {
+    case JOB_NONE: start_check (self, row); return;
+    case JOB_CONFIRM:
+      if (mine)
+        {
+          check (self); /* with the confirmed plan kept, to compare */
+          return;
+        }
+      /* Another app instead: the first one's plan no longer applies. */
+      end_job (self);
+      start_check (self, row);
+      return;
+    case JOB_CHECKING:
+    case JOB_PROMPT:
+    case JOB_WORKING: return; /* its button is insensitive: unreachable */
+    }
+}
+
+/* Closing during an install (plan §3.3): before authorization the window stays, so the
+ * password prompt is never left without its owner on screen; after it, the window hides
+ * and goes when the install ends. Otherwise it closes, cancelling what it was asking. */
+static gboolean
+on_delete (GtkWidget *widget, GdkEvent *event G_GNUC_UNUSED, void *data G_GNUC_UNUSED)
+{
+  ChandlerWindow *self = CHANDLER_WINDOW (widget);
+  switch (self->phase)
+    {
+    case JOB_NONE:
+    case JOB_CHECKING:
+    case JOB_CONFIRM: return false;
+    case JOB_PROMPT:
+      self->close_refused = true;
+      show_info (self);
+      return true;
+    case JOB_WORKING:
+      self->closed = true;
+      gtk_widget_hide (widget);
+      return true;
+    }
+  return false;
+}
+
+/* Shown again (a second launch): it no longer goes when the install ends. */
+static void
+on_map (GtkWidget *widget, void *data G_GNUC_UNUSED)
+{
+  CHANDLER_WINDOW (widget)->closed = false;
 }
 
 /* --- Searching --- */
@@ -253,7 +534,12 @@ static void
 refresh (ChandlerWindow *self)
 {
   g_clear_object (&self->ticket);
+  /* A new search drops an install that hasn't begun; one that has goes on, and its row
+   * shows it if the new search lists that app. */
+  if (self->phase == JOB_CHECKING || self->phase == JOB_CONFIRM)
+    end_job (self);
   self->problem = CHANDLER_OUTCOME_OK;
+  g_clear_pointer (&self->detail, g_free);
   self->truncated = false;
   g_autoptr (GPtrArray) old = rows (self);
   for (guint i = 0; i < old->len; i++)
@@ -290,7 +576,11 @@ refresh (ChandlerWindow *self)
       show_info (self);
     }
   for (guint i = 0; i < apps->len; i++)
-    gtk_container_add (GTK_CONTAINER (self->list), chandler_row_new (g_ptr_array_index (apps, i)));
+    {
+      GtkWidget *row = chandler_row_new (g_ptr_array_index (apps, i));
+      gbk_connect (G_OBJECT (self), row, "install", G_CALLBACK (on_row_install), self);
+      gtk_container_add (GTK_CONTAINER (self->list), row);
+    }
   gtk_stack_set_visible_child_name (self->stack, "results");
   resolve_rows (self);
 }
@@ -511,8 +801,15 @@ chandler_window_init (ChandlerWindow *self)
   self->info = GTK_INFO_BAR (gtk_info_bar_new ());
   gtk_info_bar_set_message_type (self->info, GTK_MESSAGE_WARNING);
   self->info_label = wrapping ("");
+  GtkBox *info_box = GTK_BOX (gtk_box_new (GTK_ORIENTATION_VERTICAL, 4));
+  gtk_box_pack_start (info_box, GTK_WIDGET (self->info_label), false, false, 0);
+  self->details = GTK_EXPANDER (gtk_expander_new ("Details"));
+  self->details_label = wrapping ("");
+  gtk_label_set_selectable (self->details_label, true);
+  gtk_container_add (GTK_CONTAINER (self->details), GTK_WIDGET (self->details_label));
+  gtk_box_pack_start (info_box, GTK_WIDGET (self->details), false, false, 0);
   gtk_container_add (GTK_CONTAINER (gtk_info_bar_get_content_area (self->info)),
-                     GTK_WIDGET (self->info_label));
+                     GTK_WIDGET (info_box));
   gtk_box_pack_start (box, GTK_WIDGET (self->info), false, false, 0);
 
   self->stack = GTK_STACK (gtk_stack_new ());
@@ -532,12 +829,16 @@ chandler_window_init (ChandlerWindow *self)
   gtk_container_add (GTK_CONTAINER (self), GTK_WIDGET (box));
   gtk_widget_show_all (GTK_WIDGET (box));
   gtk_widget_hide (GTK_WIDGET (self->info));
+  gtk_widget_hide (GTK_WIDGET (self->details));
 
   gbk_connect (G_OBJECT (self), self->entry, "changed", G_CALLBACK (on_entry_changed), self);
   gbk_connect (G_OBJECT (self), self->entry, "activate", G_CALLBACK (on_entry_activate), self);
   gbk_connect (G_OBJECT (self), self->list, "row-activated", G_CALLBACK (on_row_activated),
                nullptr);
   gbk_connect (G_OBJECT (self), self, "key-press-event", G_CALLBACK (on_key_press), nullptr);
+  chandler_keys_watch (GTK_WINDOW (self));
+  gbk_connect (G_OBJECT (self), self, "delete-event", G_CALLBACK (on_delete), nullptr);
+  gbk_connect (G_OBJECT (self), self, "map", G_CALLBACK (on_map), nullptr);
   refresh (self);
 }
 
@@ -578,6 +879,8 @@ chandler_window_describe_for_test (ChandlerWindow *self)
                           gtk_widget_get_visible (GTK_WIDGET (self->info))
                               ? gtk_label_get_text (self->info_label)
                               : "");
+  if (gtk_widget_get_visible (GTK_WIDGET (self->details)))
+    g_string_append_printf (out, "details\t%s\n", gtk_label_get_text (self->details_label));
   if (g_str_equal (gtk_stack_get_visible_child_name (self->stack), "status"))
     g_string_append_printf (out, "status\t%s\n", gtk_label_get_text (self->status));
   g_autoptr (GPtrArray) all = rows (self);
@@ -608,4 +911,22 @@ void
 chandler_window_set_row_limit_for_test (ChandlerWindow *self, guint limit)
 {
   self->row_limit = limit;
+}
+
+void
+chandler_window_click_for_test (ChandlerWindow *self, int index)
+{
+  GtkListBoxRow *row = gtk_list_box_get_row_at_index (self->list, index);
+  if (row == nullptr)
+    gbk_fatal ("no row %d", index);
+  chandler_row_click_for_test (CHANDLER_ROW (row));
+}
+
+void
+chandler_window_focus_row_for_test (ChandlerWindow *self, int index)
+{
+  GtkListBoxRow *row = gtk_list_box_get_row_at_index (self->list, index);
+  if (row == nullptr)
+    gbk_fatal ("no row %d", index);
+  gtk_widget_grab_focus (GTK_WIDGET (row));
 }

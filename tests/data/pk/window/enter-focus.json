@@ -1,0 +1,60 @@
+{
+ "about": "hello: Enter on the row focuses Install; a held Enter never presses it, so nothing beyond the rows' resolve is asked",
+ "transactions": [
+  {
+   "hand-written": "the installed-filter resolve of hello before its install was not recorded (it answers nothing)",
+   "call": "Resolve",
+   "flags": 2359300,
+   "args": [
+    "hello"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "recorded": "06-install",
+   "index": 0,
+   "expect_hints": [
+    "interactive=false"
+   ]
+  }
+ ]
+}

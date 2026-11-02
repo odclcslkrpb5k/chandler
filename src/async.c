@@ -60,6 +60,12 @@ chandler_async_cancellable (const ChandlerAsync *async)
   return async->cancellable;
 }
 
+GObject *
+chandler_async_owner (const ChandlerAsync *async)
+{
+  return async->owner;
+}
+
 void
 chandler_async_ready (GObject *source, GAsyncResult *result, void *async)
 {

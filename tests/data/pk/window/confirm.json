@@ -1,0 +1,311 @@
+{
+ "about": "ttf-mscorefonts-installer brings two more packages (recording 08): the row asks to confirm; a held Enter (with Shift tapped meanwhile) doesn't, a fresh press does, and the plan is checked again before the install",
+ "revokes": 1,
+ "transactions": [
+  {
+   "hand-written": "not recorded before the simulation",
+   "call": "Resolve",
+   "flags": 2359300,
+   "args": [
+    "ttf-mscorefonts-installer"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "recorded": "08-eula",
+   "index": 0,
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "hand-written": "not recorded before the simulation",
+   "call": "Resolve",
+   "flags": 2359300,
+   "args": [
+    "ttf-mscorefonts-installer"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "recorded": "08-eula",
+   "index": 0,
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "recorded": "08-eula",
+   "index": 1,
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "hand-written": "not recorded before the simulation",
+   "call": "Resolve",
+   "flags": 2359300,
+   "args": [
+    "ttf-mscorefonts-installer"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "recorded": "08-eula",
+   "index": 0,
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "recorded": "08-eula",
+   "index": 1,
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "hand-written": "this package's real install was not recorded (its licence question is a debconf one)",
+   "call": "InstallPackages",
+   "flags": 2,
+   "args": [
+    "ttf-mscorefonts-installer;3.8.1ubuntu2;all;ubuntu-resolute-multiverse"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 11
+     }
+    ],
+    [
+     "properties",
+     {
+      "TransactionFlags": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 31
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 1
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 9
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      900
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "expect_hints": [
+    "interactive=true"
+   ]
+  },
+  {
+   "hand-written": "not recorded after an install",
+   "call": "Resolve",
+   "flags": 2359300,
+   "args": [
+    "ttf-mscorefonts-installer"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "Packages",
+     [
+      [
+       [
+        1,
+        "ttf-mscorefonts-installer;3.8.1ubuntu2;all;manual:ubuntu-resolute-multiverse",
+        "Installer for Microsoft TrueType core fonts"
+       ]
+      ]
+     ]
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "expect_hints": [
+    "interactive=false"
+   ]
+  }
+ ]
+}

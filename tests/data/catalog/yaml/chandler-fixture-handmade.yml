@@ -62,3 +62,27 @@ Icon:
 Provides:
   mediatypes:
   - application/x-chandler-stockpath
+---
+Type: desktop-application
+ID: chandler.test.Hello
+Package: hello
+Name:
+  C: Hello Greeter
+Summary:
+  C: Packaged as hello, the package of the PackageKit recordings
+Provides:
+  mediatypes:
+  - application/x-chandler-hello
+  - application/x-chandler-both
+---
+Type: desktop-application
+ID: chandler.test.Fonts
+Package: ttf-mscorefonts-installer
+Name:
+  C: Core Fonts Installer
+Summary:
+  C: Its install brings two more packages, as recorded
+Provides:
+  mediatypes:
+  - application/x-chandler-fonts
+  - application/x-chandler-both

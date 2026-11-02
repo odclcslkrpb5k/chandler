@@ -63,8 +63,9 @@ wait_shown (ChandlerWindow *win, const char *needle)
 }
 
 /* wait_shown, then until no asynchronous call is outstanding, so what follows sees a
- * settled window. */
-static char *
+ * settled window. Returns what it shows, to be freed: discarding it is a compile error (a
+ * leak twice in milestone 4). */
+G_GNUC_WARN_UNUSED_RESULT static char *
 wait_for (ChandlerWindow *win, const char *needle)
 {
   wait_shown (win, needle);
@@ -91,7 +92,7 @@ row_of (const char *shown, const char *id)
 }
 
 /* Field `n` of a row line: 0 "row", 1 id, 2 state, 3 icon, 4 name, 5 summary, 6 packages,
- * 7 button. */
+ * 7 button, 8 action (the button's label or the installing words). */
 static char *
 field (const char *row, int n)
 {

@@ -1,0 +1,258 @@
+{
+ "about": "ttf-mscorefonts-installer: between the first look and the confirm, the install has come to bring a third package: the row asks again, with the new count, and nothing is installed",
+ "transactions": [
+  {
+   "hand-written": "not recorded before the simulation",
+   "call": "Resolve",
+   "flags": 2359300,
+   "args": [
+    "ttf-mscorefonts-installer"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "recorded": "08-eula",
+   "index": 0,
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "hand-written": "not recorded before the simulation",
+   "call": "Resolve",
+   "flags": 2359300,
+   "args": [
+    "ttf-mscorefonts-installer"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "recorded": "08-eula",
+   "index": 0,
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "recorded": "08-eula",
+   "index": 1,
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "hand-written": "not recorded before the simulation",
+   "call": "Resolve",
+   "flags": 2359300,
+   "args": [
+    "ttf-mscorefonts-installer"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "recorded": "08-eula",
+   "index": 0,
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "hand-written": "a dependency appearing between two looks can't be produced on demand",
+   "call": "InstallPackages",
+   "flags": 6,
+   "args": [
+    "ttf-mscorefonts-installer;3.8.1ubuntu2;all;ubuntu-resolute-multiverse"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 11
+     }
+    ],
+    [
+     "properties",
+     {
+      "TransactionFlags": 6
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "Packages",
+     [
+      [
+       [
+        12,
+        "cabextract;1.11-2build1;amd64;+auto:ubuntu-resolute-universe",
+        "Microsoft Cabinet file unpacker"
+       ],
+       [
+        12,
+        "libmspack0t64;0.11-1.1build2;amd64;+auto:ubuntu-resolute-main",
+        "library for Microsoft compression formats"
+       ],
+       [
+        12,
+        "fontconfig-extra;1.0-1;all;+auto:ubuntu-resolute-universe",
+        "a third package, new since the first look"
+       ],
+       [
+        12,
+        "ttf-mscorefonts-installer;3.8.1ubuntu2;all;+manual:ubuntu-resolute-multiverse",
+        "Installer for Microsoft TrueType core fonts"
+       ]
+      ]
+     ]
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      600
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "expect_hints": [
+    "interactive=false"
+   ]
+  }
+ ]
+}

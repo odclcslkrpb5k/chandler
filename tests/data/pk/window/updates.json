@@ -1,0 +1,186 @@
+{
+ "about": "hello: the simulation also updates an installed package: the row asks to confirm, and closing then installs nothing",
+ "transactions": [
+  {
+   "hand-written": "the installed-filter resolve of hello before its install was not recorded (it answers nothing)",
+   "call": "Resolve",
+   "flags": 2359300,
+   "args": [
+    "hello"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "recorded": "06-install",
+   "index": 0,
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "hand-written": "the installed-filter resolve of hello before its install was not recorded (it answers nothing)",
+   "call": "Resolve",
+   "flags": 2359300,
+   "args": [
+    "hello"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "recorded": "01-simulate",
+   "index": 0,
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "hand-written": "no install that updates a dependency was recorded",
+   "call": "InstallPackages",
+   "flags": 6,
+   "args": [
+    "hello;2.10-5build1;amd64;ubuntu-resolute-main"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 11
+     }
+    ],
+    [
+     "properties",
+     {
+      "TransactionFlags": 6
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "Packages",
+     [
+      [
+       [
+        12,
+        "hello;2.10-5build1;amd64;+manual:ubuntu-resolute-main",
+        "example package based on GNU hello"
+       ],
+       [
+        11,
+        "libc6;2.43-1ubuntu2;amd64;+auto:ubuntu-resolute-updates",
+        "GNU C Library"
+       ]
+      ]
+     ]
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      600
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "expect_hints": [
+    "interactive=false"
+   ]
+  }
+ ]
+}

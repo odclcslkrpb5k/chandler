@@ -1,0 +1,236 @@
+{
+ "about": "hello: the simulation says the package is unsigned: refused",
+ "transactions": [
+  {
+   "hand-written": "the installed-filter resolve of hello before its install was not recorded (it answers nothing)",
+   "call": "Resolve",
+   "flags": 2359300,
+   "args": [
+    "hello"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "recorded": "06-install",
+   "index": 0,
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "hand-written": "the installed-filter resolve of hello before its install was not recorded (it answers nothing)",
+   "call": "Resolve",
+   "flags": 2359300,
+   "args": [
+    "hello"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "recorded": "01-simulate",
+   "index": 0,
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "hand-written": "an untrusted package can't be produced on demand",
+   "call": "InstallPackages",
+   "flags": 6,
+   "args": [
+    "hello;2.10-5build1;amd64;ubuntu-resolute-main"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 11
+     }
+    ],
+    [
+     "properties",
+     {
+      "TransactionFlags": 6
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "Packages",
+     [
+      [
+       [
+        23,
+        "hello;2.10-5build1;amd64;+manual:ubuntu-resolute-main",
+        "example package based on GNU hello"
+       ]
+      ]
+     ]
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      600
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "hand-written": "the installed-filter resolve of hello before its install was not recorded (it answers nothing)",
+   "call": "Resolve",
+   "flags": 2359300,
+   "args": [
+    "hello"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "recorded": "06-install",
+   "index": 0,
+   "expect_hints": [
+    "interactive=false"
+   ]
+  }
+ ]
+}

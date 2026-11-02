@@ -11,6 +11,8 @@ Each mutation ends as one of:
   SURVIVED  the build compiled and `test` passed: the test does not guard this code
   INVALID   `test` never ran (the mutation broke the build, or the name is wrong): it
             proves nothing, and is reported as a failure of the run, never as a pass
+The test "build" means the compiler is the guard (a switch listing every value of an enum,
+-Wswitch-enum): CAUGHT when the build fails with a compiler error, SURVIVED when it builds.
 Exit status 0 only when every mutation was CAUGHT.
 """
 import runpy
@@ -27,7 +29,13 @@ def run_one(path, old, new, test):
         r = subprocess.run(["./build", "debug"], capture_output=True, text=True, check=False)
     finally:
         open(path, "w", encoding="utf-8").write(orig)
-    lines = [l for l in (r.stdout + r.stderr).splitlines() if f"chandler:{test} " in l]
+    out = r.stdout + r.stderr
+    if test == "build":
+        errors = [l for l in out.splitlines() if "error:" in l]
+        if errors:
+            return "CAUGHT", errors[0].strip()[:200]
+        return "SURVIVED", "the build accepted it"
+    lines = [l for l in out.splitlines() if f"chandler:{test} " in l]
     if not lines:
         return "INVALID", f"test {test} never ran (build failed, or no such test)"
     if any(" FAIL " in l or " ERROR " in l for l in lines):

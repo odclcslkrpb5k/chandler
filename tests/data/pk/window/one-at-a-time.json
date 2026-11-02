@@ -1,0 +1,368 @@
+{
+ "about": "two rows: confirming one, then pressing the other's Install drops the first; while the second waits for its password (recording 02, slowed), the first can't be pressed",
+ "revokes": 1,
+ "transactions": [
+  {
+   "hand-written": "two apps at once: their joint resolve was not recorded",
+   "call": "Resolve",
+   "flags": 2359300,
+   "args": [
+    "hello",
+    "ttf-mscorefonts-installer"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "hand-written": "two apps at once: their joint resolve was not recorded",
+   "call": "Resolve",
+   "flags": 2424840,
+   "args": [
+    "hello",
+    "ttf-mscorefonts-installer"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "Packages",
+     [
+      [
+       [
+        2,
+        "hello;2.10-5build1;amd64;ubuntu-resolute-main",
+        "example package based on GNU hello"
+       ],
+       [
+        2,
+        "ttf-mscorefonts-installer;3.8.1ubuntu2;all;ubuntu-resolute-multiverse",
+        "Installer for Microsoft TrueType core fonts"
+       ]
+      ]
+     ]
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "hand-written": "not recorded before the simulation",
+   "call": "Resolve",
+   "flags": 2359300,
+   "args": [
+    "ttf-mscorefonts-installer"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "recorded": "08-eula",
+   "index": 0,
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "recorded": "08-eula",
+   "index": 1,
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "hand-written": "the installed-filter resolve of hello before its install was not recorded (it answers nothing)",
+   "call": "Resolve",
+   "flags": 2359300,
+   "args": [
+    "hello"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "recorded": "01-simulate",
+   "index": 0,
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "recorded": "01-simulate",
+   "index": 1,
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "recorded": "02-dismiss",
+   "index": 1,
+   "expect_hints": [
+    "interactive=true"
+   ],
+   "gap_ms": 700
+  },
+  {
+   "hand-written": "two apps at once: their joint resolve was not recorded",
+   "call": "Resolve",
+   "flags": 2359300,
+   "args": [
+    "hello",
+    "ttf-mscorefonts-installer"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "expect_hints": [
+    "interactive=false"
+   ]
+  },
+  {
+   "hand-written": "two apps at once: their joint resolve was not recorded",
+   "call": "Resolve",
+   "flags": 2424840,
+   "args": [
+    "hello",
+    "ttf-mscorefonts-installer"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "Packages",
+     [
+      [
+       [
+        2,
+        "hello;2.10-5build1;amd64;ubuntu-resolute-main",
+        "example package based on GNU hello"
+       ],
+       [
+        2,
+        "ttf-mscorefonts-installer;3.8.1ubuntu2;all;ubuntu-resolute-multiverse",
+        "Installer for Microsoft TrueType core fonts"
+       ]
+      ]
+     ]
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "expect_hints": [
+    "interactive=false"
+   ]
+  }
+ ]
+}

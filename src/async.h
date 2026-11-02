@@ -28,6 +28,10 @@ ChandlerAsync *chandler_async_new_named (GObject *owner, ChandlerAsyncFunc fn, v
 /* Cancelled when the owner is disposed. Owned by the ChandlerAsync. */
 GCancellable *chandler_async_cancellable (const ChandlerAsync *async);
 
+/* The owner while it lives, else nullptr: for a call's progress callbacks, which run before
+ * fn and are not owner-scoped by themselves. Borrowed. */
+GObject *chandler_async_owner (const ChandlerAsync *async);
+
 /* The GAsyncReadyCallback to pass, with the ChandlerAsync as its user data. */
 void chandler_async_ready (GObject *source, GAsyncResult *result, void *async);
 

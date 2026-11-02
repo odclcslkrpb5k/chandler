@@ -1,5 +1,5 @@
 /* The PackageKit adapter (ER-3, plan §3.3). Nothing of packagekit-glib2 leaves this file.
- * Milestone 2: whether the daemon is there, and what state a set of packages is in. */
+ * Whether the daemon is there, what state a set of packages is in, and installing. */
 #pragma once
 
 #include "outcome.h"
@@ -54,3 +54,47 @@ void chandler_packages_resolve (ChandlerPackages *packages, GObject *owner,
 ChandlerOutcome chandler_packages_outcome_for_test (const GError *error);
 /* For tests: the outcome of every daemon error code, by its PackageKit number. */
 ChandlerOutcome chandler_packages_daemon_outcome_for_test (int code);
+
+/* --- Installing (plan §3.3) --- */
+
+/* What an install will do, as PackageKit's simulation of it said: the chosen packages, and
+ * how many others come with them. Minted only by chandler_packages_check, from a fresh
+ * resolve: install takes nothing else. */
+typedef struct _ChandlerPlan ChandlerPlan;
+void chandler_plan_free (ChandlerPlan *plan);
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (ChandlerPlan, chandler_plan_free)
+/* Packages other than the chosen ones that the install brings or updates. */
+guint chandler_plan_extra (const ChandlerPlan *plan);
+/* Some of those are updates of installed packages. */
+bool chandler_plan_updates (const ChandlerPlan *plan);
+/* The two simulations would do exactly the same: a confirm still stands. */
+bool chandler_plan_same (const ChandlerPlan *a, const ChandlerPlan *b);
+
+/* Resolves `names` again and simulates installing those not installed yet. `plan` (owned by
+ * the callee) is nullptr unless `outcome` is OK. ALREADY: every name is installed. GONE: a
+ * name no longer has exactly one candidate. WOULD_CHANGE and UNTRUSTED: the simulation
+ * does more than install and update; `detail` then says what ("remove hello"). Otherwise
+ * `detail` is nullptr, or PackageKit's own text for OTHER (shown, never logged: DP-3). */
+typedef void (*ChandlerCheckFunc) (ChandlerPlan *plan, ChandlerOutcome outcome, const char *detail,
+                                   GObject *owner, void *data);
+void chandler_packages_check (ChandlerPackages *packages, GObject *owner, const char *const *names,
+                              ChandlerCheckFunc done, void *data);
+
+/* Installs exactly the plan's packages, trusted only, with a password prompt allowed.
+ * `stage` runs with ASKING when PackageKit starts waiting for the password, and once with
+ * WORKING when it has gone past that (closing the window then no longer leaves a prompt
+ * behind); ASKING may not come at all (polkit's kept authorization). When
+ * the transaction has finished, polkit's kept authorization for this session is revoked
+ * (plan §3.3), whether or not `owner` still lives, and then `done` runs while it does.
+ * `detail` as for chandler_packages_check. */
+typedef enum
+{
+  CHANDLER_INSTALL_ASKING,
+  CHANDLER_INSTALL_WORKING,
+} ChandlerInstallStage;
+typedef void (*ChandlerStageFunc) (ChandlerInstallStage stage, GObject *owner, void *data);
+typedef void (*ChandlerInstallFunc) (ChandlerOutcome outcome, const char *detail, GObject *owner,
+                                     void *data);
+void chandler_packages_install (ChandlerPackages *packages, GObject *owner,
+                                const ChandlerPlan *plan, ChandlerStageFunc stage,
+                                ChandlerInstallFunc done, void *data);

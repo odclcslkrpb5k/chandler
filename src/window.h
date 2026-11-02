@@ -1,6 +1,6 @@
 /* Chandler's one window (plan §3.6): a search entry, a heading, an info bar, and the results
- * (or a sentence saying why there are none). Milestone 3: it finds and shows; installing
- * arrives in milestone 4. */
+ * (or a sentence saying why there are none), each with what can be done: install, one at a
+ * time (plan §3.3). */
 #pragma once
 
 #include "request.h"
@@ -24,6 +24,7 @@ const char *chandler_window_get_query (const ChandlerWindow *self);
 /* For tests: what the window shows, one line each:
  *   heading\t<text>
  *   info\t<text or "">
+ *   details\t<PackageKit's words>   (when shown)
  *   status\t<text>          (when there are no rows)
  *   row\t<chandler_row_describe_for_test>   (per row, in order) */
 char *chandler_window_describe_for_test (ChandlerWindow *self);
@@ -37,3 +38,9 @@ void chandler_window_set_row_limit_for_test (ChandlerWindow *self, guint limit);
 
 /* For tests: activates row `index` as Enter on it would. */
 void chandler_window_activate_row_for_test (ChandlerWindow *self, int index);
+
+/* For tests: a pointer's click on row `index`'s button. */
+void chandler_window_click_for_test (ChandlerWindow *self, int index);
+
+/* For tests: gives row `index` the keyboard focus, as arrow keys would. */
+void chandler_window_focus_row_for_test (ChandlerWindow *self, int index);

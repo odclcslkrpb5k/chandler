@@ -54,7 +54,9 @@ def run_case(template, scenario, binary, name):
     spec = json.loads(scenario.read_text(encoding="utf-8"))
     with tempfile.TemporaryDirectory(prefix="chandler-bus-") as tmp:
         bus, address = start_bus(tmp)
-        env = dict(os.environ, DBUS_SYSTEM_BUS_ADDRESS=address, CHANDLER_FAKE_PK=name)
+        # TMPDIR: packagekit-glib2 makes its debconf socket there for every install
+        # transaction, named after the transaction ("/1_fake"), which every fake shares.
+        env = dict(os.environ, DBUS_SYSTEM_BUS_ADDRESS=address, CHANDLER_FAKE_PK=name, TMPDIR=tmp)
         fake, conn, log = None, None, pathlib.Path(tmp) / "fake.log"
         try:
             if spec.get("daemon", True):
