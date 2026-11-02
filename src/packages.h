@@ -25,6 +25,8 @@ G_DEFINE_AUTOPTR_CLEANUP_FUNC (ChandlerResolved, chandler_resolved_free)
 
 /* A name that wasn't asked about is UNAVAILABLE. */
 ChandlerPkgState chandler_resolved_state (const ChandlerResolved *resolved, const char *name);
+/* For tests: the candidate's package ID, or nullptr unless the name is AVAILABLE. */
+const char *chandler_resolved_id_for_test (const ChandlerResolved *resolved, const char *name);
 
 /* An application's state from its packages: INSTALLED when all are, AVAILABLE when the rest
  * can be installed, otherwise the first UNAVAILABLE or AMBIGUOUS one's. */

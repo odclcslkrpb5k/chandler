@@ -1,0 +1,57 @@
+{
+ "about": "the daemon can't get the package lock: LOCKED, and no package states",
+ "transactions": [
+  {
+   "hand-written": "the recording's Synaptic step ran with the network still off, so no lock error was captured",
+   "call": "Resolve",
+   "flags": 2359300,
+   "args": [
+    "hello"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "ErrorCode",
+     [
+      26,
+      "fake: lock held"
+     ]
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      2,
+      0
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ]
+  }
+ ]
+}

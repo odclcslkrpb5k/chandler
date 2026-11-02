@@ -1,0 +1,456 @@
+{
+ "source": "recorded on Ubuntu 26.04 (plan §1.2 item 3): pk-drive install hello",
+ "properties": {
+  "VersionMajor": 1,
+  "VersionMinor": 3,
+  "VersionMicro": 4,
+  "BackendName": "apt",
+  "BackendDescription": "APT",
+  "Roles": 8371765246,
+  "Groups": 3906403580,
+  "Filters": 84152660,
+  "MimeTypes": [
+   "application/vnd.debian.binary-package",
+   "application/x-deb"
+  ],
+  "Locked": false,
+  "NetworkState": 2,
+  "DistroId": "ubuntu;26.04;x86_64"
+ },
+ "transactions": [
+  {
+   "call": "Resolve",
+   "flags": 2424840,
+   "args": [
+    "hello"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 27
+     }
+    ],
+    [
+     "properties",
+     {
+      "Percentage": 50,
+      "ElapsedTime": 0,
+      "RemainingTime": 0,
+      "Speed": 0,
+      "DownloadSizeRemaining": 0
+     }
+    ],
+    [
+     "properties",
+     {
+      "Percentage": 100,
+      "ElapsedTime": 0,
+      "RemainingTime": 0,
+      "Speed": 0,
+      "DownloadSizeRemaining": 0
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "Packages",
+     [
+      [
+       [
+        2,
+        "hello;2.10-5build1;amd64;ubuntu-resolute-main",
+        "example package based on GNU hello"
+       ]
+      ]
+     ]
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      433
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ]
+  },
+  {
+   "call": "InstallPackages",
+   "flags": 2,
+   "args": [
+    "hello;2.10-5build1;amd64;ubuntu-resolute-main"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 11
+     }
+    ],
+    [
+     "properties",
+     {
+      "TransactionFlags": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 31
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 1
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 27
+     }
+    ],
+    [
+     "properties",
+     {
+      "Percentage": 50,
+      "ElapsedTime": 0,
+      "RemainingTime": 0,
+      "Speed": 0,
+      "DownloadSizeRemaining": 0
+     }
+    ],
+    [
+     "properties",
+     {
+      "Percentage": 100,
+      "ElapsedTime": 0,
+      "RemainingTime": 0,
+      "Speed": 0,
+      "DownloadSizeRemaining": 0
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 3
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 27
+     }
+    ],
+    [
+     "properties",
+     {
+      "Percentage": 100,
+      "ElapsedTime": 0,
+      "RemainingTime": 0,
+      "Speed": 0,
+      "DownloadSizeRemaining": 0
+     }
+    ],
+    [
+     "properties",
+     {
+      "Percentage": 100,
+      "ElapsedTime": 0,
+      "RemainingTime": 0,
+      "Speed": 0,
+      "DownloadSizeRemaining": 26068
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 8
+     }
+    ],
+    [
+     "properties",
+     {
+      "Percentage": 0,
+      "ElapsedTime": 0,
+      "RemainingTime": 0,
+      "Speed": 0,
+      "DownloadSizeRemaining": 26068
+     }
+    ],
+    [
+     "Package",
+     [
+      10,
+      "hello;2.10-5build1;amd64;+manual:ubuntu-resolute-main",
+      "example package based on GNU hello"
+     ]
+    ],
+    [
+     "ItemProgress",
+     [
+      "hello;2.10-5build1;amd64;+manual:ubuntu-resolute-main",
+      8,
+      0
+     ]
+    ],
+    [
+     "Package",
+     [
+      18,
+      "hello;2.10-5build1;amd64;+manual:ubuntu-resolute-main",
+      "example package based on GNU hello"
+     ]
+    ],
+    [
+     "properties",
+     {
+      "Status": 3
+     }
+    ],
+    [
+     "properties",
+     {
+      "AllowCancel": false
+     }
+    ],
+    [
+     "properties",
+     {
+      "Percentage": 101,
+      "ElapsedTime": 0,
+      "RemainingTime": 0,
+      "Speed": 0,
+      "DownloadSizeRemaining": 26068
+     }
+    ],
+    [
+     "properties",
+     {
+      "Percentage": 0,
+      "ElapsedTime": 0,
+      "RemainingTime": 0,
+      "Speed": 0,
+      "DownloadSizeRemaining": 26068
+     }
+    ],
+    [
+     "Package",
+     [
+      21,
+      "hello;2.10-5build1;amd64;+manual:ubuntu-resolute-main",
+      "example package based on GNU hello"
+     ]
+    ],
+    [
+     "ItemProgress",
+     [
+      "hello;2.10-5build1;amd64;+manual:ubuntu-resolute-main",
+      2,
+      25
+     ]
+    ],
+    [
+     "Package",
+     [
+      22,
+      "hello;2.10-5build1;amd64;+manual:ubuntu-resolute-main",
+      "example package based on GNU hello"
+     ]
+    ],
+    [
+     "ItemProgress",
+     [
+      "hello;2.10-5build1;amd64;+manual:ubuntu-resolute-main",
+      9,
+      50
+     ]
+    ],
+    [
+     "properties",
+     {
+      "Percentage": 20,
+      "ElapsedTime": 0,
+      "RemainingTime": 0,
+      "Speed": 0,
+      "DownloadSizeRemaining": 26068
+     }
+    ],
+    [
+     "Package",
+     [
+      18,
+      "hello;2.10-5build1;amd64;+manual:ubuntu-resolute-main",
+      "example package based on GNU hello"
+     ]
+    ],
+    [
+     "properties",
+     {
+      "Status": 9
+     }
+    ],
+    [
+     "Package",
+     [
+      12,
+      "hello;2.10-5build1;amd64;+manual:ubuntu-resolute-main",
+      "example package based on GNU hello"
+     ]
+    ],
+    [
+     "ItemProgress",
+     [
+      "hello;2.10-5build1;amd64;+manual:ubuntu-resolute-main",
+      9,
+      0
+     ]
+    ],
+    [
+     "Package",
+     [
+      18,
+      "hello;2.10-5build1;amd64;+manual:ubuntu-resolute-main",
+      "example package based on GNU hello"
+     ]
+    ],
+    [
+     "properties",
+     {
+      "Percentage": 40,
+      "ElapsedTime": 0,
+      "RemainingTime": 0,
+      "Speed": 0,
+      "DownloadSizeRemaining": 26068
+     }
+    ],
+    [
+     "Package",
+     [
+      21,
+      "hello;2.10-5build1;amd64;+manual:ubuntu-resolute-main",
+      "example package based on GNU hello"
+     ]
+    ],
+    [
+     "ItemProgress",
+     [
+      "hello;2.10-5build1;amd64;+manual:ubuntu-resolute-main",
+      2,
+      75
+     ]
+    ],
+    [
+     "Package",
+     [
+      18,
+      "hello;2.10-5build1;amd64;+manual:ubuntu-resolute-main",
+      "example package based on GNU hello"
+     ]
+    ],
+    [
+     "Package",
+     [
+      12,
+      "hello;2.10-5build1;amd64;+manual:ubuntu-resolute-main",
+      "example package based on GNU hello"
+     ]
+    ],
+    [
+     "ItemProgress",
+     [
+      "hello;2.10-5build1;amd64;+manual:ubuntu-resolute-main",
+      9,
+      0
+     ]
+    ],
+    [
+     "Package",
+     [
+      18,
+      "hello;2.10-5build1;amd64;+manual:ubuntu-resolute-main",
+      "example package based on GNU hello"
+     ]
+    ],
+    [
+     "properties",
+     {
+      "Percentage": 80,
+      "ElapsedTime": 0,
+      "RemainingTime": 0,
+      "Speed": 0,
+      "DownloadSizeRemaining": 26068
+     }
+    ],
+    [
+     "properties",
+     {
+      "AllowCancel": true
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      8793
+     ]
+    ],
+    [
+     "properties",
+     {
+      "CallerActive": false
+     }
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ]
+  }
+ ]
+}

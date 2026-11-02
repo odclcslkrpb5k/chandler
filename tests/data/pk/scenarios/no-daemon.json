@@ -1,0 +1,5 @@
+{
+ "about": "no PackageKit on the bus: NO_DAEMON",
+ "daemon": false,
+ "transactions": []
+}

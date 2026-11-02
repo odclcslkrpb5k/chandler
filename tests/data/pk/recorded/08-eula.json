@@ -1,0 +1,246 @@
+{
+ "source": "recorded on Ubuntu 26.04 (plan §1.2 item 3): pk-drive simulate ttf-mscorefonts-installer",
+ "properties": {
+  "VersionMajor": 1,
+  "VersionMinor": 3,
+  "VersionMicro": 4,
+  "BackendName": "apt",
+  "BackendDescription": "APT",
+  "Roles": 8371765246,
+  "Groups": 3906403580,
+  "Filters": 84152660,
+  "MimeTypes": [
+   "application/vnd.debian.binary-package",
+   "application/x-deb"
+  ],
+  "Locked": false,
+  "NetworkState": 2,
+  "DistroId": "ubuntu;26.04;x86_64"
+ },
+ "transactions": [
+  {
+   "call": "Resolve",
+   "flags": 2424840,
+   "args": [
+    "ttf-mscorefonts-installer"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 27
+     }
+    ],
+    [
+     "properties",
+     {
+      "Percentage": 50,
+      "ElapsedTime": 0,
+      "RemainingTime": 0,
+      "Speed": 0,
+      "DownloadSizeRemaining": 0
+     }
+    ],
+    [
+     "properties",
+     {
+      "Percentage": 100,
+      "ElapsedTime": 0,
+      "RemainingTime": 0,
+      "Speed": 0,
+      "DownloadSizeRemaining": 0
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "Packages",
+     [
+      [
+       [
+        2,
+        "ttf-mscorefonts-installer;3.8.1ubuntu2;all;ubuntu-resolute-multiverse",
+        "Installer for Microsoft TrueType core fonts"
+       ]
+      ]
+     ]
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      318
+     ]
+    ],
+    [
+     "properties",
+     {
+      "CallerActive": false
+     }
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ]
+  },
+  {
+   "call": "InstallPackages",
+   "flags": 6,
+   "args": [
+    "ttf-mscorefonts-installer;3.8.1ubuntu2;all;ubuntu-resolute-multiverse"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 11
+     }
+    ],
+    [
+     "properties",
+     {
+      "TransactionFlags": 6
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 27
+     }
+    ],
+    [
+     "properties",
+     {
+      "Percentage": 50,
+      "ElapsedTime": 0,
+      "RemainingTime": 0,
+      "Speed": 0,
+      "DownloadSizeRemaining": 0
+     }
+    ],
+    [
+     "properties",
+     {
+      "Percentage": 100,
+      "ElapsedTime": 0,
+      "RemainingTime": 0,
+      "Speed": 0,
+      "DownloadSizeRemaining": 0
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 3
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 27
+     }
+    ],
+    [
+     "properties",
+     {
+      "Percentage": 100,
+      "ElapsedTime": 0,
+      "RemainingTime": 0,
+      "Speed": 0,
+      "DownloadSizeRemaining": 0
+     }
+    ],
+    [
+     "Packages",
+     [
+      [
+       [
+        12,
+        "cabextract;1.11-2build1;amd64;+auto:ubuntu-resolute-universe",
+        "Microsoft Cabinet file unpacker"
+       ],
+       [
+        12,
+        "libmspack0t64;0.11-1.1build2;amd64;+auto:ubuntu-resolute-main",
+        "library for Microsoft compression formats (shared library)"
+       ],
+       [
+        12,
+        "ttf-mscorefonts-installer;3.8.1ubuntu2;all;+manual:ubuntu-resolute-multiverse",
+        "Installer for Microsoft TrueType core fonts"
+       ]
+      ]
+     ]
+    ],
+    [
+     "properties",
+     {
+      "Percentage": 100,
+      "ElapsedTime": 0,
+      "RemainingTime": 0,
+      "Speed": 0,
+      "DownloadSizeRemaining": 92736
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      629
+     ]
+    ],
+    [
+     "properties",
+     {
+      "CallerActive": false
+     }
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ]
+  }
+ ]
+}

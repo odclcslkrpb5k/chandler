@@ -88,6 +88,13 @@ chandler_resolved_free (ChandlerResolved *resolved)
   g_free (resolved);
 }
 
+const char *
+chandler_resolved_id_for_test (const ChandlerResolved *resolved, const char *name)
+{
+  const Entry *e = g_hash_table_lookup (resolved->entries, name);
+  return e != nullptr && e->id != nullptr ? e->id->value : nullptr;
+}
+
 ChandlerPkgState
 chandler_resolved_state (const ChandlerResolved *resolved, const char *name)
 {
@@ -264,14 +271,23 @@ on_properties (GObject *source, GAsyncResult *result, GObject *owner, void *data
   const Open *open = data;
   g_autoptr (GError) error = nullptr;
   bool ok = pk_control_get_properties_finish (PK_CONTROL (source), result, &error);
+  /* That succeeds with no daemon on the bus at all (found by the fake's no-daemon
+   * scenario): PkControl answers from defaults. A daemon that answered has a version. */
+  gboolean connected = false;
+  guint major = 0;
+  if (ok)
+    g_object_get (source, "connected", &connected, "version-major", &major, nullptr);
+  ok = ok && connected && major > 0;
   if (owner == nullptr)
     return;
-  if (!ok)
+  if (error != nullptr)
     {
       if (g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED))
         return;
       g_debug ("PackageKit unavailable: %s %d", g_quark_to_string (error->domain), error->code);
     }
+  else if (!ok)
+    g_debug ("PackageKit unavailable: no daemon answered");
   open->done (open->packages, ok ? CHANDLER_OUTCOME_OK : CHANDLER_OUTCOME_NO_DAEMON, owner,
               open->data);
 }
@@ -327,17 +343,26 @@ asked (const Resolve *r, const char *name)
   return name != nullptr && g_strv_contains ((const char *const *) r->names, name);
 }
 
+/* The ARCH filter is the daemon's to apply; this is ours. A foreign candidate is dropped, not
+ * refused: next to a native one it is noise, and alone it is not installable here. */
+static bool
+native (PkPackage *pkg)
+{
+  const char *arch = pk_package_get_arch (pkg);
+  return arch != nullptr && (g_str_equal (arch, CHANDLER_NATIVE_ARCH) || g_str_equal (arch, "all"));
+}
+
 /* The transaction's own verdict: a reply is not success unless PackageKit says it finished
  * successfully. A killed or pre-empted transaction can return a partial package list with
  * no GError (plan §3.4), which must not read as "these packages don't exist". */
 static ChandlerOutcome
 results_outcome (PkResults *results, const GError *error)
 {
+  /* A daemon ErrorCode always arrives here as the GError (0xff + code), never inside the
+   * results: packagekit-glib2 1.3.4 returns no results then (recording 02), so the
+   * results' own error code is never set. */
   if (results == nullptr)
     return outcome_of (error);
-  g_autoptr (PkError) failed = pk_results_get_error_code (results);
-  if (failed != nullptr)
-    return daemon_outcome (pk_error_get_code (failed));
   PkExitEnum exit = pk_results_get_exit_code (results);
   switch (exit)
     {
@@ -378,7 +403,8 @@ on_candidates (GObject *source, GAsyncResult *result, GObject *owner, void *data
       PkPackage *pkg = g_ptr_array_index (found, i);
       const char *name = pk_package_get_name (pkg);
       const char *id = pk_package_get_id (pkg);
-      if (!asked (r, name) || id == nullptr || pk_package_get_info (pkg) != PK_INFO_ENUM_AVAILABLE)
+      if (!asked (r, name) || id == nullptr || pk_package_get_info (pkg) != PK_INFO_ENUM_AVAILABLE
+          || !native (pkg))
         continue;
       Entry *e = g_hash_table_lookup (r->resolved->entries, name);
       if (e == nullptr)
@@ -422,7 +448,7 @@ on_installed (GObject *source, GAsyncResult *result, GObject *owner, void *data)
       PkPackage *pkg = g_ptr_array_index (found, i);
       const char *name = pk_package_get_name (pkg);
       if (!asked (r, name) || g_hash_table_contains (r->resolved->entries, name)
-          || pk_package_get_info (pkg) != PK_INFO_ENUM_INSTALLED)
+          || pk_package_get_info (pkg) != PK_INFO_ENUM_INSTALLED || !native (pkg))
         continue;
       Entry *e = g_new0 (Entry, 1);
       e->state = CHANDLER_PKG_INSTALLED;

@@ -69,6 +69,17 @@ if not get_option('fuzzing')
   # --list end to end, against the image's decoy catalog (Dockerfile).
   test('list', python, args : [meson.current_source_dir() / 'check-list.py', chandler_exe],
     env : test_env, timeout : 120)
+  # packages.c against the fake PackageKit, one private bus and fake per scenario (plan §4.3).
+  resolve_exe = executable('test-resolve', 'test-resolve.c',
+    include_directories : test_inc,
+    link_with : test_libs,
+    dependencies : deps,
+  )
+  test('resolve', python,
+    args : [meson.current_source_dir() / 'with-fake-pk.py',
+            meson.current_source_dir() / 'fake-packagekit.py',
+            meson.current_source_dir() / 'data' / 'pk' / 'scenarios', resolve_exe],
+    env : test_env, timeout : 300)
   # One Chandler at a time: a second launch hands over to the first (plan §3.3).
   test('unique', python, args : [meson.current_source_dir() / 'check-unique.py', chandler_exe],
     env : test_env, timeout : 120, is_parallel : false)

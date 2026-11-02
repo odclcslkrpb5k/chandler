@@ -1,0 +1,66 @@
+{
+ "about": "a foreign-architecture package installed (a daemon ignoring ARCH on the installed resolve): the native one is not installed, so it is the candidate",
+ "transactions": [
+  {
+   "hand-written": "a daemon whose ARCH filter failed on installed packages; can't be produced on demand",
+   "call": "Resolve",
+   "flags": 2359300,
+   "args": [
+    "hello"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "Packages",
+     [
+      [
+       [
+        1,
+        "hello;2.10-5build1;i386;manual:ubuntu-resolute-main",
+        "example package based on GNU hello"
+       ]
+      ]
+     ]
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ]
+  },
+  {
+   "recorded": "01-simulate",
+   "index": 0
+  }
+ ]
+}

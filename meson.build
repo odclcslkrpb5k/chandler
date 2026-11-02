@@ -175,6 +175,13 @@ endif
 
 conf = configuration_data()
 conf.set_quoted('CHANDLER_VERSION', meson.project_version())
+# The Debian architecture Chandler installs for (plan §3.3): a candidate of any other (an i386
+# one on a machine with i386 enabled) is never offered, whatever the daemon's ARCH filter did.
+debian_arch = {'x86_64' : 'amd64', 'aarch64' : 'arm64'}
+if host_machine.cpu_family() not in debian_arch
+  error('no Debian architecture known for CPU family ' + host_machine.cpu_family())
+endif
+conf.set_quoted('CHANDLER_NATIVE_ARCH', debian_arch[host_machine.cpu_family()])
 configure_file(output : 'chandler-config.h', configuration : conf)
 config_inc = include_directories('.', 'vendor/quoin/src')
 

@@ -1,0 +1,9 @@
+{
+ "about": "hello installed: the installed resolve answers everything, so no second transaction",
+ "transactions": [
+  {
+   "recorded": "07-installed-again",
+   "index": 0
+  }
+ ]
+}

@@ -1,0 +1,66 @@
+{
+ "about": "the INSTALLED resolve answers with an available package (a daemon ignoring the filter): it is not taken as installed",
+ "transactions": [
+  {
+   "hand-written": "a daemon whose INSTALLED filter failed; can't be produced on demand",
+   "call": "Resolve",
+   "flags": 2359300,
+   "args": [
+    "hello"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "Packages",
+     [
+      [
+       [
+        2,
+        "hello;2.10-5build1;amd64;ubuntu-resolute-main",
+        "example package based on GNU hello"
+       ]
+      ]
+     ]
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ]
+  },
+  {
+   "recorded": "01-simulate",
+   "index": 0
+  }
+ ]
+}

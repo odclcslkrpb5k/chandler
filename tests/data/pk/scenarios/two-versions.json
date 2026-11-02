@@ -1,0 +1,112 @@
+{
+ "about": "two candidates for one name survive the filters: refuse to guess",
+ "transactions": [
+  {
+   "hand-written": "the shape of recording 07 with nothing installed (the recording only resolved installed packages once hello was installed)",
+   "call": "Resolve",
+   "flags": 2359300,
+   "args": [
+    "hello"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ]
+  },
+  {
+   "hand-written": "a daemon whose NEWEST filter let two versions through; can't be produced on demand",
+   "call": "Resolve",
+   "flags": 2424840,
+   "args": [
+    "hello"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "Packages",
+     [
+      [
+       [
+        2,
+        "hello;2.10-5build1;amd64;ubuntu-resolute-main",
+        "example package based on GNU hello"
+       ],
+       [
+        2,
+        "hello;2.9-1;amd64;ubuntu-resolute-main",
+        "example package based on GNU hello"
+       ]
+      ]
+     ]
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ]
+  }
+ ]
+}

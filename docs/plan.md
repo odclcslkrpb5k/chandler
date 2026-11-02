@@ -90,6 +90,41 @@ These need a person at the display, and come **before** milestone 0 (§5).
    The raw capture never enters the repository. It is scrubbed first (§4.2). You remove
    `hello` afterwards with apt.
 
+   **Recorded 2026-11-01** (owner at the display; `tools/record-pk.sh`, scrubbed by
+   `tools/scrub-pk.py` into `tests/data/pk/recorded/`). What it settled:
+   - **Signals:** with the `supports-plural-signals` hint (packagekit-glib2 sends it), resolve
+     and simulate answer with the plural `Packages`; a real install still sends singular
+     `Package` plus `ItemProgress` while it works. The fake serves both.
+   - **Simulate** needs no password (no polkit call), and lists every package it would touch,
+     the requested one included (`ttf-mscorefonts-installer` brings `cabextract` and
+     `libmspack0t64`).
+   - **The package ID's data field changes between calls:** resolve says
+     `ubuntu-resolute-main` (available) or `manual:ubuntu-resolute-main` (installed); simulate
+     and install say `+manual:…` for what was asked and `+auto:…` for dependencies. So
+     milestone 4 compares simulate's answer with the chosen IDs by name, version and
+     architecture, never the whole ID; and `+auto` is how it tells "also installs" apart.
+   - **Dismissing polkit and a wrong password look the same:** `ErrorCode` 48
+     (`NOT_AUTHORIZED`, "Failed to obtain authentication."), then `Finished` with exit
+     `FAILED`. Dismissal takes about 2 s; three wrong passwords about 14 s. This confirms the
+     neutral `AUTH_INCOMPLETE` of §3.4.
+   - **No network:** polkit is asked first, and *then* `ErrorCode` 2 (`NO_NETWORK`), "Cannot
+     download packages whilst offline". So the password is spent before the network fails.
+   - **The lock (Synaptic) was not captured:** the network was still off for that step, so it
+     recorded a second no-network, and the scrubber leaves it out (`MISRECORDED`). The `locked`
+     scenario is hand-written; one more recording of that step alone
+     (`tools/record-pk.sh 05`) would replace it.
+   - **Not recorded yet, for milestone 4:** a `Cancel` of a running transaction (the fake's
+     answer to one is hand-written), and the hints a client sends (the fake accepts any).
+     Milestone 4's pre-auth cancel gets a recording step of its own before it relies on them.
+   - **EULA / debconf:** simulating `ttf-mscorefonts-installer` sends no `EulaRequired`. Its
+     licence is a debconf question, and for an interactive install packagekit-glib2 sends a
+     `frontend-socket` hint pointing at `pk-debconf-socket` in the user's runtime directory.
+     What a real install does with that question is still unknown; milestone 4 decides (one
+     option: refuse packages whose install would ask, if simulate can tell).
+   - **No daemon:** found by the fake rather than the recording. With nothing on the bus,
+     `pk_control_get_properties` *succeeds* from defaults. `packages.c` therefore also
+     requires `connected` and a version (Engineer; the `no-daemon` scenario pins it).
+
 ## 2. Ground rules and deviations
 
 These are taken from Quoin; please confirm them. They go into `CLAUDE.md`, which names the
@@ -324,8 +359,13 @@ isn't worth it for two projects; build it if a third C project appears.
     `TransactionFlags`, announced through `PropertiesChanged`.
   - Transaction methods `SetHints`, `Resolve`, `InstallPackages` and `Cancel`, with the
     `CannotCancel` error.
-  - Signals `Package` or `Packages` (whichever §1.2 item 3 shows), `ErrorCode`, `Finished`
-    and `Destroy`.
+  - Signals `Package` and `Packages` (§1.2 item 3: both are used), `ItemProgress`,
+    `ErrorCode`, `Finished` and `Destroy`.
+  - **Built 2026-11-01:** `tests/fake-packagekit.py` replays scenarios
+    (`tests/data/pk/scenarios/`), each transaction either taken from a recording or marked
+    `hand-written` with its reason. `tests/with-fake-pk.py` gives each scenario its own private
+    bus and fake, requires the case list to equal the scenario files, and fails a case when
+    the client made any call the scenario doesn't list, or skipped one it does.
 - **The fake is checked against reality:** milestone 2's `chandler --list`, run by hand on
   the host, exercises the same code against the real daemon. Its output is compared with the
   fake's on the same names. This is Administer, done each release. The Engineer alternative

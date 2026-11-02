@@ -1,0 +1,52 @@
+{
+ "about": "the owner goes while the daemon is working: the call is cancelled on the daemon and the callback never runs",
+ "transactions": [
+  {
+   "hand-written": "a slow daemon, to give the owner time to go",
+   "call": "Resolve",
+   "flags": 2359300,
+   "args": [
+    "hello"
+   ],
+   "events": [
+    [
+     "properties",
+     {
+      "Role": 17
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 2
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 4
+     }
+    ],
+    [
+     "properties",
+     {
+      "Status": 18
+     }
+    ],
+    [
+     "Finished",
+     [
+      1,
+      300
+     ]
+    ],
+    [
+     "Destroy",
+     []
+    ]
+   ],
+   "gap_ms": 1000,
+   "expect_cancel": true
+  }
+ ]
+}

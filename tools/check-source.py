@@ -358,7 +358,7 @@ def fixtures(path, text, words):
     if not path.startswith("tests/data/"):
         return []
     problems = []
-    for word in ["/home/"] + words:
+    for word in ["/home/", "/root/", "/run/user/"] + words:
         if word and word in text:
             problems.append(f"{path}: contains {word!r}: committed test data must not name "
                             "the user, the host or a home folder (scrub it)")
@@ -437,6 +437,10 @@ def check():
     if not expected <= set(files):
         sys.exit("check-source: selection misses " + " ".join(sorted(expected - set(files)))
                  + "; run from the repository root")
+    expected_data = {"tests/data/mime/aliases", "tests/data/pk/recorded/06-install.json",
+                     "tests/data/pk/scenarios/available.json"}
+    if not expected_data <= set(data):
+        sys.exit("check-source: test data misses " + " ".join(sorted(expected_data - set(data))))
     for path in files:
         if path in EXEMPT:
             continue
@@ -563,6 +567,7 @@ FIXTURE_EXAMPLES = [
     ("tests/data/pk/resolve.txt", "uid 1000 /home/someone/x", 1),
     ("tests/data/pk/resolve.txt", "sender :1.42 by alice on box", 2),
     ("tests/data/pk/resolve.txt", "Package hello;2.10;amd64;ubuntu", 0),
+    ("tests/data/pk/hints.json", "frontend-socket=/run/user/1000/pk-debconf-socket", 1),
     ("tests/test-x.c", "/home/alice", 0),
 ]
 
