@@ -50,13 +50,41 @@ def sh(cmd, log, env=None):
 # Errors count as findings too: a clang-diagnostic error (an unknown check, a header that
 # doesn't parse) would otherwise leave a file unanalysed with nothing to show for it.
 TIDY_LINE = re.compile(r"^(.+?):(\d+):\d+: (?:warning|error): (.*) \[([A-Za-z0-9.,_-]+)\]$")
-TIDY_ERROR = re.compile(r"^(.+?):(\d+):\d+: error: (.*)$")
+# A tool error starts its line: "path:line:col: error:" or ".clang-tidy" trouble ("Error
+# parsing ..."). Not anywhere in a line: clang-tidy quotes source under each diagnostic, and
+# a quoted string can say "error:" (found by Quoin, 2026-11-01).
+TIDY_ERROR = re.compile(r"^(\S+?):(\d+):\d+: (?:fatal )?error: (.*)$|^(Error .*)$")
 TIDY_RAN = re.compile(r"^\[\s*\d+/\d+\]\[[0-9.]+s\] \S*clang-tidy\S* .* (/src/\S+)$")
 TIDY_SCOPE = re.compile(r"^/src/(src|tests)/")
 
 
+def tidy_families():
+    """Every family .clang-tidy turns on selects at least one check. A misspelt name
+    ("bugprne-*") is silently ignored by clang-tidy, which then checks less than it says
+    (found by Quoin, 2026-11-01)."""
+    text = open(os.path.join(SRC, ".clang-tidy")).read()
+    block = re.search(r"^Checks: >\n((?:  .*\n)+)", text, re.M)
+    if block is None:
+        sys.exit("analysis: no 'Checks: >' block in .clang-tidy")
+    names = [n.strip().rstrip(",") for n in block.group(1).split("\n") if n.strip()]
+    positive = [n for n in names if not n.startswith("-")]
+    if not positive:
+        sys.exit("analysis: .clang-tidy enables no checks")
+    for name in names:
+        pattern = name.lstrip("-")
+        if pattern == "*":
+            continue
+        out = subprocess.run(["clang-tidy", "-checks=-*," + pattern, "--list-checks"],
+                             capture_output=True, text=True, cwd="/tmp", check=False).stdout
+        listed = [l.strip() for l in out.splitlines()[1:] if l.strip()]
+        if not listed:
+            sys.exit(f"analysis: .clang-tidy names {name}, which selects no clang-tidy check")
+    return len(names)
+
+
 def clang_tidy(db):
     """clang-tidy with the checks in .clang-tidy, over every file in the clang build."""
+    families = tidy_families()
     log = OUT + "/clang-tidy.log"
     sh(["run-clang-tidy", "-p", db, "-quiet", "-j", str(os.cpu_count() or 2),
         "-header-filter=^/src/(src|tests)/", r"^/src/(src|tests)/"], log)
@@ -71,7 +99,8 @@ def clang_tidy(db):
             continue
         m = TIDY_ERROR.match(line)
         if m:
-            found.append(("clang-tidy", "error", rel(m.group(1), db), m.group(3)))
+            where = rel(m.group(1), db) if m.group(1) else ".clang-tidy"
+            found.append(("clang-tidy", "error", where, m.group(3) or m.group(4)))
             continue
         m = TIDY_RAN.match(line)
         if m:
@@ -80,6 +109,8 @@ def clang_tidy(db):
     with open(os.path.join(SRC, db, "compile_commands.json")) as f:
         wanted = {rel(os.path.join(e["directory"], e["file"])) for e in json.load(f)}
     wanted = {w for w in wanted if TIDY_SCOPE.match(os.path.join(SRC, w))}
+    print(f"analysis: clang-tidy ran on {len(ran)} files; .clang-tidy's {families} entries "
+          "each select checks")
     if not wanted or wanted != ran:
         sys.exit("analysis: clang-tidy did not run on exactly the files in scope; missing: "
                  + " ".join(sorted(wanted - ran)) + "; unexpected: " + " ".join(sorted(ran - wanted)))
@@ -137,12 +168,35 @@ def run():
     print(f"analysis: {len(lines)} findings in {FINDINGS}")
 
 
+# Findings that can never be fixed, with the exact count and the reason (the appendix's
+# CD-8: these leave the baseline, which is for violations to burn down, and live here).
+# A count that falls fails too, so a stale entry can't linger.
+PERMANENT = {
+    ("cppcheck", "constParameterPointer", "src/window.c"):
+        (1, "GObject _class_init: its signature is declared by G_DEFINE_TYPE"),
+    ("cppcheck", "constParameterPointer", "src/catalog.c"):
+        (1, "GObject _init: its signature is declared by G_DEFINE_TYPE"),
+    ("cppcheck", "constParameterPointer", "vendor/quoin/tests/test-lifetime.c"):
+        (2, "vendored unchanged (RP-4); its GObject _init and _class_init, as above"),
+}
+
+
 def counts_of_findings():
     c = collections.Counter()
     for line in open(os.path.join(SRC, FINDINGS)):
         tool, check, path, _ = line.rstrip("\n").split("\t", 3)
         c[(tool, check, path)] += 1
     return c
+
+
+def without_permanent(found):
+    problems = []
+    for key, (count, _) in PERMANENT.items():
+        if found[key] < count:
+            problems.append(f"FIXED    {' '.join(key)}: {found[key]} found, PERMANENT says {count}: "
+                            "lower it in tools/analysis.py")
+        found[key] = max(0, found[key] - count)
+    return problems
 
 
 def read_baseline(path):
@@ -166,6 +220,7 @@ def read_baseline(path):
 
 def compare():
     found = counts_of_findings()
+    permanent_problems = without_permanent(found)
     tree = read_baseline(BASELINE) or collections.Counter()
     if not os.path.exists(os.path.join(SRC, ORIGIN)):
         sys.exit(f"analysis: {ORIGIN} is missing; ./build writes it from origin/main")
@@ -175,7 +230,7 @@ def compare():
         origin = tree
     else:
         origin = read_baseline(ORIGIN)
-    problems = []
+    problems = list(permanent_problems)
     for key in sorted(set(found) | set(tree) | set(origin)):
         n, t, o = found[key], tree[key], origin[key]
         name = " ".join(key)

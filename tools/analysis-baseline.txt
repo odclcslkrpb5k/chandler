@@ -1,10 +1,6 @@
 # Static analysis baseline: findings tolerated per tool, check and file (tools/analysis.py).
 # It may only shrink: a new finding fails ./build check, and so does a fixed one still
-# listed here. Every entry says why it can't be fixed.
+# listed here. New code starts clean, so this is empty; findings that can never be fixed are
+# counted, with their reason, in PERMANENT in tools/analysis.py.
 #
 # tool check file count
-# GObject _class_init: its signature is declared by G_DEFINE_TYPE.
-cppcheck constParameterPointer src/window.c 1
-# Vendored from Quoin unchanged (RP-4): its GObject _init/_class_init, as above. Quoin's own
-# baseline carries the same two.
-cppcheck constParameterPointer vendor/quoin/tests/test-lifetime.c 2

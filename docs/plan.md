@@ -232,7 +232,7 @@ above `0xff` as `PkErrorEnum`. `ChandlerOutcome` is an enum switched without a d
 | `UNTRUSTED` | `*_GPG_*`, `CANNOT_INSTALL_REPO_UNSIGNED`, an `UNTRUSTED` info | "Not signed by a trusted source." |
 | `CANNOT_CANCEL` | `CANNOT_CANCEL` | "Too late to cancel." The install continues. |
 | `NO_DAEMON` | §3.3 | An info bar, with every button disabled. |
-| `OTHER` | Anything else | "Install failed (PackageKit error *name*)." Details sit behind an expander. |
+| `OTHER` | Anything else | "Something went wrong in PackageKit." The error's name and PackageKit's own text sit behind an expander (milestone 4). |
 
 PackageKit's message text appears only in that expander. It is never logged (DP-3).
 

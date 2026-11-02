@@ -27,5 +27,18 @@ RUN apt-get update --error-on=any \
       fonts-dejavu-core adwaita-icon-theme librsvg2-common \
  && rm -rf /var/lib/apt/lists/*
 
+# A decoy "system" catalog: tests that load only their fixture must not see it, and one test
+# loads the system catalog to prove it is there (tests/test-catalog.c). Without it, a fixture
+# test could never notice the system's catalog joining in, since the image has no other.
+# Its summary carries a terminal escape and a bidirectional override (YAML "\e", "\u202e")
+# for the end-to-end --list test (tests/check-list.py).
+RUN mkdir -p /usr/share/swcatalog/yaml \
+ && printf '%s\n' '---' 'File: DEP-11' "Version: '1.0'" 'Origin: decoy-system' '---' \
+      'Type: desktop-application' 'ID: chandler.decoy.System' 'Package: decoy-system-viewer' \
+      'Name:' '  C: Decoy System Viewer' 'Summary:' \
+      '  C: "From the image\e]0;pwned\a never\u202ethe fixture"' \
+      'Provides:' '  mediatypes:' '  - application/pdf' \
+      > /usr/share/swcatalog/yaml/decoy-system.yml
+
 WORKDIR /src
 ENTRYPOINT ["/src/tools/in-container.sh"]

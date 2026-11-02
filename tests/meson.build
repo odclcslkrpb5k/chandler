@@ -28,37 +28,77 @@ test_inc = [config_inc, core_inc]
 # Vendored from Quoin, built and run under Chandler's flags (CP-2): the copy is proven
 # here, not only in Quoin.
 vendored_tests = {'lifetime' : meson.project_source_root() / 'vendor' / 'quoin' / 'tests' / 'test-lifetime.c'}
-unit_tests = ['contract']
+unit_tests = ['contract', 'pure', 'async', 'catalog', 'packages']
 gui_tests = ['window']
+fuzz_targets = ['mediatype', 'request', 'aliases', 'text']
+test_libs = [core_lib, pure_lib, lifetime_lib]
 
-foreach name, source : vendored_tests
-  exe = executable('test-' + name, source,
-    include_directories : test_inc,
-    link_with : [lifetime_lib],
-    dependencies : deps,
-  )
-  test(name, exe, env : test_env, protocol : 'tap', args : ['--tap'], timeout : 120)
-endforeach
-foreach name : unit_tests
-  exe = executable('test-' + name, 'test-' + name + '.c',
-    include_directories : test_inc,
-    link_with : [lifetime_lib],
-    dependencies : deps,
-  )
-  test(name, exe, env : test_env, protocol : 'tap', args : ['--tap'], timeout : 120)
-endforeach
-foreach name : gui_tests
-  exe = executable('test-' + name, 'test-' + name + '.c',
-    include_directories : test_inc,
-    link_with : [gui_lib, lifetime_lib],
-    dependencies : deps,
-  )
-  # One at a time: they share the Xvfb display.
-  test(name, exe, env : test_env, protocol : 'tap', args : ['--tap'], timeout : 120,
-       is_parallel : false)
-endforeach
+if not get_option('fuzzing')
+  foreach name, source : vendored_tests
+    exe = executable('test-' + name, source,
+      include_directories : test_inc,
+      link_with : [lifetime_lib],
+      dependencies : deps,
+    )
+    test(name, exe, env : test_env, protocol : 'tap', args : ['--tap'], timeout : 120)
+  endforeach
+  foreach name : unit_tests
+    exe = executable('test-' + name, 'test-' + name + '.c',
+      include_directories : test_inc,
+      link_with : test_libs,
+      dependencies : deps,
+    )
+    test(name, exe, env : test_env, protocol : 'tap', args : ['--tap'], timeout : 120)
+  endforeach
+  foreach name : gui_tests
+    exe = executable('test-' + name, 'test-' + name + '.c',
+      include_directories : test_inc,
+      link_with : [gui_lib] + test_libs,
+      dependencies : deps,
+    )
+    # One at a time: they share the Xvfb display.
+    test(name, exe, env : test_env, protocol : 'tap', args : ['--tap'], timeout : 120,
+         is_parallel : false)
+  endforeach
 
-# The binary reports the version meson was configured with (the git hash).
-test('version', find_program('python3'),
-  args : [meson.current_source_dir() / 'check-version.py', chandler_exe, meson.project_version()],
-  env : test_env)
+  python = find_program('python3')
+  # The binary reports the version meson was configured with (the git hash).
+  test('version', python,
+    args : [meson.current_source_dir() / 'check-version.py', chandler_exe, meson.project_version()],
+    env : test_env)
+  # --list end to end, against the image's decoy catalog (Dockerfile).
+  test('list', python, args : [meson.current_source_dir() / 'check-list.py', chandler_exe],
+    env : test_env, timeout : 120)
+  # One Chandler at a time: a second launch hands over to the first (plan §3.3).
+  test('unique', python, args : [meson.current_source_dir() / 'check-unique.py', chandler_exe],
+    env : test_env, timeout : 120, is_parallel : false)
+
+  # Not a test: drives the real PackageKit for recording its traffic (plan §1.2 item 3).
+  # Built with the tests so it is checked like them; never installed or shipped.
+  executable('pk-drive', 'pk-drive.c',
+    include_directories : test_inc,
+    link_with : test_libs,
+    dependencies : deps,
+  )
+endif
+
+# Fuzz targets. Normal builds replay the seed corpus as a test (under the sanitizers in the
+# debug build); fuzzing builds produce real libFuzzer binaries for ./build fuzz.
+foreach name : fuzz_targets
+  seeds = meson.current_source_dir() / 'fuzz' / 'seeds' / name
+  if get_option('fuzzing')
+    executable('fuzz-' + name, 'fuzz' / 'fuzz-' + name + '.c',
+      include_directories : test_inc + [include_directories('fuzz')],
+      link_with : test_libs,
+      link_args : '-fsanitize=fuzzer',
+      dependencies : deps,
+    )
+  else
+    exe = executable('replay-' + name, 'fuzz' / 'fuzz-' + name + '.c', 'fuzz' / 'driver.c',
+      include_directories : test_inc + [include_directories('fuzz')],
+      link_with : test_libs,
+      dependencies : deps,
+    )
+    test('fuzz-seeds-' + name, exe, env : test_env, args : [seeds], timeout : 300)
+  endif
+endforeach

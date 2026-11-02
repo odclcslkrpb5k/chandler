@@ -1,0 +1,51 @@
+---
+File: DEP-11
+Version: '1.0'
+Origin: chandler-fixture-handmade
+MediaBaseUrl: https://appstream.ubuntu.com/media/resolute
+---
+Type: desktop-application
+ID: chandler.test.Markup
+Package: chandler-test-markup
+Name:
+  C: <b>Bold</b> & Viewer
+Summary:
+  C: "Opens <i>PDF</i> files \e[31mred\e[0m\tand tabs"
+Provides:
+  mediatypes:
+  - application/pdf
+---
+Type: desktop-application
+ID: chandler.test.Bundled
+Package: chandler-test-bundled
+Name:
+  C: Bundled Viewer
+Summary:
+  C: Delivered as a snap
+Bundles:
+- type: snap
+  id: chandler-test-bundled
+Provides:
+  mediatypes:
+  - application/pdf
+---
+Type: desktop-application
+ID: chandler.test.BadPackageName
+Package: Bad Name
+Name:
+  C: Badly Packaged Viewer
+Summary:
+  C: Its package name is not a Debian package name
+Provides:
+  mediatypes:
+  - application/pdf
+---
+Type: desktop-application
+ID: chandler.test.NoPackage
+Name:
+  C: Packageless Viewer
+Summary:
+  C: Names no package
+Provides:
+  mediatypes:
+  - application/pdf

@@ -1,0 +1,21 @@
+---
+File: DEP-11
+Version: '1.0'
+Origin: ../escape
+MediaBaseUrl: https://appstream.ubuntu.com/media/resolute
+---
+Type: desktop-application
+ID: chandler.test.Escape
+Package: chandler-test-escape
+Name:
+  C: Escaping Viewer
+Summary:
+  C: Its cached icon lies outside the icon directory
+Icon:
+  cached:
+  - name: escape.png
+    width: 64
+    height: 64
+Provides:
+  mediatypes:
+  - application/pdf

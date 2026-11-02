@@ -4,6 +4,7 @@
 #   ./build check     every check: sanitizer tests, analyzers, hardened build + tests
 #   ./build debug     sanitizer (ASan+UBSan) build + tests
 #   ./build analyze   GCC -fanalyzer build (any finding fails)
+#   ./build fuzz [s]  libFuzzer every target for s seconds each (default 60)
 #   ./build format    rewrite the C sources with clang-format (check refuses unformatted ones)
 #   ./build release   check, on a clean tree (the embedded git hash identifies the
 #                     source), then marks the hardened binary as releasable.
@@ -33,7 +34,7 @@ CHANDLER_PRIVATE_WORDS="$(id -un) $(hostname)"
 compose=(docker compose --project-directory "$root" -f "$root/compose.yaml")
 
 case "$cmd" in
-  check|debug|analyze|release|shell|format)
+  check|debug|analyze|release|shell|format|fuzz)
     # Left by a scripted edit that didn't apply: the tree is half changed, so nothing built
     # from it means anything until that is sorted out.
     if [[ -e $root/out/EDIT-FAILED ]]; then
@@ -43,7 +44,7 @@ case "$cmd" in
     fi
     ;;
   image) "${compose[@]}" build build; verdict=PASS; echo "build: image PASS"; exit 0 ;;
-  *) verdict=usage; sed -n '2,12p' "$0" | sed 's/^# \{0,1\}//'; exit 2 ;;
+  *) verdict=usage; sed -n '2,13p' "$0" | sed 's/^# \{0,1\}//'; exit 2 ;;
 esac
 
 version=$(git -C "$root" rev-parse --short=12 HEAD)

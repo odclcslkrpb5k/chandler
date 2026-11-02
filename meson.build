@@ -135,6 +135,11 @@ if cc.get_id() == 'gcc'
   endforeach
 endif
 
+if get_option('fuzzing')
+  assert(cc.get_id() == 'clang', 'fuzzing builds need clang (libFuzzer)')
+  add_project_arguments('-fsanitize=fuzzer-no-link', language : 'c')
+endif
+
 if get_option('hardening')
   # OpenSSF Compiler Options Hardening Guide (2026-08-20), production set for x86_64.
   # Not used in sanitizer builds: FORTIFY interferes with ASan. (-Wl,-z,nodlopen is left

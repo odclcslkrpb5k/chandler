@@ -1,0 +1,799 @@
+---
+File: DEP-11
+Version: '1.0'
+Origin: chandler-fixture-updates
+MediaBaseUrl: https://appstream.ubuntu.com/media/resolute
+---
+Type: desktop-application
+ID: org.gnome.Evince
+Package: evince
+ProjectLicense: GPL-2.0-or-later
+Name:
+  kab: Evince
+  kk-Cyrl: Evince
+  zu: i-Evince
+  nds: Evince
+  mn-Cyrl: Эвинс
+  oc: Evince
+  ie: Evince
+  zh-Hant-HK: Evince
+  ca-valencia: Evince
+  nb: Evince
+  ml: എവിന്‍സ്
+  lv: Evince
+  sv: Evince
+  cs: Evince
+  nn: Evince
+  uz-Latn: Evince
+  fa: اوینس
+  ta: இவின்ஸ்
+  sk: Evince
+  ru: Evince
+  br: Evince
+  C: Evince
+  he: ‏Evince
+  mjw: Evince
+  my: အီးဗင့်စ်
+  en-CA: Evince
+  ku: Evince
+  sl: Evince
+  gd: Evince
+  mai: Evince
+  ps: اېوېنس
+  af: Evince
+  is: Evince
+  bg: Evince
+  el: Evince
+  ar: جلاء
+  hr: Evince
+  or: Evince
+  ne: इभाइन्स
+  it: Evince
+  pt: Evince
+  zh-Hans-CN: Evince
+  as: Evince
+  zh-Hant-TW: Evince
+  da: Evince
+  ka: Evince
+  be-Cyrl: Evince
+  be-Latn: Evince
+  km: Evince
+  en-shaw: "·\U00010466\U0001045D\U00010466\U0001046F\U00010455"
+  eo: Evinco
+  te: ఎవిన్స్
+  ug: Evince
+  ks-Arab: एवींस
+  kn: ಎವಿನ್ಸ್‍
+  vi: Evince
+  ja: Evince
+  sr-Latn: Evins
+  hu: Evince
+  sr-Cyrl: Евинс
+  fr: Evince
+  mr: एविंस
+  tr: Evince
+  dz: ཨི་བིནསི།
+  ko: 에빈스
+  ro: Evince
+  mg: Evince
+  tg: Evince
+  sq: Evince
+  cy: Evince
+  pl: Evince
+  ms: Evince
+  ia: Evince
+  pa: ਇਵੈਂਸ
+  wa: Evince
+  gu: Evince
+  en-GB: Evince
+  th: Evince
+  hi: Evince
+  de: Evince
+  ca: Evince
+  ast: Evince
+  bn-IN: Evince
+  fi: Evince
+  es: Evince
+  bn: এভিন্স
+  uk: Evince
+  bs-Latn: Evince
+  et: Evince
+  lt: Evince
+  ab: Evince
+  gl: Evince
+  nl: Evince
+  fur: Evince
+  id: Evince
+  an: Evince
+  ga: Evince
+  pt-BR: Evince
+  mk: Evince
+  eu: Evince
+Summary:
+  kab: Amsenqad n yisemliyen i yimasalne n yifuyla i yettwassnen
+  kk-Cyrl: Кеңінен қолданылатын құжаттар пішімдерін қарау қолданбасы
+  oc: Visionador de documents per de formats de documents corrents
+  ca-valencia: Visualitzador de documents per a formats de documents populars
+  ie: Viser por formates populari de documentes
+  zh-Hant-HK: 常用文件格式的文件檢視器
+  be-Cyrl: Праглядальнік дакументаў для распаўсюджаных фарматаў
+  nb: Les gjennom dokumenter
+  lv: Dokumentu skatītājs izplatītiem dokumentu formātiem
+  sv: Dokumentvisare för populära dokumentformat
+  cs: Prohlížeč dokumentů pro populární formáty dokumentů
+  uz-Latn: Mashhur hujjat formatlari uchun hujjatlarni ko'rish dasturi
+  fa: نمایشگر سند برای قالب‌های رایج اسناد
+  ta: பிரபல ஆவண வடிவமைப்புகளுக்கான ஆவணக் காட்சிக்கருவி
+  C: Document viewer for popular document formats
+  ru: Приложение для просмотра документов в распространённых форматах
+  sk: Prehliadač dokumentov pre obľúbené formáty dokumentov
+  he: מציג מסמכים עבור תבניות מסמכים נפוצים
+  my: အသုံးများသော မှတ်တမ်းစာအုပ်အမျိုးအစားများအတွက် မှတ်တမ်းစာအုပ်ကြည့်ရှုကိရိယာ
+  el: Εφαρμογή προβολής εγγράφων για δημοφιλείς μορφές εγγράφων
+  sl: Pregledovalnik različnih zapisov dokumentov
+  gd: Sealladair sgrìobhainnean airson fòrmatan sgrìobhainn mòr-chòrdte
+  is: Skjalaskoðari fyrir ýmsar algengar gerðir skjala
+  af: Dokumentbekyker vir populêre dokumentformate
+  bg: Програма за преглед на често срещани видове документи
+  ar: عارض مستندات يدعم الأنساق الشائعة
+  hr: Preglednik dokumenata za popularne formate dokumenata
+  ne: लोकप्रिय कागजात स्वरूप लागि कागजात दर्शक
+  it: Visualizzatore di documenti per i formati più popolari
+  pt: Visualizador de documentos para formatos comuns de documentos
+  zh-Hans-CN: 支持查看常见文档格式的查看器
+  as: জনপ্ৰিয় দস্তাবেজ বিন্যাসসমূহৰ বাবে দস্তাবেজ দৰ্শক
+  zh-Hant-TW: 常用文件格式的文件檢視器
+  da: Dokumentfremviser for populære dokumentformater
+  ka: დოკუმენტების პოპულარული ფორმატების გამხსნელი
+  eo: Dokumentmontrilo por popularaj dokumentaj dosierformoj
+  te: ప్రఖ్యాత పత్ర ఫార్మాట్ల కొరకు పత్ర వీక్షణి
+  hi: लोकप्रिय दस्तावेज़ प्रारूप के लिए दस्तावेज़ प्रदर्शक
+  kn: ಜನಪ್ರಿಯ ದಸ್ತಾವೇಜು ವಿನ್ಯಾಸಗಳಿಗಾಗಿನ ದಸ್ತಾವೇಜು ವೀಕ್ಷಕ
+  vi: Ứng dụng xem các tài liệu có định dạng phổ biến
+  ja: 人気の高い文書フォーマット用のドキュメントビューアー
+  sr-Latn: Pregledač dokumenata za popularne zapise dokumenata
+  hu: Dokumentummegjelenítő a népszerű dokumentumformátumokhoz
+  sr-Cyrl: Прегледач докумената за популарне записе докумената
+  fr: Visionneur de documents pour des formats de documents courants
+  mr: प्रसिद्ध दस्तऐवज रूपणकरिता दस्तऐवज दर्शक
+  tr: Gözde belge biçimleri için belge görüntüleyici
+  ko: 많이 사용하는 문서 형식에 대한 문서 보기 프로그램
+  ro: Vizualizator de documente pentru formatele populare
+  tg: Барномаи намоиши ҳуҷҷатҳо барои форматҳои ҳуҷҷатҳои оммавӣ
+  pl: Przeglądarka dokumentów w popularnych formatach
+  ms: Pelihat dokumen untuk format-format dokumen popular
+  pa: ਹਰਮਨਪਿਆਰੇ ਦਸਤਾਵੇਜ਼ ਫਾਰਮੈਟਾਂ ਲਈ ਦਸਤਾਵੇਜ਼ ਦਰਸ਼ਕ
+  gu: જાણીતા દસ્તાવેજ બંધારણો માટે દસ્તાવેજ દર્શક
+  en-GB: Document viewer for popular document formats
+  th: โปรแกรมดูเอกสารสำหรับฟอร์แมตยอดนิยมต่างๆ
+  de: Dokumentenbetrachter für gängige Dokumentformate
+  ca: Visualitzador de documents per a formats de documents populars
+  bn-IN: জনপ্রিয় নথি ফর্ম্যাটের জন্য নথি ভিউয়ার
+  fi: Asiakirjakatselin suosituille asiakirjatiedostomuodoille
+  es: Visor de documentos para formatos de documentos populares
+  uk: Переглядач документів для популярних форматів
+  bs-Latn: Preglednik dokumenata za popularne formate dokumenata
+  lt: Dokumentų žiūryklė populiariems dokumentų formatams
+  gl: Visor de documentos para os formatos de documentos máis populares
+  fur: Visualizadôr di documents pai formâts plui popolârs
+  nl: Documentenviewer voor populaire documentformaten
+  id: Penampil dokumen bagi format-format dokumen populer
+  an: Visor de documentos ta formatos de documentos populars
+  pt-BR: Visualizador de documentos para formatos populares de documentos
+  eu: Dokumentuen formatu ospetsuen ikustailea
+Description:
+  he: >-
+    <p>מציג מסמכים עבור שולחן העבודה GNOME. מאפשר להציג, לחפש ולהעיר במגוון רחב של תבניות.</p>
+
+    <p>‏Evince תומך בתבניות המסמכים הבאות: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (עם SyncTeX) וארכיבי ספרי  קומקיס (CBR, CBT,
+    CBZ, CB7).</p>
+  fur: >-
+    <p>Un visualizadôr di documents pal scritori GNOME. Si pues viodi, cirî o meti notis tai documents di tancj formâts diferents.</p>
+
+    <p>Evince al supuarte document in: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (cun SyncTeX) e archivis di fumets (CBR, CBT, CBZ,
+    CB7).</p>
+  eu: >-
+    <p>GNOME mahaigainerako dokumentu-ikustailea. Formatu mota askotako dokumentuak ikusi, haiek arakatu eta haietan oharrak
+    idatzi ahal dituzu.</p>
+
+    <p>Honako dokumentu-formatuak onartzen ditu: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (SyncTeX-ekin), eta komikien artxiboak
+    (CBR, CBT, CBZ, CB7).</p>
+  vi: >-
+    <p>Phần mềm đọc tài liệu cho môi trường máy tính để bàn GNOME. Bạn có thể xem, tìm kiếm hay ghi chú các tài liệu ở nhiều
+    định dạng khác nhau.</p>
+
+    <p>Evince hỗ trợ những dạng tài liệu sau: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (với SyncTeX), và kho nén truyện tranh vui
+    (CBR, CBT, CBZ, CB7).</p>
+  cs: >-
+    <p>Prohlížeč dokumentů pro uživatelské prostředí GNOME. Můžete si prohlížet, prohledávat a komentovat dokumenty v rozličných
+    formátech.</p>
+
+    <p>Podporuje následující formáty dokumentů: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (pomocí SyncTeX) a archivy s komiksy (CBR,
+    CBT, CBZ, CB7).</p>
+  hu: >-
+    <p>Dokumentummegjelenítő a GNOME asztali környezethez. Megtekintheti, keresheti és jegyzetekkel láthatja el a dokumentumokat
+    számos formátumban.</p>
+
+    <p>Az Evince a következő dokumentumformátumokat támogatja: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (SyncTeX-kel), valamint
+    képregény-archívumok (CBR, CBT, CBZ, CB7).</p>
+  zh-Hant-TW: >-
+    <p>GNOME 桌面的文件檢視器。您可以在許多不同格式下檢視、搜尋、或註釋文件。</p>
+
+    <p>它支援以下文件格式：PDF、PS、EPS、XPS、DjVu、TIFF、DVI (使用 SyncTeX) 和漫畫書壓縮檔 (CBR、CBT、CBZ、CB7)。</p>
+  ka: >-
+    <p>GNOME სამუშაო მაგიდის დოკუმენტების დამთვალიერებელი. შეგიძლიათ დაათვალიეროთ, მოძებნოთ და ანოტაცია გაუკეთოთ მრავალი სახის
+    დოკუმენტს.</p>
+
+    <p>Evince-ს აქვს მხარდაჭერა: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (SyncTeX-ით) და კომიქსების წიგნების არქივების (CBR, CBT,
+    CBZ, CB7).</p>
+  nb: >-
+    <p>Dokumenter lar deg åpne, søke i og notere i mange forskjellige typer dokumenter.</p>
+
+    <p>Disse formatene støttes: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (med SyncTeX) og Comic Books-arkiv (CBR, CBT, CBZ, CB7).</p>
+  ja: >-
+    <p>GNOME デスクトップ用のドキュメントビューアーです。さまざまな形式の文書を表示したり、文書内を検索したり、文書に注釈を付けたりすることができます。</p>
+
+    <p>Evince は次の文書をサポートしています: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (SyncTeX 利用), Comic Books アーカイブ (CBR, CBT, CBZ, CB7)。</p>
+  de: >-
+    <p>Ein Dokumentenbetrachter für die GNOME-Arbeitsumgebung. Sie können Dokumente in vielen verschiedenen Formaten betrachten,
+    durchsuchen oder mit Anmerkungen versehen.</p>
+
+    <p>Die folgenden Dokumentformate werden unterstützt: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (inkl. SyncTeX) und Comicbuch-Archive
+    (CBR, CBT, CBZ, CB7).</p>
+  kab: >-
+    <p>A,senqad n yisemli i tnarit GNOME. Tzemreḍ ad twaliḍ, ad tnadiḍ neɣ ad twennteḍ isemliyen deg waṭas n yimasalen yemgaraden.</p>
+
+    <p>Evince yessefrak isemliyen deg: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (s SyncTeX), akked iɣbaren n yidlisen Comic (CBR,
+    CBT, CBZ, CB7).</p>
+  ms: >-
+    <p>Sebuah pelihat dokumen untuk atas menja GNOME . Anda boleh lihat, gelintar atau buat catatan pada dokumen dalam pelbagai
+    format.</p>
+
+    <p>Evince menyokong dokumen dalam format: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (dengan SyncTeX), dan arkib Buku Komik (CBR,
+    CBT, CBZ, CB7).</p>
+  oc: >-
+    <p>Un visionador de documents pel burèu GNOME. Podètz veire, recercar e anotar de documents dins mantun format.</p>
+
+    <p>Evince pren en carga los documents : PDF, PS, EPS, XPS, DjVu, TIFF, DVI (with SyncTeX),e los archius de BD (CBR, CBT,
+    CBZ, CB7).</p>
+  gl: >-
+    <p>Un visor de documento para o ambiente GNOME. Pode ver, buscar ou anotar documentos en varios formatos distintos.</p>
+
+    <p>Evince admite documentos en: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (con SyncTeX) e arquivos de libros de banda deseñada
+    (CBR, CBT, CBZ, CB7).</p>
+  pt: >-
+    <p>Um visualizador de documentos para o ambiente gráfico GNOME. Permite visualizar, pesquisar ou anotar documentos em
+    vários formatos.</p>
+
+    <p>Suporta os seguintes formatos de documentos: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (com SyncTeX) e arquivos de banda desenhada
+    (CBR, CBT, CBZ, CB7).</p>
+  hr: >-
+    <p>Preglednik dokumenata za GNOME radno okruženje. Možete pregledavati, pretraživati ili zabilježiti dokumente u raznim
+    formatima.</p>
+
+    <p>Evince podržava sljedeće formate dokumenata: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (sa SyncTeX) i arhive stripova (CBR,
+    CBT, CBZ, CB7).</p>
+  my: >-
+    <p>နုန်ဒက်စ်တော့ပ်၏မှတ်တမ်းစာအုပ်ကြည့်ရှုကိရိယာဖြစ်သည်။ အမျိုးမျိုးသော မှတ်တမ်းစာအုပ်အမျိုးအစားများတွင် ကြည့်ရှု၊ ရှာဖွေ၊
+    စာမှတ်ခြင်းများ ပြုလုပ်နိုင်သည်။</p>
+
+    <p>Evince သည် စာရွက်စာတမ်းများဖြစ်သော PDF၊ PS၊ EPS၊ XPS၊ DjVu၊ TIFF၊ DVI (SyncTeX) နှင့် ရုပ်ပြစာအုပ်များ မှတ်တမ်းများ
+    (CBR၊ CBT၊ CBZ၊ CB7) တို့တွင် ပံ့ပိုးပေးပါသည်။</p>
+  fa: >-
+    <p>یک سندبین برای میزکار گنوم. می‌توانید سندها را در قالب‌های مختلف دیده، جست‌وجو و حاشیه‌نویسی کنید.</p>
+
+    <p>اوینس از قالب‌های مقابل پشتیبانی می‌کند:  PDF ،PS ،EPS ،XPS ،DjVu ،TIFF ،DVI (همراه با SyncTeX) و کتاب‌های کمیک (CBR
+    ،CBT ،CBZ ،CB7).</p>
+  pt-BR: >-
+    <p>Um visualizador de documentos para o ambiente GNOME. Com ele você pode visualizar, pesquisar ou anotar documento de
+    vários formatos.</p>
+
+    <p>O Evince oferece suporte aos seguintes formatos de documentos: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (com SyncTeX) e arquivos
+    de revistas em quadrinhos (CBR, CBT, CBZ, CB7).</p>
+  el: >-
+    <p>Μια εφαρμογή προβολής εγγράφων του GNOME. Μπορείτε να δείτε, αναζητήσετε ή να σχολιάσετε έγγραφα σε πολλές διαφορετικές
+    μορφές.</p>
+
+    <p>Υποστηρίζει τις παρακάτω μορφές εγγράφων: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (με SyncTeX), και αρχεία βιβλίων κόμικ
+    (CBR, CBT, CBZ, CB7).</p>
+  uk: >-
+    <p>Програма для перегляду документів у середовищі GNOME. За її допомогою ви зможете переглядати документи у багатьох форматах,
+    шукати у них дані та анотувати ці документи.</p>
+
+    <p>У Evince передбачено підтримку документів у таких форматах: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (з SyncTeX), а також
+    архіви коміксів (CBR, CBT, CBZ, CB7).</p>
+  C: >-
+    <p>A document viewer for the GNOME desktop. You can view, search or annotate documents in many different formats.</p>
+
+    <p>Evince supports documents in: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (with SyncTeX), and Comic Books archives (CBR, CBT,
+    CBZ, CB7).</p>
+  is: >-
+    <p>Skjalaskoðari fyrir GNOME skjáborðsumhverfið. Þú getur skoðað, leitða í eða glósað við mörg mismunandi skjalasnið.</p>
+
+    <p>Evince styður eftirfarandi skjalasnið: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (með SyncTeX), og myndasögusafnskrár (Comicbook)
+    eins og (CBR, CBT, CBZ, CB7).</p>
+  ru: >-
+    <p>Приложение просмотра документов для рабочего стола GNOME. Вы можете просматривать, искать или комментировать документы
+    в множестве разных форматов.</p>
+
+    <p>Evince поддерживает документы в следующих форматах: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (с SyncTeX) и Comic Book Archive
+    (CBR, CBT, CBZ, CB7).</p>
+  lt: >-
+    <p>Dokumentų žiūryklė GNOME darbalaukiui. Galite rodyti, ieškoti bei anotuoti įvairių formatų dokumentuose.</p>
+
+    <p>Evince palaiko šiuos dokumentų formatus: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (su SyncTeX) bei komiksų archyvus (CBR,
+    CBT, CBZ, CB7).</p>
+  be-Cyrl: >-
+    <p>Праглядальнік дакументаў для асяроддзя GNOME. Прагляд, пошук і стварэнне нататак для дакументаў у разнастайных фарматах.</p>
+
+    <p>Evince падтрымлівае наступныя фарматы дакументаў: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (з SyncTeX) і архівы коміксаў
+    (CBR, CBT, CBZ, CB7).</p>
+  sk: >-
+    <p>Prehliadač dokumentov pre prostredie GNOME. Môžete zobrazovať, vyhľadávať alebo pridávať poznámky do dokumentov v mnohých
+    rozličných formátoch.</p>
+
+    <p>Aplikácia Evince podporuje dokumenty: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (s funkciou SyncTeX) a archívy komiksov (CBR,
+    CBT, CBZ, CB7).</p>
+  kk-Cyrl: >-
+    <p>GNOME жұмыс үстелі үшін құжаттар көрсетушісі. Бірнеше түрдегі құжаттарды қарау, ішінен іздеу немесе аңдатпаларды қосуға
+    болады.</p>
+
+    <p>Evince келесі құжаттар пішімдерін қолдайды: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (SyncTeX), және Comic Books архивтері
+    (CBR, CBT, CBZ, CB7).</p>
+  sv: >-
+    <p>En dokumentvisare för GNOME-skrivbordet. Du kan visa, söka eller kommentera dokument i många olika format.</p>
+
+    <p>Evince stöder dokument i: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (med SyncTeX) och serietidningsarkiv (CBR, CBT, CBZ, CB7).</p>
+  uz-Latn: >-
+    <p>GNOME ish stoli uchun hujjat koʻruvchi. Siz turli xil formatlarda hujjatlarni ko'rishingiz, qidirishingiz yoki izohlashingiz
+    mumkin.</p>
+
+    <p>Evince quyidagi hujjatlarni qo'llab-quvvatlaydi: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (SyncTeX bilan) va Comic Books
+    arxivlari (CBR, CBT, CBZ, CB7).</p>
+  ca: >-
+    <p>Un visualitzador de documents per a l'escriptori GNOME. Podeu visualitzar, cercar o fer anotacions en molts formats
+    diferents.</p>
+
+    <p>Permet la visualització dels documents en format: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (amb SyncTeX) i els arxius de
+    llibres de còmic (CBR, CBT, CBZ, CB7).</p>
+  da: >-
+    <p>En dokumentfremviser til GNOME-skrivebordet. Du kan vise, søge og skrive noter i dokumenter i mange forskellige dokumentformater.</p>
+
+    <p>Evince understøtter følgende dokumentformater: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (med SyncTeX) og tegneseriearkiver
+    (CBR, CBT, CBZ, CB7).</p>
+  bg: >-
+    <p>Програма за преглед на често срещани видове документи за графичната среда GNOME. Може да разглеждате, анотирате и търсите
+    в документи в много различни формати.</p>
+
+    <p>Поддържат се следните видове документи: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (със SyncTeX) и комикси (CBR, CBT, CBZ,
+    CB7).</p>
+  ko: >-
+    <p>그놈 데스크톱의 문서 보기 프로그램입니다. 다양한 형식의 문서를 보고, 내용을 검색하며, 주석을 달 수 있습니다.</p>
+
+    <p>에빈스는 다음 문서 형식을 지원합니다: PDF, PS, EPS, XPS, DjVu, TIFF, DVI(SyncTeX 사용), 만화책 묶음(CBR, CBT, CBZ, CB7).</p>
+  fr: >-
+    <p>Un visionneur de documents pour le bureau GNOME. Vous pouvez afficher, rechercher ou annoter des documents dans de
+    nombreux formats différents.</p>
+
+    <p>Evince prend en charge les formats de documents suivants : PDF, PS, EPS, XPS, DjVu, TIFF, DVI (avec SyncTeX) et les
+    formats archives de bandes dessinées (CBR, CBT, CBZ, CB7).</p>
+  it: >-
+    <p>Un visualizzatore di documenti per il desktop GNOME. Si può visualizzare, cercare o annotare i documenti in molti differenti
+    formati.</p>
+
+    <p>Supporta documenti in: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (con SyncTeX), e archivi di fumetti (CBR, CBT, CBZ, CB7).</p>
+  ne: >-
+    <p>जिनोम डेस्कटपका लागि कागजात दर्शक । तपाईं धेरै फरक ढाँचाहरूमा कागजातहरू हेर्न, खोजी गर्न वा एनोटेट गर्न सक्नुहुन्छ।.</p>
+
+    <p>यसले निम्न कागजात ढाँचाहरूलाई समर्थन गर्दछ: पिडिएफ, पिएस, इपिएस, एक्सपिएस, DjVu, TIFF, DVI (SyncTeX सँग), र हास्य पुस्तक
+    अभिलेखहरू (CBR, CBT, CBZ, CB7)</p>
+  sl: >-
+    <p>Pregledovalnik dokumentov za namizje GNOME. Program omogoča ogledovanje dokumenta, iskanje po vsebini, dodajanje opomb
+    in drugo.</p>
+
+    <p>Program podpira zapise: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (s podporo SyncTeX) in arhive stripov (CBR, CBT, CBZ, CB7).</p>
+  sr-Cyrl: >-
+    <p>Прегледач докумената за Гном. Можете гледати, претраживати или обележавати садржај докумената разних формата.</p>
+
+    <p>Прегледач докумената подржава документе у форматима ПДФ, ПС, ЕПС, ИксПС, ДјВу, ТИФФ, ДВИ (са СинкТеКСом), и архиве
+    стрипова (CBR, CBT, CBZ, CB7).</p>
+  ro: >-
+    <p>Un vizualizator de documente pentru desktopul GNOME. Aveți posibilitatea de a vizualiza, căuta sau adnota documente
+    în multe formate diferite.</p>
+
+    <p>Evince suportă documente în: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (cu SyncTeX), și arhive de benzi desenate (CBR, CBT,
+    CBZ, CB7).</p>
+  zh-Hans-CN: >-
+    <p>GNOME 文档查看器。你可以查看、搜索或注释不同格式的文档。</p>
+
+    <p>文档查看器（Evince）支持以下的文档格式：PDF、PS、EPS、XPS、DjVu、TIFF、DVI（带 SyncTex）以及漫画归档（CBR、CBT、CBZ、CB7）。</p>
+  tr: >-
+    <p>GNOME masaüstü için belge görüntüleyici. Birçok değişik biçimdeki belgeyi görüntüleyebilir, arayabilir ve açımlayabilirsiniz.</p>
+
+    <p>Evince şu belgeleri destekler: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (SyncTeX ile), ve Çizgi Roman arşivleri (CBR, CBT,
+    CBZ, CB7).</p>
+  id: >-
+    <p>Penampil dokumen untuk destop GNOME. Anda dapat melihat, mencari atau membubuhi keterangan dokumen dalam berbagai format.</p>
+
+    <p>Evince mendukung dokumen dalam: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (dengan SyncTeX), dan arsip-arsip Comic Books (CBR,
+    CBT, CBZ, CB7).</p>
+  fi: >-
+    <p>Asiakirjakatselin Gnome-työpöydälle. Voit katsella, etsiä ja lisätä huomautuksia useissa eri tiedostomuodoissa oleviin
+    asiakirjoihin.</p>
+
+    <p>Sovellus tukee seuraavia asiakirjamuotoja: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (SyncTeX:illa) ja sarjakuva-arkistoja
+    (CBR, CBT, CBZ, CB7).</p>
+  ar: >-
+    <p>عارض مستندات لسطح مكتب GNOME «غنوم». يمكنك عرض المستندات والبحث فيها والتأشير عليها، بأنساق متعددة.</p>
+
+    <p>يدعم الأنساق التالية: PDF، و PS، و EPS، و XPS، و DjVu، و TIFF، و DVI (مع SyncTeX)، و القصص المصورة (CBR، و CBT، و CBZ،
+    و CB7).</p>
+  lv: >-
+    <p>Dokumentu skatītājs GNOME darbvirsmas videi. Varat skatīt, meklēt un anotēt dažādu formātu dokumentus.</p>
+
+    <p>Evince atbalsta dokumentus šādos formātos: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (ar SyncTeX), un komiksu arhīvus (CBR,
+    CBT, CBZ, CB7).</p>
+  en-GB: >-
+    <p>A document viewer for the GNOME desktop. You can view, search or annotate documents in many different formats.</p>
+
+    <p>Evince supports documents in: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (with SyncTeX), and Comic Books archives (CBR, CBT,
+    CBZ, CB7).</p>
+  pa: >-
+    <p>ਇਹ ਗਨੋਮ ਡੈਸਕਟਾਪ ਲਈ ਦਸਤਾਵੇਜ਼ ਦਰਸ਼ਕ ਹੈ। ਤੁਸੀਂ ਵੱਖ-ਵੱਖ ਫਾਰਮੈਟਾਂ ਨੂੰ ਤੁਸੀਂ ਦਸਤਾਵੇਜ਼ ਨੂੰ ਵੇਖ, ਖੋਜ ਜਾਂ ਵਿਆਖਿਆ ਕਰ ਸਕਦੇ ਹੋ।</p>
+
+    <p>(SyncTeX ਸਮੇਤ), ਅਤੇ ਹਾਸਰਸ ਕਿਤਾਬਾਂ ਅਕਾਇਵ (CBR, CBT, CBZ, CB7)।</p>
+  pl: >-
+    <p>Przeglądarka dokumentów dla środowiska GNOME. Umożliwia wyświetlanie, przeszukiwanie i dodawanie przypisów do dokumentów
+    w wielu różnych formatach.</p>
+
+    <p>Evince obsługuje dokumenty w formatach: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (z SyncTeX) oraz archiwa z komiksami (CBR,
+    CBT, CBZ, CB7).</p>
+  sr-Latn: >-
+    <p>Pregledač dokumenata za Gnom. Možete gledati, pretraživati ili obeležavati sadržaj dokumenata raznih formata.</p>
+
+    <p>Pregledač dokumenata podržava dokumente u formatima PDF, PS, EPS, IksPS, DjVu, TIFF, DVI (sa SinkTeKSom), i arhive
+    stripova (CBR, CBT, CBZ, CB7).</p>
+  th: >-
+    <p>โปรแกรมดูเอกสารสำหรับเดสก์ท็อป GNOME คุณสามารถดู ค้นหา หรือทำหมายเหตุเอกสารในเอกสารฟอร์แมตต่างๆ ได้หลายฟอร์แมต</p>
+
+    <p>Evince รองรับฟอร์แมตเอกสารต่อไปนี้: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (พร้อมการรองรับ SyncTeX), และกรุหนังสือการ์ตูนต่างๆ
+    (CBR, CBT, CBZ, CB7)</p>
+  hi: >-
+    <p>GNOME डेस्कटॉप के लिए एक दस्तावेज़ प्रदर्शक। आप दस्तावेज़ों को कई अलग-अलग प्रारूपों में देख, खोज या व्याख्या कर सकते
+    हैं।</p>
+
+    <p>एविंस निम्नलिखित दस्तावेज़ प्रारूप का समर्थन करता है: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (SyncTeX के साथ) और कॉमिक
+    बुक अभिलेखागार (CBR, CBT, CBZ  CB7)।</p>
+  nl: >-
+    <p>Weergave van documenten op het Gnome-bureaublad. U kunt documenten weergeven, doorzoeken en annoteren in diverse formaten.</p>
+
+    <p>Evince ondersteunt documenten in: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (met SyncTeX), en stripboekarchieven (CBR, CBT,
+    CBZ, CB7).</p>
+  eo: >-
+    <p>Dokumentmontrilo por la GNOME labortablo. Vi povas vidi, serĉi aŭ noti dokumentojn en multe da diversaj formoj.</p>
+
+    <p>Evinco subtenas la sekvajn dosierformojn: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (kun SyncTeX), kaj komiksaj dosieroj (CBR,
+    CBT, CBZ, CB7).</p>
+  es: >-
+    <p>Un visor de documentos para el escritorio GNOME. Puede ver, buscar o hacer anotaciones en documentos en varios formatos.</p>
+
+    <p>Evince soporta los siguientes formatos de documentos: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (con SyncTeX), y archivos
+    de libros de cómics (CBR, CBT, CBZ, CB7).</p>
+ProjectGroup: GNOME
+Developer:
+  id: org.gnome
+  name:
+    C: The GNOME Project
+Categories:
+- Office
+- Viewer
+- Graphics
+- 2DGraphics
+- VectorGraphics
+Keywords:
+  C:
+  - pdf
+  - ps
+  - postscript
+  - dvi
+  - xps
+  - djvu
+  - tiff
+  - document
+  - presentation
+  - viewer
+  - evince
+Url:
+  homepage: https://apps.gnome.org/Evince
+  bugtracker: https://gitlab.gnome.org/GNOME/evince/-/issues/
+  translate: https://l10n.gnome.org/module/evince/
+  contribute: https://welcome.gnome.org/app/Evince
+  vcs-browser: https://gitlab.gnome.org/GNOME/evince/
+  donation: https://www.gnome.org/donate/
+Icon:
+  cached:
+  - name: evince_org.gnome.Evince.png
+    width: 48
+    height: 48
+  - name: evince_org.gnome.Evince.png
+    width: 64
+    height: 64
+  - name: evince_org.gnome.Evince.png
+    width: 128
+    height: 128
+  remote:
+  - url: org/gnome/Evince/356bf2bdea3e144b83cc5d5bcf111b98/icons/128x128/evince_org.gnome.Evince.png
+    width: 128
+    height: 128
+  stock: org.gnome.Evince
+Launchable:
+  desktop-id:
+  - org.gnome.Evince.desktop
+Provides:
+  ids:
+  - evince.desktop
+  mediatypes:
+  - application/vnd.comicbook-rar
+  - application/vnd.comicbook+zip
+  - application/x-cb7
+  - application/x-cbr
+  - application/x-cbt
+  - application/x-cbz
+  - application/x-ext-cb7
+  - application/x-ext-cbr
+  - application/x-ext-cbt
+  - application/x-ext-cbz
+  - application/x-ext-djv
+  - application/x-ext-djvu
+  - image/vnd.djvu
+  - application/x-bzdvi
+  - application/x-dvi
+  - application/x-ext-dvi
+  - application/x-gzdvi
+  - application/pdf
+  - application/x-bzpdf
+  - application/x-ext-pdf
+  - application/x-gzpdf
+  - application/x-xzpdf
+  - application/postscript
+  - application/x-bzpostscript
+  - application/x-gzpostscript
+  - application/x-ext-eps
+  - application/x-ext-ps
+  - image/x-bzeps
+  - image/x-eps
+  - image/x-gzeps
+  - image/tiff
+  - application/oxps
+  - application/vnd.ms-xpsdocument
+  - application/illustrator
+Screenshots:
+- default: true
+  caption:
+    zh-Hant-TW: 簡單、乾淨的介面
+    kab: Agrudem n useqdac taceεlalt, tafessast
+    vi: Giao điện người dùng rõ ràng và đơn giản
+    he: ממשק נקי ופשוט
+    fur: Une semplice, linde IU
+    eu: Interfaze argi eta sinplea
+    mjw: Ingthirved lapen joike
+    ka: სუფთა, მარტივი UI
+    eo: Klara, simpla grafika fasado
+    nb: Enkel utforming
+    ja: 単純明快な UI
+    de: Eine klare, einfache Benutzeroberfläche
+    be-Cyrl: Просты і зразумелы інтэрфейс карыстальніка
+    bg: Опростен и интуитивен интерфейс
+    ms: Sebuah UI ringkas, dan mudah
+    oc: Una interfàcia clara e simpla
+    pt: Uma interface simples e intuitiva
+    ro: Un UI simplu, clar
+    pt-BR: Uma interface limpa e simples
+    my: ရိုးရှင်းသော ယူအိုင်
+    fa: رابط کاربری‌ای تمیز و ساده
+    ru: Простой и понятный интерфейс
+    gl: Unha interface de usuario limpa e simple
+    en-GB: A clear, simple UI
+    C: A clear, simple UI
+    uk: Простий і зрозумілий інтерфейс
+    kk-Cyrl: Таза, қарапайым интерфейс
+    is: Einfalt og hreinlegt viðmót
+    lt: Švari, paprasta sąsaja
+    sv: Ett rent, enkelt användargränssnitt
+    sk: Čisté, jednoduché rozhranie
+    el: Μια καθαρή, απλή γραφική διεπαφή χρήστη
+    hr: Pregledno, jednostavno grafičko sučelje
+    uz-Latn: Aniq, oddiy foydalanuvchi interfeysi
+    ca: Una interfície d'usuari clara i simple
+    da: En ren og enkel brugerflade
+    ko: 깔끔하고 단순한 사용자 인터페이스
+    it: Una pulita, semplice interfaccia
+    fr: Une interface utilisateur claire et simple
+    ne: एक स्पष्ट, सरल यूआई
+    sl: Pregleden, enostaven vmesnik
+    sr-Cyrl: Једноставно, прегледно графичко сучеље
+    tr: Temiz, basit kullanıcı arayüzü
+    zh-Hans-CN: 简洁明了的用户界面
+    id: Antarmuka (UI) yang jelas dan sederhana
+    hi: एक स्पष्ट, सरल UI
+    fi: Selkeä ja yksinkertainen käyttöliittymä
+    ar: واجهة سهلة وبسيطة
+    lv: Vienkārša lietotāja saskarne
+    pl: Prosty interfejs użytkownika
+    pa: ਸਾਫ਼, ਸਧਾਰਨ UI
+    es: Una IU simple y limpia
+    sr-Latn: Jednostavno, pregledno grafičko sučelje
+    th: ส่วนติดต่อผู้ใช้ที่ชัดเจนและเรียบง่าย
+    nl: Een duidelijke en gemakkelijke gebruikersinterface
+    hu: Egyszerű, letisztult felület
+    ie: Un nett, simplic interfacie
+    cs: Čisté a jednoduché uživatelské rozhraní
+  thumbnails:
+  - url: org/gnome/Evince/356bf2bdea3e144b83cc5d5bcf111b98/screenshots/image-1_1248x681@1.png
+    width: 1248
+    height: 681
+  - url: org/gnome/Evince/356bf2bdea3e144b83cc5d5bcf111b98/screenshots/image-1_752x410@1.png
+    width: 752
+    height: 410
+  - url: org/gnome/Evince/356bf2bdea3e144b83cc5d5bcf111b98/screenshots/image-1_624x340@1.png
+    width: 624
+    height: 340
+  - url: org/gnome/Evince/356bf2bdea3e144b83cc5d5bcf111b98/screenshots/image-1_224x122@1.png
+    width: 224
+    height: 122
+  source-image:
+    url: org/gnome/Evince/356bf2bdea3e144b83cc5d5bcf111b98/screenshots/image-1_orig.png
+    width: 1388
+    height: 758
+- caption:
+    zh-Hant-TW: 進階標明與註解
+    kab: Asebruraq d uwennit leqqayen
+    vi: Thêm chú thích và tô sáng tiên tiến
+    he: פרשנות והדגשה מתקדמים
+    fur: Evidenziazion e notazion avanzade
+    eu: Nabarmentze eta oharren sortze aurreratua
+    ka: დამატებითი გამკვეთა და ანოტაცია
+    nb: Avansert fremheving og notering
+    ja: 高度なハイライトと注釈
+    de: Fortgeschrittene Hervorhebung und Anmerkungen
+    be-Cyrl: Пашыраныя магчымасці для маркіравання і стварэння нататак
+    bg: Допълнителни оцветяване и анотации
+    ms: Penyorotan dan catatan lanjutan
+    oc: Anotacion e suslinhatge avançats
+    pt: Anotação e realce avançados
+    ro: Evidențiere și adnotare avansată
+    pt-BR: Destaque e anotação avançada
+    my: အဆင့်မြင် အလင်းတင်ပြခြင်းနှင့် မှတ်စာရေးသားခြင်း
+    fa: افزودن حاشیه‌نویسی و نشانه‌گذاری
+    ru: Расширенное выделение и аннотация
+    gl: Anotación e realzado avanzado
+    en-GB: Advanced highlighting and annotation
+    C: Advanced highlighting and annotation
+    uk: Широкі можливості із позначення та анотування документів
+    kk-Cyrl: Кеңейтілген түрде түспен ерекшелеу және аңдатпаларды қосу
+    is: Ítarleg áherslulitun og glósur
+    lt: Sudėtingesnis paryškinimas bei anotavimas
+    sv: Avancerade färgmarkeringar och kommentarer
+    sk: Pokročilé zvýrazňovanie a pridávanie poznámok
+    el: Επισήμανση και σχολιασμός για προχωρημένους
+    hr: Napredno naglašavanje i bilježenje
+    uz-Latn: Kengaytirilgan ta'kidlash va izohlash
+    ca: Ressaltat avançat i anotacions
+    da: Avanceret fremhævning og annotering
+    ko: 발전된 강조 및 주석
+    it: Evidenziazione e annotazione avanzata
+    fr: Annotation et mise en surbrillance avancées
+    ne: उन्नत हाइलाइटिङ र एनोटेसन
+    sl: Napredno poudarjanje in dodajanje opomb
+    sr-Cyrl: Напредно истицање и обележивање
+    tr: Gelişmiş vurgulama ve açıklama
+    zh-Hans-CN: 高级突出显示和注释
+    id: Sorotan dan anotasi lanjutan
+    hi: उन्नत चिन्हांकन और व्याख्या
+    fi: Monipuolinen korostus ja huomioiden merkintä
+    ar: تأشير و تعليق متقدم
+    lv: Plašas izcelšanas un anotēšanas iespējas
+    pl: Zaawansowane zakreślanie i dodawanie przypisów
+    pa: ਤਕਨੀਕੀ ਉਭਾਰਨਾ ਅਤੇ ਵਿਆਖਿਆ
+    es: Resaltado avanzado y anotación
+    sr-Latn: Napredno isticanje i obeleživanje
+    th: เน้นและทำหมายเหตุขั้นสูง
+    nl: Geavanceerd markeren en annoteren
+    hu: Fejlett kiemelés és jegyzetek hozzáadása
+    eo: Alnivela emfazado kaj notado
+    cs: Pokročilé zvýrazňování a psaní poznámek
+  thumbnails:
+  - url: org/gnome/Evince/356bf2bdea3e144b83cc5d5bcf111b98/screenshots/image-2_1248x681@1.png
+    width: 1248
+    height: 681
+  - url: org/gnome/Evince/356bf2bdea3e144b83cc5d5bcf111b98/screenshots/image-2_752x410@1.png
+    width: 752
+    height: 410
+  - url: org/gnome/Evince/356bf2bdea3e144b83cc5d5bcf111b98/screenshots/image-2_624x340@1.png
+    width: 624
+    height: 340
+  - url: org/gnome/Evince/356bf2bdea3e144b83cc5d5bcf111b98/screenshots/image-2_224x122@1.png
+    width: 224
+    height: 122
+  source-image:
+    url: org/gnome/Evince/356bf2bdea3e144b83cc5d5bcf111b98/screenshots/image-2_orig.png
+    width: 1387
+    height: 757
+Languages:
+- locale: en_US
+  percentage: 100
+Releases:
+- version: 49~alpha
+  type: development
+  unix-timestamp: 1751155200
+  issues:
+  - id: '#1399'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1399
+  - id: '#1600'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1600
+  - id: '#2074'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/2074
+  - id: '#2093'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/2093
+  - id: '#2094'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/2094
+- version: 48~alpha
+  type: development
+  unix-timestamp: 1736553600
+  issues:
+  - id: '#7'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/7
+  - id: '#58'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/58
+  - id: '#706'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/706
+  - id: '#992'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/992
+  - id: '#1395'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1395
+  - id: '#1395'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1395
+  - id: '#1458'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1458
+  - id: '#1762'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1762
+  - id: '#1863'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1863
+  - id: '#1951'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1951
+  - id: '#1969'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1969
+  - id: '#1971'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1971
+  - id: '#1985'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1985
+  - id: '#1985'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1985
+  - id: '#1988'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1988
+  - id: '#1988'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1988
+  - id: '#1991'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1991
+  - id: '#1996'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1996
+  - id: '#2000'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/2000
+  - id: '#2022'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/2022
+  - id: '#2024'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/2024
+  - id: '#2030'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/2030
+  - id: '#2035'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/2035
+  - id: '#2037'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/2037
+- version: '46.1'
+  type: stable
+  unix-timestamp: 1714176000
+- version: '46.0'
+  type: stable
+  unix-timestamp: 1710547200
+ContentRating:
+  oars-1.1: {}

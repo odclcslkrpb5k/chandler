@@ -1,0 +1,4772 @@
+---
+File: DEP-11
+Version: '1.0'
+Origin: chandler-fixture
+MediaBaseUrl: https://appstream.ubuntu.com/media/resolute
+---
+Type: desktop-application
+ID: io.github.quodlibet.QuodLibet
+Package: quodlibet
+Name:
+  es: Quod Libet
+  lv: Quod Libet
+  sk: Quod Libet
+  he: קְווֹדְלִיבֵּט
+  ja: Quod Libet
+  it: Quod Libet
+  fi: Quod Libet
+  tr: Quod Libet
+  de: Quod Libet
+  fr: Quod Libet
+  nb: Quod Libet
+  pl: Quod Libet
+  pt: Quod Libet
+  id: Quod Libet
+  C: Quod Libet
+  sr_RS@latin: Quod Libet
+  lt: Quod Libet
+  zh_TW: Quod Libet
+  eu: Quod Libet
+  zh_CN: Quod Libet
+  sr_RS: Quod Libet
+  nl: Quod Libet
+  gl: Quod Libet
+  ru: Quod Libet
+Summary:
+  he: האזנה, עיון ועריכה של אוסף השמע
+  eu: Entzun, arakatu edo editatu zure audio bilduma
+  nb: Lytt til, bla gjennom eller rediger lydsamling
+  ja: オーディオファイルの再生、内容表示、編集ができます
+  de: Anhören, Durchsuchen und Bearbeiten Ihrer Audiosammlung
+  zh_CN: 收听、浏览或者编辑您的音频收藏
+  pt: Ouça, navegue, ou edite sua coleção de músicas
+  ro: Ascultaţi, editaţi sau cautaţi în propria colecţie audio
+  gl: Escoita, examina ou edita a túa colección de música
+  ru: Слушайте, просматривайте или изменяйте свою фонотеку
+  el: Ακούστε, περιηγηθείτε ή επεξεργαστείτε την μουσική σας συλλογή
+  uk: Програма для прослуховування і керування аудіо-колекцією
+  fr: Écouter, parcourir ou éditer votre collection musicale
+  da: Lyt til, gennemse eller rediger din lydsamling
+  C: Listen to, browse, or edit your audio collection
+  lt: Klausykite, naršykite ar redaguokite savo muzikos kolekciją
+  sr_RS: Слушајте, претражите или уредите своју аудио колекцију
+  sk: Počúvajte, prehliadajte, alebo upravujte svoju hudobnú kolekciu
+  sr_RS@latin: Slušajte, pretražite ili uredite svoju audio kolekciju
+  sv: Lyssna på, bläddra i eller redigera din ljudsamling
+  it: Ascolta, esplora o modifica la tua collezione audio
+  es: Escuche, examine o edite su fonoteca
+  ko: 듣기, 검색 및 오디오 모음 편집
+  tr: Müzik koleksiyonunuzu gezin, dinleyin, düzenleyin
+  en_CA: Listen to, browse, or edit your audio collection
+  cs: Poslouchejte, procházejte nebo upravujte svou hudební sbírku
+  fi: Kuuntele, selaa tai muokkaa äänikokoelmaasi
+  lv: Atskaņo, pārlūko vai rediģē jūsu audio kolekciju
+  hu: Hallgasd, böngészd vagy szerkeszd zenéidet
+  bg: За слушане, разглеждане или редактиране на Вашата аудио колекция
+  pl: Słuchanie, przeglądanie i modyfikowanie kolekcji muzycznej
+  id: Dengar, jelajah, atau sunting koleksi audio Anda
+  nl: Luister naar, doorzoek of bewerk je audioverzameling
+  zh_TW: 收聽、瀏覽，或編輯您的音訊收藏
+Description:
+  C: >-
+    <p>Quod Libet is a music management program. It provides several different ways to view your audio library, as well as
+    support for Internet radio and audio feeds. It has extremely flexible metadata tag editing and searching capabilities,
+    using the same interface as Ex Falso.</p>
+
+    <p>Supported formats include MP3, Ogg Vorbis, FLAC, Musepack (MPC), WavPack, and MOD/XM/IT.</p>
+  en: >-
+    <p>Quod Libet is a music management program. It provides several different ways to view your audio library, as well as
+    support for Internet radio and audio feeds. It has extremely flexible metadata tag editing and searching capabilities,
+    using the same interface as Ex Falso.</p>
+
+    <p>Supported formats include MP3, Ogg Vorbis, FLAC, Musepack (MPC), WavPack, and MOD/XM/IT.</p>
+Categories:
+- AudioVideo
+- Audio
+- Player
+Icon:
+  cached:
+  - name: quodlibet_io.github.quodlibet.QuodLibet.png
+    width: 48
+    height: 48
+  - name: quodlibet_io.github.quodlibet.QuodLibet.png
+    width: 64
+    height: 64
+  - name: quodlibet_io.github.quodlibet.QuodLibet.png
+    width: 128
+    height: 128
+  remote:
+  - url: io/github/quodlibet.QuodLibet/fc39924fd49a4d1f21f4923cc29f7396/icons/128x128/quodlibet_io.github.quodlibet.QuodLibet.png
+    width: 128
+    height: 128
+  stock: io.github.quodlibet.QuodLibet
+Launchable:
+  desktop-id:
+  - io.github.quodlibet.QuodLibet.desktop
+Provides:
+  mediatypes:
+  - application/x-flac
+  - audio/aac
+  - audio/aiff
+  - audio/dsf
+  - audio/midi
+  - audio/mp3
+  - audio/mp4
+  - audio/mpeg
+  - audio/mpeg4
+  - audio/mpg
+  - audio/ogg
+  - audio/vorbis
+  - audio/wav
+  - audio/wave
+  - audio/x-aac
+  - audio/x-aiff
+  - audio/x-flac
+  - audio/x-m4a
+  - audio/x-midi
+  - audio/x-mp3
+  - audio/x-mpc
+  - audio/x-mpeg
+  - audio/x-ms-wma
+  - audio/x-ms-wmv
+  - audio/x-musepack
+  - audio/x-oggflac
+  - audio/x-speex
+  - audio/x-tta
+  - audio/x-wav
+  - audio/x-wavpack
+  - audio/x-wma
+  - video/ogg
+  - video/x-ms-asf
+  - video/x-theora
+  - video/x-wmv
+  - x-scheme-handler/quodlibet
+---
+Type: desktop-application
+ID: io.photoflare.photoflare
+Package: photoflare
+Name:
+  C: Photoflare
+Summary:
+  C: Simple but powerful Cross Platform Image Editor
+Description:
+  C: >-
+    <p>
+          This is an effort to bring quick, simple but powerful image editing to the masses. PhotoFlare is inspired by the
+    image editor currently only available on Microsoft Windows – PhotoFiltre. However, it will not be a straight clone. It
+    is being built from the ground up to be much improved and cross platform too!
+        </p>
+    <p>Features:</p>
+
+    <ul>
+      <li>Easy quick cropping tool.</li>
+      <li>Flip, Rotate and scale images.</li>
+      <li>Lots of unique image filters.</li>
+      <li>Batch processing tool with support for all editor features.</li>
+      <li>Multiple translations are supported.</li>
+    </ul>
+ProjectGroup: Photoflare
+ProjectLicense: GPL-3.0+
+Categories:
+- Graphics
+- 2DGraphics
+Keywords:
+  C:
+  - photo
+  - image
+  - picture
+  - photography
+  - paint
+  - graphics
+  - editor
+Url:
+  homepage: https://photoflare.io
+Icon:
+  cached:
+  - name: photoflare_photoflare.png
+    width: 48
+    height: 48
+  - name: photoflare_photoflare.png
+    width: 64
+    height: 64
+  - name: photoflare_photoflare.png
+    width: 128
+    height: 128
+  remote:
+  - url: io/photoflare/photoflare/7a5120b2dd82c89c5b349c4f14314dad/icons/128x128/photoflare_photoflare.png
+    width: 128
+    height: 128
+  stock: photoflare
+Launchable:
+  desktop-id:
+  - photoflare.desktop
+Provides:
+  binaries:
+  - photoflare
+  mediatypes:
+  - image/bmp
+  - image/gif
+  - image/jpeg
+  - image/jpg
+  - image/pjpeg
+  - image/png
+  - image/svg+xml
+  - image/tiff
+  - image/x-bmp
+  - image/x-gray
+  - image/x-icb
+  - image/x-ico
+  - image/x-png
+  - image/x-portable-anymap
+  - image/x-portable-bitmap
+  - image/x-portable-graymap
+  - image/x-portable-pixmap
+  - image/x-xbitmap
+  - image/x-xpixmap
+  - image/x-pcx
+  - image/x-targa
+  - image/x-tga
+  - image/openraster
+Screenshots:
+- default: true
+  caption:
+    C: Main Window
+  thumbnails:
+  - url: io/photoflare/photoflare/7a5120b2dd82c89c5b349c4f14314dad/screenshots/image-1_1248x623.png
+    width: 1248
+    height: 623
+  - url: io/photoflare/photoflare/7a5120b2dd82c89c5b349c4f14314dad/screenshots/image-1_752x375.png
+    width: 752
+    height: 375
+  - url: io/photoflare/photoflare/7a5120b2dd82c89c5b349c4f14314dad/screenshots/image-1_624x311.png
+    width: 624
+    height: 311
+  - url: io/photoflare/photoflare/7a5120b2dd82c89c5b349c4f14314dad/screenshots/image-1_224x111.png
+    width: 224
+    height: 111
+  source-image:
+    url: io/photoflare/photoflare/7a5120b2dd82c89c5b349c4f14314dad/screenshots/image-1_orig.png
+    width: 1550
+    height: 774
+Releases:
+- version: 1.6.13
+  type: stable
+  unix-timestamp: 1696723200
+  description:
+    C: >-
+      <ul>
+        <li>More Japanese translations.</li>
+        <li>Added fill rect to selection tool.</li>
+        <li>Added stroke path to selection tool.</li>
+      </ul>
+- version: 1.6.12
+  type: stable
+  unix-timestamp: 1673136000
+  description:
+    C: >-
+      <ul>
+        <li>Revert toolsettings spacing change.</li>
+        <li>Minor spacing update for toolsettings.</li>
+      </ul>
+- version: 1.6.11
+  type: stable
+  unix-timestamp: 1666396800
+  description:
+    C: >-
+      <ul>
+        <li>Fixed settings overwrite by application restart.</li>
+        <li>Fixed tool settings layout for top spacing.</li>
+        <li>Add Japanese Translation by @hmatrjp.</li>
+        <li>Add Turkish translation by @libreajans.</li>
+        <li>Update readme and about dialog by @libreajans.</li>
+        <li>Update spanish translation by @darkshram.</li>
+      </ul>
+- version: 1.6.10
+  type: stable
+  unix-timestamp: 1651968000
+  description:
+    C: >-
+      <ul>
+        <li>Added fine grained image rotation.</li>
+        <li>Added unlock ratio feature to resize canvas.</li>
+        <li>Fixed drawing performance regression caused by canvas shadow effect.</li>
+        <li>Fixed missing taskbar icon on KDE plasma by @saikat0511.</li>
+        <li>Updated Dutch translation by @Vistaus.</li>
+      </ul>
+ContentRating:
+  oars-1.1: {}
+---
+Type: desktop-application
+ID: me.mitya57.ReText
+Package: retext
+ProjectLicense: GPL-2.0+
+Name:
+  C: ReText
+Summary:
+  eu: Markdown eta reStructuredText-erako editore sinplea
+  zh_CN: 支持 Markdown 和 reStructuredText 语法的简易文本编辑器
+  de: Einfacher Texteditor für Markdown und reStructuredText
+  pt_BR: Editor simples para Markdown e reStructuredText
+  ja: MarkdownとreStructuredTextのためのシンプルで強力なエディタ
+  ga: Eagarthóir téacs simplí do Markdown agus reStructuredText
+  fa: یک ویرایشگر متن ساده برای متن های قالب Markdown و reStructuredText
+  ru: Простой редактор для Markdown и reStructuredText
+  el: Απλός επεξεργαστής κειμένου για Markdown και ReStructuredText
+  fr: Éditeur de texte simple pour Markdown et reStructuredText
+  C: Simple text editor for Markdown and reStructuredText
+  da: Enkel editor til Markdown og reStructuredText
+  uk: Простий текстовий редактор для Markdown та reStructuredText
+  'no': En enkel tekstbehandler for Markdown og reStructuredText
+  ca: Editor de Markdown i reStructuredText senzill alhora que potent
+  sk: Jednoduchý textový editor pre Markdown a reStructuredText
+  sv: Enkel textredigerare för Markdown och reStructuredText
+  it: Semplice editor di testo per Markdown e reStructuredText
+  es: Editor básico de texto para Markdown y reStructuredText
+  ar: محرر نصوص بسيط لمارك داون Markdown  و ريستكرجر تيكست reStructuredText
+  ko: Markdown과 reStructuredText용 텍스트 편집기
+  tr: Markdown ve reStructuredText için basit ama güçlü düzenleyici
+  cs: Jednoduchý editor pro Markdown a reStructuredText
+  sr: Једноставан уређивач за Markdown и reStructuredText
+  fi: Yksinkertainen tekstieditori Markdownille ja reStructuredTextille
+  cy: Golygydd testun syml ar gyfer Markdown a reStructuredText
+  pl: Prosty edytor Markdown i reStructuredText
+  hu: Egyszerű Markdown és reStructuredText szövegszerkesztő
+  et: Lihtne tekstiredaktor Markdown ning reStructuredText süntaksitele
+  sr@latin: Jednostavan uređivač za Markdown i reStructuredText
+  nl: Eenvoudige teksteditor voor Markdown en reStructuredText
+  zh_TW: 簡單高效的 Markdown 與 reStructuredText 編輯器
+Description:
+  ru: >-
+    <p>ReText — это текстовый редактор для языков разметки, таких как Markdown и reStructuredText.</p>
+
+    <p>Он поддерживает вкладки, живой просмотр, синхронную прокрутку и подсветку синтаксиса.</p>
+
+    <p>ReText может экспортировать в форматы HTML, ODT и PDF. Также возможно написание собственных расширений экспорта.</p>
+  C: >-
+    <p>ReText is a text editor for plain text markup languages, such as Markdown and reStructuredText.</p>
+
+    <p>It supports tabs, live text preview, synchronized scrolling and syntax highlighting.</p>
+
+    <p>ReText can export to HTML, ODT and PDF formats. It is also possible to write custom export extensions.</p>
+  de: >-
+    <p>ReText ist ein Texteditor für vereinfachten Auszeichnungssprachen wie Markdown und reStructuredText.</p>
+
+    <p>Er unterstützt Reiter, Live-Vorschau, synchrones Scrollen und Syntaxhervorhebung.</p>
+
+    <p>ReText kann Dokumente in HTML, ODT und PDF exportieren. Es ist auch möglich, benutzerdefinierte Export-Erweiterungen
+    zu schreiben.</p>
+Developer:
+  id: me.mitya57
+  name:
+    C: Dmitry Shachnev
+Categories:
+- Office
+- WordProcessor
+Keywords:
+  C:
+  - Text
+  - Editor
+  - Markdown
+  - reStructuredText
+Url:
+  homepage: https://github.com/retext-project/retext
+Icon:
+  cached:
+  - name: retext_retext.png
+    width: 48
+    height: 48
+  - name: retext_retext.png
+    width: 64
+    height: 64
+  - name: retext_retext.png
+    width: 128
+    height: 128
+  remote:
+  - url: me/mitya57/ReText/6d0cffae3fbe29667b69849c19c84bae/icons/128x128/retext_retext.png
+    width: 128
+    height: 128
+  stock: retext
+Launchable:
+  desktop-id:
+  - me.mitya57.ReText.desktop
+Provides:
+  binaries:
+  - retext
+  mediatypes:
+  - text/markdown
+  - text/x-rst
+Screenshots:
+- default: true
+  environment: plasma
+  caption:
+    C: ReText running in KDE Plasma environment
+  thumbnails:
+  - url: me/mitya57/ReText/6d0cffae3fbe29667b69849c19c84bae/screenshots/image-1_752x423@1.png
+    width: 752
+    height: 423
+  - url: me/mitya57/ReText/6d0cffae3fbe29667b69849c19c84bae/screenshots/image-1_624x351@1.png
+    width: 624
+    height: 351
+  - url: me/mitya57/ReText/6d0cffae3fbe29667b69849c19c84bae/screenshots/image-1_224x126@1.png
+    width: 224
+    height: 126
+  source-image:
+    url: me/mitya57/ReText/6d0cffae3fbe29667b69849c19c84bae/screenshots/image-1_orig.png
+    width: 1072
+    height: 603
+Languages:
+- locale: en_US
+  percentage: 100
+Releases:
+- version: 8.1.0
+  type: stable
+  unix-timestamp: 1736380800
+  description:
+    C: >-
+      <ul>
+        <li>Added support for Ctrl+Tab and Ctrl+Shift+Tab for switching tabs.</li>
+        <li>WebEngine previewer now shows link on hover.</li>
+        <li>Changed mouse cursor to pointing hand on link.</li>
+        <li>Added F9 shortcut for showing/hiding directory tree dynamically.</li>
+        <li>In the directory tree, for files with long names the full name is shown in a tooltip.</li>
+        <li>Splitter state and WebEngine preview zoom factor are now cached between runs.</li>
+        <li>Preferences dialog now has links to open the selected stylesheet file and working directories externally.</li>
+        <li>It is now possible to pass a directory on the command line, it will be shown in the tree.</li>
+        <li>Pasted image URLs are now converted to image markup.</li>
+        <li>Up/Down keys move to document start/end on the first and last lines.</li>
+        <li>When the system theme is dark, Qt WebEngine now uses dark mode too.</li>
+        <li>Added markdownHeaders setting for the highlighter.</li>
+        <li>Added initial AsciiDoc support.</li>
+        <li>Added Ctrl+H shortcut for viewing HTML code.</li>
+        <li>Added Irish translation, updated Danish, Dutch, Italian and Ukrainian.</li>
+      </ul>
+- version: 8.0.2
+  type: stable
+  unix-timestamp: 1710547200
+- version: 8.0.1
+  type: stable
+  unix-timestamp: 1685232000
+- version: 8.0.0
+  type: stable
+  unix-timestamp: 1658620800
+ContentRating:
+  oars-1.0: {}
+---
+Type: desktop-application
+ID: org.gnome.Evince
+Package: evince
+ProjectLicense: GPL-2.0-or-later
+Name:
+  kab: Evince
+  kk-Cyrl: Evince
+  zu: i-Evince
+  nds: Evince
+  mn-Cyrl: Эвинс
+  oc: Evince
+  ie: Evince
+  zh-Hant-HK: Evince
+  ca-valencia: Evince
+  nb: Evince
+  ml: എവിന്‍സ്
+  lv: Evince
+  sv: Evince
+  cs: Evince
+  nn: Evince
+  uz-Latn: Evince
+  fa: اوینس
+  ta: இவின்ஸ்
+  sk: Evince
+  ru: Evince
+  br: Evince
+  C: Evince
+  he: ‏Evince
+  mjw: Evince
+  my: အီးဗင့်စ်
+  en-CA: Evince
+  ku: Evince
+  sl: Evince
+  gd: Evince
+  mai: Evince
+  ps: اېوېنس
+  af: Evince
+  is: Evince
+  bg: Evince
+  el: Evince
+  ar: جلاء
+  hr: Evince
+  or: Evince
+  ne: इभाइन्स
+  it: Evince
+  pt: Evince
+  zh-Hans-CN: Evince
+  as: Evince
+  zh-Hant-TW: Evince
+  da: Evince
+  ka: Evince
+  be-Cyrl: Evince
+  be-Latn: Evince
+  km: Evince
+  en-shaw: "·\U00010466\U0001045D\U00010466\U0001046F\U00010455"
+  eo: Evinco
+  te: ఎవిన్స్
+  ug: Evince
+  ks-Arab: एवींस
+  kn: ಎವಿನ್ಸ್‍
+  vi: Evince
+  ja: Evince
+  sr-Latn: Evins
+  hu: Evince
+  sr-Cyrl: Евинс
+  fr: Evince
+  mr: एविंस
+  tr: Evince
+  dz: ཨི་བིནསི།
+  ko: 에빈스
+  ro: Evince
+  mg: Evince
+  tg: Evince
+  sq: Evince
+  cy: Evince
+  pl: Evince
+  ms: Evince
+  ia: Evince
+  pa: ਇਵੈਂਸ
+  wa: Evince
+  gu: Evince
+  en-GB: Evince
+  th: Evince
+  hi: Evince
+  de: Evince
+  ca: Evince
+  ast: Evince
+  bn-IN: Evince
+  fi: Evince
+  es: Evince
+  bn: এভিন্স
+  uk: Evince
+  bs-Latn: Evince
+  et: Evince
+  lt: Evince
+  ab: Evince
+  gl: Evince
+  nl: Evince
+  fur: Evince
+  id: Evince
+  an: Evince
+  ga: Evince
+  pt-BR: Evince
+  mk: Evince
+  eu: Evince
+Summary:
+  kab: Amsenqad n yisemliyen i yimasalne n yifuyla i yettwassnen
+  kk-Cyrl: Кеңінен қолданылатын құжаттар пішімдерін қарау қолданбасы
+  oc: Visionador de documents per de formats de documents corrents
+  ca-valencia: Visualitzador de documents per a formats de documents populars
+  ie: Viser por formates populari de documentes
+  zh-Hant-HK: 常用文件格式的文件檢視器
+  be-Cyrl: Праглядальнік дакументаў для распаўсюджаных фарматаў
+  nb: Les gjennom dokumenter
+  lv: Dokumentu skatītājs izplatītiem dokumentu formātiem
+  sv: Dokumentvisare för populära dokumentformat
+  cs: Prohlížeč dokumentů pro populární formáty dokumentů
+  uz-Latn: Mashhur hujjat formatlari uchun hujjatlarni ko'rish dasturi
+  fa: نمایشگر سند برای قالب‌های رایج اسناد
+  ta: பிரபல ஆவண வடிவமைப்புகளுக்கான ஆவணக் காட்சிக்கருவி
+  C: Document viewer for popular document formats
+  ru: Приложение для просмотра документов в распространённых форматах
+  sk: Prehliadač dokumentov pre obľúbené formáty dokumentov
+  he: מציג מסמכים עבור תבניות מסמכים נפוצים
+  my: အသုံးများသော မှတ်တမ်းစာအုပ်အမျိုးအစားများအတွက် မှတ်တမ်းစာအုပ်ကြည့်ရှုကိရိယာ
+  el: Εφαρμογή προβολής εγγράφων για δημοφιλείς μορφές εγγράφων
+  sl: Pregledovalnik različnih zapisov dokumentov
+  gd: Sealladair sgrìobhainnean airson fòrmatan sgrìobhainn mòr-chòrdte
+  is: Skjalaskoðari fyrir ýmsar algengar gerðir skjala
+  af: Dokumentbekyker vir populêre dokumentformate
+  bg: Програма за преглед на често срещани видове документи
+  ar: عارض مستندات يدعم الأنساق الشائعة
+  hr: Preglednik dokumenata za popularne formate dokumenata
+  ne: लोकप्रिय कागजात स्वरूप लागि कागजात दर्शक
+  it: Visualizzatore di documenti per i formati più popolari
+  pt: Visualizador de documentos para formatos comuns de documentos
+  zh-Hans-CN: 支持查看常见文档格式的查看器
+  as: জনপ্ৰিয় দস্তাবেজ বিন্যাসসমূহৰ বাবে দস্তাবেজ দৰ্শক
+  zh-Hant-TW: 常用文件格式的文件檢視器
+  da: Dokumentfremviser for populære dokumentformater
+  ka: დოკუმენტების პოპულარული ფორმატების გამხსნელი
+  eo: Dokumentmontrilo por popularaj dokumentaj dosierformoj
+  te: ప్రఖ్యాత పత్ర ఫార్మాట్ల కొరకు పత్ర వీక్షణి
+  hi: लोकप्रिय दस्तावेज़ प्रारूप के लिए दस्तावेज़ प्रदर्शक
+  kn: ಜನಪ್ರಿಯ ದಸ್ತಾವೇಜು ವಿನ್ಯಾಸಗಳಿಗಾಗಿನ ದಸ್ತಾವೇಜು ವೀಕ್ಷಕ
+  vi: Ứng dụng xem các tài liệu có định dạng phổ biến
+  ja: 人気の高い文書フォーマット用のドキュメントビューアー
+  sr-Latn: Pregledač dokumenata za popularne zapise dokumenata
+  hu: Dokumentummegjelenítő a népszerű dokumentumformátumokhoz
+  sr-Cyrl: Прегледач докумената за популарне записе докумената
+  fr: Visionneur de documents pour des formats de documents courants
+  mr: प्रसिद्ध दस्तऐवज रूपणकरिता दस्तऐवज दर्शक
+  tr: Gözde belge biçimleri için belge görüntüleyici
+  ko: 많이 사용하는 문서 형식에 대한 문서 보기 프로그램
+  ro: Vizualizator de documente pentru formatele populare
+  tg: Барномаи намоиши ҳуҷҷатҳо барои форматҳои ҳуҷҷатҳои оммавӣ
+  pl: Przeglądarka dokumentów w popularnych formatach
+  ms: Pelihat dokumen untuk format-format dokumen popular
+  pa: ਹਰਮਨਪਿਆਰੇ ਦਸਤਾਵੇਜ਼ ਫਾਰਮੈਟਾਂ ਲਈ ਦਸਤਾਵੇਜ਼ ਦਰਸ਼ਕ
+  gu: જાણીતા દસ્તાવેજ બંધારણો માટે દસ્તાવેજ દર્શક
+  en-GB: Document viewer for popular document formats
+  th: โปรแกรมดูเอกสารสำหรับฟอร์แมตยอดนิยมต่างๆ
+  de: Dokumentenbetrachter für gängige Dokumentformate
+  ca: Visualitzador de documents per a formats de documents populars
+  bn-IN: জনপ্রিয় নথি ফর্ম্যাটের জন্য নথি ভিউয়ার
+  fi: Asiakirjakatselin suosituille asiakirjatiedostomuodoille
+  es: Visor de documentos para formatos de documentos populares
+  uk: Переглядач документів для популярних форматів
+  bs-Latn: Preglednik dokumenata za popularne formate dokumenata
+  lt: Dokumentų žiūryklė populiariems dokumentų formatams
+  gl: Visor de documentos para os formatos de documentos máis populares
+  fur: Visualizadôr di documents pai formâts plui popolârs
+  nl: Documentenviewer voor populaire documentformaten
+  id: Penampil dokumen bagi format-format dokumen populer
+  an: Visor de documentos ta formatos de documentos populars
+  pt-BR: Visualizador de documentos para formatos populares de documentos
+  eu: Dokumentuen formatu ospetsuen ikustailea
+Description:
+  he: >-
+    <p>מציג מסמכים עבור שולחן העבודה GNOME. מאפשר להציג, לחפש ולהעיר במגוון רחב של תבניות.</p>
+
+    <p>‏Evince תומך בתבניות המסמכים הבאות: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (עם SyncTeX) וארכיבי ספרי  קומקיס (CBR, CBT,
+    CBZ, CB7).</p>
+  fur: >-
+    <p>Un visualizadôr di documents pal scritori GNOME. Si pues viodi, cirî o meti notis tai documents di tancj formâts diferents.</p>
+
+    <p>Evince al supuarte document in: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (cun SyncTeX) e archivis di fumets (CBR, CBT, CBZ,
+    CB7).</p>
+  eu: >-
+    <p>GNOME mahaigainerako dokumentu-ikustailea. Formatu mota askotako dokumentuak ikusi, haiek arakatu eta haietan oharrak
+    idatzi ahal dituzu.</p>
+
+    <p>Honako dokumentu-formatuak onartzen ditu: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (SyncTeX-ekin), eta komikien artxiboak
+    (CBR, CBT, CBZ, CB7).</p>
+  vi: >-
+    <p>Phần mềm đọc tài liệu cho môi trường máy tính để bàn GNOME. Bạn có thể xem, tìm kiếm hay ghi chú các tài liệu ở nhiều
+    định dạng khác nhau.</p>
+
+    <p>Evince hỗ trợ những dạng tài liệu sau: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (với SyncTeX), và kho nén truyện tranh vui
+    (CBR, CBT, CBZ, CB7).</p>
+  cs: >-
+    <p>Prohlížeč dokumentů pro uživatelské prostředí GNOME. Můžete si prohlížet, prohledávat a komentovat dokumenty v rozličných
+    formátech.</p>
+
+    <p>Podporuje následující formáty dokumentů: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (pomocí SyncTeX) a archivy s komiksy (CBR,
+    CBT, CBZ, CB7).</p>
+  hu: >-
+    <p>Dokumentummegjelenítő a GNOME asztali környezethez. Megtekintheti, keresheti és jegyzetekkel láthatja el a dokumentumokat
+    számos formátumban.</p>
+
+    <p>Az Evince a következő dokumentumformátumokat támogatja: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (SyncTeX-kel), valamint
+    képregény-archívumok (CBR, CBT, CBZ, CB7).</p>
+  zh-Hant-TW: >-
+    <p>GNOME 桌面的文件檢視器。您可以在許多不同格式下檢視、搜尋、或註釋文件。</p>
+
+    <p>它支援以下文件格式：PDF、PS、EPS、XPS、DjVu、TIFF、DVI (使用 SyncTeX) 和漫畫書壓縮檔 (CBR、CBT、CBZ、CB7)。</p>
+  ka: >-
+    <p>GNOME სამუშაო მაგიდის დოკუმენტების დამთვალიერებელი. შეგიძლიათ დაათვალიეროთ, მოძებნოთ და ანოტაცია გაუკეთოთ მრავალი სახის
+    დოკუმენტს.</p>
+
+    <p>Evince-ს აქვს მხარდაჭერა: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (SyncTeX-ით) და კომიქსების წიგნების არქივების (CBR, CBT,
+    CBZ, CB7).</p>
+  nb: >-
+    <p>Dokumenter lar deg åpne, søke i og notere i mange forskjellige typer dokumenter.</p>
+
+    <p>Disse formatene støttes: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (med SyncTeX) og Comic Books-arkiv (CBR, CBT, CBZ, CB7).</p>
+  ja: >-
+    <p>GNOME デスクトップ用のドキュメントビューアーです。さまざまな形式の文書を表示したり、文書内を検索したり、文書に注釈を付けたりすることができます。</p>
+
+    <p>Evince は次の文書をサポートしています: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (SyncTeX 利用), Comic Books アーカイブ (CBR, CBT, CBZ, CB7)。</p>
+  de: >-
+    <p>Ein Dokumentenbetrachter für die GNOME-Arbeitsumgebung. Sie können Dokumente in vielen verschiedenen Formaten betrachten,
+    durchsuchen oder mit Anmerkungen versehen.</p>
+
+    <p>Die folgenden Dokumentformate werden unterstützt: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (inkl. SyncTeX) und Comicbuch-Archive
+    (CBR, CBT, CBZ, CB7).</p>
+  kab: >-
+    <p>A,senqad n yisemli i tnarit GNOME. Tzemreḍ ad twaliḍ, ad tnadiḍ neɣ ad twennteḍ isemliyen deg waṭas n yimasalen yemgaraden.</p>
+
+    <p>Evince yessefrak isemliyen deg: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (s SyncTeX), akked iɣbaren n yidlisen Comic (CBR,
+    CBT, CBZ, CB7).</p>
+  ms: >-
+    <p>Sebuah pelihat dokumen untuk atas menja GNOME . Anda boleh lihat, gelintar atau buat catatan pada dokumen dalam pelbagai
+    format.</p>
+
+    <p>Evince menyokong dokumen dalam format: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (dengan SyncTeX), dan arkib Buku Komik (CBR,
+    CBT, CBZ, CB7).</p>
+  oc: >-
+    <p>Un visionador de documents pel burèu GNOME. Podètz veire, recercar e anotar de documents dins mantun format.</p>
+
+    <p>Evince pren en carga los documents : PDF, PS, EPS, XPS, DjVu, TIFF, DVI (with SyncTeX),e los archius de BD (CBR, CBT,
+    CBZ, CB7).</p>
+  gl: >-
+    <p>Un visor de documento para o ambiente GNOME. Pode ver, buscar ou anotar documentos en varios formatos distintos.</p>
+
+    <p>Evince admite documentos en: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (con SyncTeX) e arquivos de libros de banda deseñada
+    (CBR, CBT, CBZ, CB7).</p>
+  pt: >-
+    <p>Um visualizador de documentos para o ambiente gráfico GNOME. Permite visualizar, pesquisar ou anotar documentos em
+    vários formatos.</p>
+
+    <p>Suporta os seguintes formatos de documentos: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (com SyncTeX) e arquivos de banda desenhada
+    (CBR, CBT, CBZ, CB7).</p>
+  hr: >-
+    <p>Preglednik dokumenata za GNOME radno okruženje. Možete pregledavati, pretraživati ili zabilježiti dokumente u raznim
+    formatima.</p>
+
+    <p>Evince podržava sljedeće formate dokumenata: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (sa SyncTeX) i arhive stripova (CBR,
+    CBT, CBZ, CB7).</p>
+  my: >-
+    <p>နုန်ဒက်စ်တော့ပ်၏မှတ်တမ်းစာအုပ်ကြည့်ရှုကိရိယာဖြစ်သည်။ အမျိုးမျိုးသော မှတ်တမ်းစာအုပ်အမျိုးအစားများတွင် ကြည့်ရှု၊ ရှာဖွေ၊
+    စာမှတ်ခြင်းများ ပြုလုပ်နိုင်သည်။</p>
+
+    <p>Evince သည် စာရွက်စာတမ်းများဖြစ်သော PDF၊ PS၊ EPS၊ XPS၊ DjVu၊ TIFF၊ DVI (SyncTeX) နှင့် ရုပ်ပြစာအုပ်များ မှတ်တမ်းများ
+    (CBR၊ CBT၊ CBZ၊ CB7) တို့တွင် ပံ့ပိုးပေးပါသည်။</p>
+  fa: >-
+    <p>یک سندبین برای میزکار گنوم. می‌توانید سندها را در قالب‌های مختلف دیده، جست‌وجو و حاشیه‌نویسی کنید.</p>
+
+    <p>اوینس از قالب‌های مقابل پشتیبانی می‌کند:  PDF ،PS ،EPS ،XPS ،DjVu ،TIFF ،DVI (همراه با SyncTeX) و کتاب‌های کمیک (CBR
+    ،CBT ،CBZ ،CB7).</p>
+  pt-BR: >-
+    <p>Um visualizador de documentos para o ambiente GNOME. Com ele você pode visualizar, pesquisar ou anotar documento de
+    vários formatos.</p>
+
+    <p>O Evince oferece suporte aos seguintes formatos de documentos: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (com SyncTeX) e arquivos
+    de revistas em quadrinhos (CBR, CBT, CBZ, CB7).</p>
+  el: >-
+    <p>Μια εφαρμογή προβολής εγγράφων του GNOME. Μπορείτε να δείτε, αναζητήσετε ή να σχολιάσετε έγγραφα σε πολλές διαφορετικές
+    μορφές.</p>
+
+    <p>Υποστηρίζει τις παρακάτω μορφές εγγράφων: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (με SyncTeX), και αρχεία βιβλίων κόμικ
+    (CBR, CBT, CBZ, CB7).</p>
+  uk: >-
+    <p>Програма для перегляду документів у середовищі GNOME. За її допомогою ви зможете переглядати документи у багатьох форматах,
+    шукати у них дані та анотувати ці документи.</p>
+
+    <p>У Evince передбачено підтримку документів у таких форматах: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (з SyncTeX), а також
+    архіви коміксів (CBR, CBT, CBZ, CB7).</p>
+  C: >-
+    <p>A document viewer for the GNOME desktop. You can view, search or annotate documents in many different formats.</p>
+
+    <p>Evince supports documents in: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (with SyncTeX), and Comic Books archives (CBR, CBT,
+    CBZ, CB7).</p>
+  is: >-
+    <p>Skjalaskoðari fyrir GNOME skjáborðsumhverfið. Þú getur skoðað, leitða í eða glósað við mörg mismunandi skjalasnið.</p>
+
+    <p>Evince styður eftirfarandi skjalasnið: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (með SyncTeX), og myndasögusafnskrár (Comicbook)
+    eins og (CBR, CBT, CBZ, CB7).</p>
+  ru: >-
+    <p>Приложение просмотра документов для рабочего стола GNOME. Вы можете просматривать, искать или комментировать документы
+    в множестве разных форматов.</p>
+
+    <p>Evince поддерживает документы в следующих форматах: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (с SyncTeX) и Comic Book Archive
+    (CBR, CBT, CBZ, CB7).</p>
+  lt: >-
+    <p>Dokumentų žiūryklė GNOME darbalaukiui. Galite rodyti, ieškoti bei anotuoti įvairių formatų dokumentuose.</p>
+
+    <p>Evince palaiko šiuos dokumentų formatus: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (su SyncTeX) bei komiksų archyvus (CBR,
+    CBT, CBZ, CB7).</p>
+  be-Cyrl: >-
+    <p>Праглядальнік дакументаў для асяроддзя GNOME. Прагляд, пошук і стварэнне нататак для дакументаў у разнастайных фарматах.</p>
+
+    <p>Evince падтрымлівае наступныя фарматы дакументаў: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (з SyncTeX) і архівы коміксаў
+    (CBR, CBT, CBZ, CB7).</p>
+  sk: >-
+    <p>Prehliadač dokumentov pre prostredie GNOME. Môžete zobrazovať, vyhľadávať alebo pridávať poznámky do dokumentov v mnohých
+    rozličných formátoch.</p>
+
+    <p>Aplikácia Evince podporuje dokumenty: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (s funkciou SyncTeX) a archívy komiksov (CBR,
+    CBT, CBZ, CB7).</p>
+  kk-Cyrl: >-
+    <p>GNOME жұмыс үстелі үшін құжаттар көрсетушісі. Бірнеше түрдегі құжаттарды қарау, ішінен іздеу немесе аңдатпаларды қосуға
+    болады.</p>
+
+    <p>Evince келесі құжаттар пішімдерін қолдайды: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (SyncTeX), және Comic Books архивтері
+    (CBR, CBT, CBZ, CB7).</p>
+  sv: >-
+    <p>En dokumentvisare för GNOME-skrivbordet. Du kan visa, söka eller kommentera dokument i många olika format.</p>
+
+    <p>Evince stöder dokument i: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (med SyncTeX) och serietidningsarkiv (CBR, CBT, CBZ, CB7).</p>
+  uz-Latn: >-
+    <p>GNOME ish stoli uchun hujjat koʻruvchi. Siz turli xil formatlarda hujjatlarni ko'rishingiz, qidirishingiz yoki izohlashingiz
+    mumkin.</p>
+
+    <p>Evince quyidagi hujjatlarni qo'llab-quvvatlaydi: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (SyncTeX bilan) va Comic Books
+    arxivlari (CBR, CBT, CBZ, CB7).</p>
+  ca: >-
+    <p>Un visualitzador de documents per a l'escriptori GNOME. Podeu visualitzar, cercar o fer anotacions en molts formats
+    diferents.</p>
+
+    <p>Permet la visualització dels documents en format: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (amb SyncTeX) i els arxius de
+    llibres de còmic (CBR, CBT, CBZ, CB7).</p>
+  da: >-
+    <p>En dokumentfremviser til GNOME-skrivebordet. Du kan vise, søge og skrive noter i dokumenter i mange forskellige dokumentformater.</p>
+
+    <p>Evince understøtter følgende dokumentformater: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (med SyncTeX) og tegneseriearkiver
+    (CBR, CBT, CBZ, CB7).</p>
+  bg: >-
+    <p>Програма за преглед на често срещани видове документи за графичната среда GNOME. Може да разглеждате, анотирате и търсите
+    в документи в много различни формати.</p>
+
+    <p>Поддържат се следните видове документи: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (със SyncTeX) и комикси (CBR, CBT, CBZ,
+    CB7).</p>
+  ko: >-
+    <p>그놈 데스크톱의 문서 보기 프로그램입니다. 다양한 형식의 문서를 보고, 내용을 검색하며, 주석을 달 수 있습니다.</p>
+
+    <p>에빈스는 다음 문서 형식을 지원합니다: PDF, PS, EPS, XPS, DjVu, TIFF, DVI(SyncTeX 사용), 만화책 묶음(CBR, CBT, CBZ, CB7).</p>
+  fr: >-
+    <p>Un visionneur de documents pour le bureau GNOME. Vous pouvez afficher, rechercher ou annoter des documents dans de
+    nombreux formats différents.</p>
+
+    <p>Evince prend en charge les formats de documents suivants : PDF, PS, EPS, XPS, DjVu, TIFF, DVI (avec SyncTeX) et les
+    formats archives de bandes dessinées (CBR, CBT, CBZ, CB7).</p>
+  it: >-
+    <p>Un visualizzatore di documenti per il desktop GNOME. Si può visualizzare, cercare o annotare i documenti in molti differenti
+    formati.</p>
+
+    <p>Supporta documenti in: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (con SyncTeX), e archivi di fumetti (CBR, CBT, CBZ, CB7).</p>
+  ne: >-
+    <p>जिनोम डेस्कटपका लागि कागजात दर्शक । तपाईं धेरै फरक ढाँचाहरूमा कागजातहरू हेर्न, खोजी गर्न वा एनोटेट गर्न सक्नुहुन्छ।.</p>
+
+    <p>यसले निम्न कागजात ढाँचाहरूलाई समर्थन गर्दछ: पिडिएफ, पिएस, इपिएस, एक्सपिएस, DjVu, TIFF, DVI (SyncTeX सँग), र हास्य पुस्तक
+    अभिलेखहरू (CBR, CBT, CBZ, CB7)</p>
+  sl: >-
+    <p>Pregledovalnik dokumentov za namizje GNOME. Program omogoča ogledovanje dokumenta, iskanje po vsebini, dodajanje opomb
+    in drugo.</p>
+
+    <p>Program podpira zapise: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (s podporo SyncTeX) in arhive stripov (CBR, CBT, CBZ, CB7).</p>
+  sr-Cyrl: >-
+    <p>Прегледач докумената за Гном. Можете гледати, претраживати или обележавати садржај докумената разних формата.</p>
+
+    <p>Прегледач докумената подржава документе у форматима ПДФ, ПС, ЕПС, ИксПС, ДјВу, ТИФФ, ДВИ (са СинкТеКСом), и архиве
+    стрипова (CBR, CBT, CBZ, CB7).</p>
+  ro: >-
+    <p>Un vizualizator de documente pentru desktopul GNOME. Aveți posibilitatea de a vizualiza, căuta sau adnota documente
+    în multe formate diferite.</p>
+
+    <p>Evince suportă documente în: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (cu SyncTeX), și arhive de benzi desenate (CBR, CBT,
+    CBZ, CB7).</p>
+  zh-Hans-CN: >-
+    <p>GNOME 文档查看器。你可以查看、搜索或注释不同格式的文档。</p>
+
+    <p>文档查看器（Evince）支持以下的文档格式：PDF、PS、EPS、XPS、DjVu、TIFF、DVI（带 SyncTex）以及漫画归档（CBR、CBT、CBZ、CB7）。</p>
+  tr: >-
+    <p>GNOME masaüstü için belge görüntüleyici. Birçok değişik biçimdeki belgeyi görüntüleyebilir, arayabilir ve açımlayabilirsiniz.</p>
+
+    <p>Evince şu belgeleri destekler: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (SyncTeX ile), ve Çizgi Roman arşivleri (CBR, CBT,
+    CBZ, CB7).</p>
+  id: >-
+    <p>Penampil dokumen untuk destop GNOME. Anda dapat melihat, mencari atau membubuhi keterangan dokumen dalam berbagai format.</p>
+
+    <p>Evince mendukung dokumen dalam: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (dengan SyncTeX), dan arsip-arsip Comic Books (CBR,
+    CBT, CBZ, CB7).</p>
+  fi: >-
+    <p>Asiakirjakatselin Gnome-työpöydälle. Voit katsella, etsiä ja lisätä huomautuksia useissa eri tiedostomuodoissa oleviin
+    asiakirjoihin.</p>
+
+    <p>Sovellus tukee seuraavia asiakirjamuotoja: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (SyncTeX:illa) ja sarjakuva-arkistoja
+    (CBR, CBT, CBZ, CB7).</p>
+  ar: >-
+    <p>عارض مستندات لسطح مكتب GNOME «غنوم». يمكنك عرض المستندات والبحث فيها والتأشير عليها، بأنساق متعددة.</p>
+
+    <p>يدعم الأنساق التالية: PDF، و PS، و EPS، و XPS، و DjVu، و TIFF، و DVI (مع SyncTeX)، و القصص المصورة (CBR، و CBT، و CBZ،
+    و CB7).</p>
+  lv: >-
+    <p>Dokumentu skatītājs GNOME darbvirsmas videi. Varat skatīt, meklēt un anotēt dažādu formātu dokumentus.</p>
+
+    <p>Evince atbalsta dokumentus šādos formātos: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (ar SyncTeX), un komiksu arhīvus (CBR,
+    CBT, CBZ, CB7).</p>
+  en-GB: >-
+    <p>A document viewer for the GNOME desktop. You can view, search or annotate documents in many different formats.</p>
+
+    <p>Evince supports documents in: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (with SyncTeX), and Comic Books archives (CBR, CBT,
+    CBZ, CB7).</p>
+  pa: >-
+    <p>ਇਹ ਗਨੋਮ ਡੈਸਕਟਾਪ ਲਈ ਦਸਤਾਵੇਜ਼ ਦਰਸ਼ਕ ਹੈ। ਤੁਸੀਂ ਵੱਖ-ਵੱਖ ਫਾਰਮੈਟਾਂ ਨੂੰ ਤੁਸੀਂ ਦਸਤਾਵੇਜ਼ ਨੂੰ ਵੇਖ, ਖੋਜ ਜਾਂ ਵਿਆਖਿਆ ਕਰ ਸਕਦੇ ਹੋ।</p>
+
+    <p>(SyncTeX ਸਮੇਤ), ਅਤੇ ਹਾਸਰਸ ਕਿਤਾਬਾਂ ਅਕਾਇਵ (CBR, CBT, CBZ, CB7)।</p>
+  pl: >-
+    <p>Przeglądarka dokumentów dla środowiska GNOME. Umożliwia wyświetlanie, przeszukiwanie i dodawanie przypisów do dokumentów
+    w wielu różnych formatach.</p>
+
+    <p>Evince obsługuje dokumenty w formatach: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (z SyncTeX) oraz archiwa z komiksami (CBR,
+    CBT, CBZ, CB7).</p>
+  sr-Latn: >-
+    <p>Pregledač dokumenata za Gnom. Možete gledati, pretraživati ili obeležavati sadržaj dokumenata raznih formata.</p>
+
+    <p>Pregledač dokumenata podržava dokumente u formatima PDF, PS, EPS, IksPS, DjVu, TIFF, DVI (sa SinkTeKSom), i arhive
+    stripova (CBR, CBT, CBZ, CB7).</p>
+  th: >-
+    <p>โปรแกรมดูเอกสารสำหรับเดสก์ท็อป GNOME คุณสามารถดู ค้นหา หรือทำหมายเหตุเอกสารในเอกสารฟอร์แมตต่างๆ ได้หลายฟอร์แมต</p>
+
+    <p>Evince รองรับฟอร์แมตเอกสารต่อไปนี้: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (พร้อมการรองรับ SyncTeX), และกรุหนังสือการ์ตูนต่างๆ
+    (CBR, CBT, CBZ, CB7)</p>
+  hi: >-
+    <p>GNOME डेस्कटॉप के लिए एक दस्तावेज़ प्रदर्शक। आप दस्तावेज़ों को कई अलग-अलग प्रारूपों में देख, खोज या व्याख्या कर सकते
+    हैं।</p>
+
+    <p>एविंस निम्नलिखित दस्तावेज़ प्रारूप का समर्थन करता है: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (SyncTeX के साथ) और कॉमिक
+    बुक अभिलेखागार (CBR, CBT, CBZ  CB7)।</p>
+  nl: >-
+    <p>Weergave van documenten op het Gnome-bureaublad. U kunt documenten weergeven, doorzoeken en annoteren in diverse formaten.</p>
+
+    <p>Evince ondersteunt documenten in: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (met SyncTeX), en stripboekarchieven (CBR, CBT,
+    CBZ, CB7).</p>
+  eo: >-
+    <p>Dokumentmontrilo por la GNOME labortablo. Vi povas vidi, serĉi aŭ noti dokumentojn en multe da diversaj formoj.</p>
+
+    <p>Evinco subtenas la sekvajn dosierformojn: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (kun SyncTeX), kaj komiksaj dosieroj (CBR,
+    CBT, CBZ, CB7).</p>
+  es: >-
+    <p>Un visor de documentos para el escritorio GNOME. Puede ver, buscar o hacer anotaciones en documentos en varios formatos.</p>
+
+    <p>Evince soporta los siguientes formatos de documentos: PDF, PS, EPS, XPS, DjVu, TIFF, DVI (con SyncTeX), y archivos
+    de libros de cómics (CBR, CBT, CBZ, CB7).</p>
+ProjectGroup: GNOME
+Developer:
+  id: org.gnome
+  name:
+    C: The GNOME Project
+Categories:
+- Office
+- Viewer
+- Graphics
+- 2DGraphics
+- VectorGraphics
+Keywords:
+  C:
+  - pdf
+  - ps
+  - postscript
+  - dvi
+  - xps
+  - djvu
+  - tiff
+  - document
+  - presentation
+  - viewer
+  - evince
+Url:
+  homepage: https://apps.gnome.org/Evince
+  bugtracker: https://gitlab.gnome.org/GNOME/evince/-/issues/
+  translate: https://l10n.gnome.org/module/evince/
+  contribute: https://welcome.gnome.org/app/Evince
+  vcs-browser: https://gitlab.gnome.org/GNOME/evince/
+  donation: https://www.gnome.org/donate/
+Icon:
+  cached:
+  - name: evince_org.gnome.Evince.png
+    width: 48
+    height: 48
+  - name: evince_org.gnome.Evince.png
+    width: 64
+    height: 64
+  - name: evince_org.gnome.Evince.png
+    width: 128
+    height: 128
+  remote:
+  - url: org/gnome/Evince/356bf2bdea3e144b83cc5d5bcf111b98/icons/128x128/evince_org.gnome.Evince.png
+    width: 128
+    height: 128
+  stock: org.gnome.Evince
+Launchable:
+  desktop-id:
+  - org.gnome.Evince.desktop
+Provides:
+  ids:
+  - evince.desktop
+  mediatypes:
+  - application/vnd.comicbook-rar
+  - application/vnd.comicbook+zip
+  - application/x-cb7
+  - application/x-cbr
+  - application/x-cbt
+  - application/x-cbz
+  - application/x-ext-cb7
+  - application/x-ext-cbr
+  - application/x-ext-cbt
+  - application/x-ext-cbz
+  - application/x-ext-djv
+  - application/x-ext-djvu
+  - image/vnd.djvu
+  - application/x-bzdvi
+  - application/x-dvi
+  - application/x-ext-dvi
+  - application/x-gzdvi
+  - application/pdf
+  - application/x-bzpdf
+  - application/x-ext-pdf
+  - application/x-gzpdf
+  - application/x-xzpdf
+  - application/postscript
+  - application/x-bzpostscript
+  - application/x-gzpostscript
+  - application/x-ext-eps
+  - application/x-ext-ps
+  - image/x-bzeps
+  - image/x-eps
+  - image/x-gzeps
+  - image/tiff
+  - application/oxps
+  - application/vnd.ms-xpsdocument
+  - application/illustrator
+Screenshots:
+- default: true
+  caption:
+    zh-Hant-TW: 簡單、乾淨的介面
+    kab: Agrudem n useqdac taceεlalt, tafessast
+    vi: Giao điện người dùng rõ ràng và đơn giản
+    he: ממשק נקי ופשוט
+    fur: Une semplice, linde IU
+    eu: Interfaze argi eta sinplea
+    mjw: Ingthirved lapen joike
+    ka: სუფთა, მარტივი UI
+    eo: Klara, simpla grafika fasado
+    nb: Enkel utforming
+    ja: 単純明快な UI
+    de: Eine klare, einfache Benutzeroberfläche
+    be-Cyrl: Просты і зразумелы інтэрфейс карыстальніка
+    bg: Опростен и интуитивен интерфейс
+    ms: Sebuah UI ringkas, dan mudah
+    oc: Una interfàcia clara e simpla
+    pt: Uma interface simples e intuitiva
+    ro: Un UI simplu, clar
+    pt-BR: Uma interface limpa e simples
+    my: ရိုးရှင်းသော ယူအိုင်
+    fa: رابط کاربری‌ای تمیز و ساده
+    ru: Простой и понятный интерфейс
+    gl: Unha interface de usuario limpa e simple
+    en-GB: A clear, simple UI
+    C: A clear, simple UI
+    uk: Простий і зрозумілий інтерфейс
+    kk-Cyrl: Таза, қарапайым интерфейс
+    is: Einfalt og hreinlegt viðmót
+    lt: Švari, paprasta sąsaja
+    sv: Ett rent, enkelt användargränssnitt
+    sk: Čisté, jednoduché rozhranie
+    el: Μια καθαρή, απλή γραφική διεπαφή χρήστη
+    hr: Pregledno, jednostavno grafičko sučelje
+    uz-Latn: Aniq, oddiy foydalanuvchi interfeysi
+    ca: Una interfície d'usuari clara i simple
+    da: En ren og enkel brugerflade
+    ko: 깔끔하고 단순한 사용자 인터페이스
+    it: Una pulita, semplice interfaccia
+    fr: Une interface utilisateur claire et simple
+    ne: एक स्पष्ट, सरल यूआई
+    sl: Pregleden, enostaven vmesnik
+    sr-Cyrl: Једноставно, прегледно графичко сучеље
+    tr: Temiz, basit kullanıcı arayüzü
+    zh-Hans-CN: 简洁明了的用户界面
+    id: Antarmuka (UI) yang jelas dan sederhana
+    hi: एक स्पष्ट, सरल UI
+    fi: Selkeä ja yksinkertainen käyttöliittymä
+    ar: واجهة سهلة وبسيطة
+    lv: Vienkārša lietotāja saskarne
+    pl: Prosty interfejs użytkownika
+    pa: ਸਾਫ਼, ਸਧਾਰਨ UI
+    es: Una IU simple y limpia
+    sr-Latn: Jednostavno, pregledno grafičko sučelje
+    th: ส่วนติดต่อผู้ใช้ที่ชัดเจนและเรียบง่าย
+    nl: Een duidelijke en gemakkelijke gebruikersinterface
+    hu: Egyszerű, letisztult felület
+    ie: Un nett, simplic interfacie
+    cs: Čisté a jednoduché uživatelské rozhraní
+  thumbnails:
+  - url: org/gnome/Evince/356bf2bdea3e144b83cc5d5bcf111b98/screenshots/image-1_1248x681@1.png
+    width: 1248
+    height: 681
+  - url: org/gnome/Evince/356bf2bdea3e144b83cc5d5bcf111b98/screenshots/image-1_752x410@1.png
+    width: 752
+    height: 410
+  - url: org/gnome/Evince/356bf2bdea3e144b83cc5d5bcf111b98/screenshots/image-1_624x340@1.png
+    width: 624
+    height: 340
+  - url: org/gnome/Evince/356bf2bdea3e144b83cc5d5bcf111b98/screenshots/image-1_224x122@1.png
+    width: 224
+    height: 122
+  source-image:
+    url: org/gnome/Evince/356bf2bdea3e144b83cc5d5bcf111b98/screenshots/image-1_orig.png
+    width: 1388
+    height: 758
+- caption:
+    zh-Hant-TW: 進階標明與註解
+    kab: Asebruraq d uwennit leqqayen
+    vi: Thêm chú thích và tô sáng tiên tiến
+    he: פרשנות והדגשה מתקדמים
+    fur: Evidenziazion e notazion avanzade
+    eu: Nabarmentze eta oharren sortze aurreratua
+    ka: დამატებითი გამკვეთა და ანოტაცია
+    nb: Avansert fremheving og notering
+    ja: 高度なハイライトと注釈
+    de: Fortgeschrittene Hervorhebung und Anmerkungen
+    be-Cyrl: Пашыраныя магчымасці для маркіравання і стварэння нататак
+    bg: Допълнителни оцветяване и анотации
+    ms: Penyorotan dan catatan lanjutan
+    oc: Anotacion e suslinhatge avançats
+    pt: Anotação e realce avançados
+    ro: Evidențiere și adnotare avansată
+    pt-BR: Destaque e anotação avançada
+    my: အဆင့်မြင် အလင်းတင်ပြခြင်းနှင့် မှတ်စာရေးသားခြင်း
+    fa: افزودن حاشیه‌نویسی و نشانه‌گذاری
+    ru: Расширенное выделение и аннотация
+    gl: Anotación e realzado avanzado
+    en-GB: Advanced highlighting and annotation
+    C: Advanced highlighting and annotation
+    uk: Широкі можливості із позначення та анотування документів
+    kk-Cyrl: Кеңейтілген түрде түспен ерекшелеу және аңдатпаларды қосу
+    is: Ítarleg áherslulitun og glósur
+    lt: Sudėtingesnis paryškinimas bei anotavimas
+    sv: Avancerade färgmarkeringar och kommentarer
+    sk: Pokročilé zvýrazňovanie a pridávanie poznámok
+    el: Επισήμανση και σχολιασμός για προχωρημένους
+    hr: Napredno naglašavanje i bilježenje
+    uz-Latn: Kengaytirilgan ta'kidlash va izohlash
+    ca: Ressaltat avançat i anotacions
+    da: Avanceret fremhævning og annotering
+    ko: 발전된 강조 및 주석
+    it: Evidenziazione e annotazione avanzata
+    fr: Annotation et mise en surbrillance avancées
+    ne: उन्नत हाइलाइटिङ र एनोटेसन
+    sl: Napredno poudarjanje in dodajanje opomb
+    sr-Cyrl: Напредно истицање и обележивање
+    tr: Gelişmiş vurgulama ve açıklama
+    zh-Hans-CN: 高级突出显示和注释
+    id: Sorotan dan anotasi lanjutan
+    hi: उन्नत चिन्हांकन और व्याख्या
+    fi: Monipuolinen korostus ja huomioiden merkintä
+    ar: تأشير و تعليق متقدم
+    lv: Plašas izcelšanas un anotēšanas iespējas
+    pl: Zaawansowane zakreślanie i dodawanie przypisów
+    pa: ਤਕਨੀਕੀ ਉਭਾਰਨਾ ਅਤੇ ਵਿਆਖਿਆ
+    es: Resaltado avanzado y anotación
+    sr-Latn: Napredno isticanje i obeleživanje
+    th: เน้นและทำหมายเหตุขั้นสูง
+    nl: Geavanceerd markeren en annoteren
+    hu: Fejlett kiemelés és jegyzetek hozzáadása
+    eo: Alnivela emfazado kaj notado
+    cs: Pokročilé zvýrazňování a psaní poznámek
+  thumbnails:
+  - url: org/gnome/Evince/356bf2bdea3e144b83cc5d5bcf111b98/screenshots/image-2_1248x681@1.png
+    width: 1248
+    height: 681
+  - url: org/gnome/Evince/356bf2bdea3e144b83cc5d5bcf111b98/screenshots/image-2_752x410@1.png
+    width: 752
+    height: 410
+  - url: org/gnome/Evince/356bf2bdea3e144b83cc5d5bcf111b98/screenshots/image-2_624x340@1.png
+    width: 624
+    height: 340
+  - url: org/gnome/Evince/356bf2bdea3e144b83cc5d5bcf111b98/screenshots/image-2_224x122@1.png
+    width: 224
+    height: 122
+  source-image:
+    url: org/gnome/Evince/356bf2bdea3e144b83cc5d5bcf111b98/screenshots/image-2_orig.png
+    width: 1387
+    height: 757
+Languages:
+- locale: en_US
+  percentage: 100
+Releases:
+- version: 49~alpha
+  type: development
+  unix-timestamp: 1751155200
+  issues:
+  - id: '#1399'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1399
+  - id: '#1600'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1600
+  - id: '#2074'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/2074
+  - id: '#2093'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/2093
+  - id: '#2094'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/2094
+- version: 48~alpha
+  type: development
+  unix-timestamp: 1736553600
+  issues:
+  - id: '#7'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/7
+  - id: '#58'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/58
+  - id: '#706'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/706
+  - id: '#992'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/992
+  - id: '#1395'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1395
+  - id: '#1395'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1395
+  - id: '#1458'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1458
+  - id: '#1762'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1762
+  - id: '#1863'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1863
+  - id: '#1951'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1951
+  - id: '#1969'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1969
+  - id: '#1971'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1971
+  - id: '#1985'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1985
+  - id: '#1985'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1985
+  - id: '#1988'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1988
+  - id: '#1988'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1988
+  - id: '#1991'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1991
+  - id: '#1996'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/1996
+  - id: '#2000'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/2000
+  - id: '#2022'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/2022
+  - id: '#2024'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/2024
+  - id: '#2030'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/2030
+  - id: '#2035'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/2035
+  - id: '#2037'
+    url: https://gitlab.gnome.org/GNOME/evince/issues/2037
+- version: '46.1'
+  type: stable
+  unix-timestamp: 1714176000
+- version: '46.0'
+  type: stable
+  unix-timestamp: 1710547200
+ContentRating:
+  oars-1.1: {}
+---
+Type: desktop-application
+ID: org.gnome.Rhythmbox3.desktop
+Package: rhythmbox
+ProjectLicense: GPL-2.0+ and GFDL-1.3
+Name:
+  kk-Cyrl: Rhythmbox
+  nds: Rhythmbox
+  mn-Cyrl: Ритмбокс
+  az: Rhythmbox
+  oc: Rhythmbox
+  ie: Rhythmbox
+  zh-Hant-HK: Rhythmbox
+  ca-valencia: Rhythmbox
+  nb: RhythmBox
+  lv: Rhythmbox
+  sv: Rhythmbox
+  cs: Rhythmbox
+  nn: Rhythmbox
+  fa: ریتم‌باکس
+  ta: ரிதம் பெட்டி
+  sk: Rhythmbox
+  ru: Rhythmbox
+  br: Rhythmbox
+  C: Rhythmbox
+  be-Cyrl: Rhythmbox
+  mjw: Rhythmbox
+  bg: Rhythmbox
+  en-CA: Rhythmbox
+  el: Rhythmbox
+  sl: Rhythmbox
+  gd: Rhythmbox
+  is: Rhythmbox
+  ps: رېدمبکس
+  af: Rhythmbox
+  ar: أنغام
+  hr: Rhytmbox
+  ne: रिदमबक्स
+  it: Rhythmbox
+  pt: Rhythmbox
+  zh-Hans-CN: Rhythmbox
+  zh-Hant-TW: Rhythmbox
+  da: Rhythmbox
+  ka: Rhythmbox
+  be-Latn: Rhythmbox
+  eo: Rhythmbox
+  te: రిథమ్‌బాక్స్
+  hi: रिदमबॉक्स
+  kn: Rhythmbox
+  vi: Rhythmbox
+  ja: Rhythmbox
+  sr-Latn: Ritam mašina
+  hu: Rhythmbox
+  sr-Cyrl: Ритам машина
+  fr: Rhythmbox
+  tr: Rhythmbox
+  dz: རི་ཐམ་བོཀསི་
+  ko: 리듬박스
+  ro: Rhythmbox
+  cy: Rhythmbox
+  pl: Rhythmbox
+  ca: Rhythmbox
+  ms: Rhythmbox
+  pa: ਰੀਥਮਬਾਕਸ
+  en-GB: Rhythmbox
+  th: Rhythmbox
+  de: Rhythmbox
+  bn-IN: Rhythmbox
+  fi: Rytmilaatikko
+  es: Rhythmbox
+  uk: Rhythmbox
+  bs-Latn: Rhythmbox
+  et: Rhythmbox
+  lt: Rhythmbox
+  gl: Rhythmbox
+  fur: Rhythmbox
+  nl: Rhythmbox
+  id: Rhythmbox
+  si: රිදම්බෝක්ස්
+  ga: Rhythmbox
+  pt-BR: Rhythmbox
+  eu: Rhythmbox
+  mk: Rhythmbox
+Summary:
+  de: Ihre gesamte Musik wiedergeben und organisieren
+  sv: Spela och organisera all din musik
+  lv: Atskaņo un organizē visu savu mūziku
+  da: Afspil og organisér al din musik
+  be-Cyrl: Прайграе і арганізуе вашу музыку
+  pt: Reproduza e organize toda a sua música
+  zh-Hans-CN: 播放和组织您的所有音乐
+  it: Riproduce e organizza la collezione musicale
+  zh-Hant-TW: 播放與整理您所有的音樂收藏
+  tr: Tüm müziklerinizi çalın ve yönetin
+  lt: Grokite ir tvarkykite savo muziką
+  pl: Odtwarzanie i organizowanie muzyki
+  fr: Lire et organiser toute votre musique
+  oc: Legir e organizar tota vòstra musica
+  sl: Predvajajte in organizirajte svojo glasbbeno zbirko
+  ja: すべての音楽を再生・管理します
+  C: Play and organize all your music
+  uk: Відтворення та упорядкування усіх ваших музичних творів
+  hi: अपना सारे संगीत बजाएं और व्यवस्थित करें
+  id: Putar dan atur semua musik Anda
+  fi: Soita ja järjestä musiikkikokoelmasi
+  cs: Přehrávejte si a organizujte veškerou svoji hudbu
+  pt-BR: Reproduza e organize a sua coleção de música
+  ro: Redă și organizează toată muzica
+  hu: Az összes zenéjének lejátszása és rendszerezése
+  ka: დაუკარით და დააორგანიზეთ თქვენი მუსიკა
+  nl: Beluister en beheer al uw muziek
+  ru: Воспроизведение и упорядочение всей вашей музыкальной коллекции
+  ca: Reproduïu i organitzeu tota la música
+Description:
+  zh-Hant-TW: >-
+    <p>Rhythmbox 是音樂管理程式，其設計是要在 GNOME 桌面下良好運作。除了儲存在您電腦上的音樂之外，它還支援網路分享、Podcast、無線電臺串流、可攜式音樂裝置 (包括手機)、和網際網路音樂服務如 Last.fm 與 Magnatune。</p>
+
+    <p>Rhythmbox 是自由軟體，基於 GTK+ 與 GStreamer 建置，可透過由 Python 或 C 等語言撰寫的外掛程式擴充功能。</p>
+  bs-Latn: >-
+    <p>Rhythmbox je aplikacija za upravljanje muzikom, dizajniran da radi dobro na GNOME desktopu. Pored muzike sačuvane na
+    vašem računaru, ona podržava i dijeljenja mreže, podcaste, radio tokove, prenosive muzičke uređaje (uključujući telefone),
+    i internet muzičke servise kao što su Last.fm i Magnatune.</p>
+
+    <p>Rhythmbox je besplatan softver, baziran na GTK+ i GStreamer-u, i može se proširiti pluginima napisanim u Pythonu ili
+    C-u.</p>
+  vi: >-
+    <p>Rhythmbox là một ứng dụng quản lý nhạc, thiết kế để làm việc tốt trên môi trường máy tính GNOME. Ngoài việc nhạc lưu
+    trên máy tính của bạn, nó còn hỗ trợ chia sẻ qua mạng, podcats, luồng radio, thiết bị âm nhạc di động (bao gồm cả điện
+    thoại) và các dịch vụ âm nhạc trên internet như là Last.fm và Magnatune.</p>
+
+    <p>Rhythmbox là phần mềm miễn phí, dựa trên GTK+ và GStreamer, và được mở rộng thông qua các phần bổ xung viết bằng ngôn
+    ngữ Python hay C.</p>
+  eu: >-
+    <p>Rhythmbox musika kudeatzeko aplikazio bat da, GNOME mahaiganean ongi funtzionatzeko diseinatu dena. Zure ordenagailuan
+    gordetako musika erabiltzeaz gain, sareko musika, podcast-ak, irrati-korronteak, musika-gailu eramangarriak (telefonoak
+    barne) eta interneteko musika-zerbitzuak, adibidez Last.fm eta Magnatune, onartzen ditu.</p>
+
+    <p>Rhythmbox software librea da, GTK+ eta GStreamer programetan oinarritua, eta Python edo C lengoaietan idatzitako pluginen
+    bidez hedatu daiteke.</p>
+  nb: >-
+    <p>Rhythmbox er et program for håndtering av musikk og er designet for GNOME skrivebordet. I tillegg til musikk lagret
+    på din datamaskin støtter det delte nettverkslokasjoner, podcaster, radiostrømmer og portable musikkenheter (inklusive
+    telefoner) og musikktjenester på internett som Last.fm og Magnatune.</p>
+
+    <p>Rhythmbox er fri programvare basert på GTK+ og GStreamer og kan utvides via tillegg skrevet i Python eller C.</p>
+  ja: >-
+    <p>Rhythmbox は GNOME デスクトップ環境向けに設計された音楽管理アプリケーションです。コンピューターに保存された音楽に加えて、ネットワーク経由の共有、ポッドキャスト、ラジオストリーム、ポータブル音楽デバイス (スマートフォンを含む)、Last.fm
+    や Magnatune などのインターネット音楽サービスにも対応しています。</p>
+
+    <p>Rhythmbox は GTK+ と GStreamer をベースにしたフリーソフトウェアです。Python や C で書かれたプラグインによって拡張可能です。</p>
+  de: >-
+    <p>Rhythmbox ist ein Musikverwaltungsprogramm, welches konzipiert ist, um gut innerhalb der GNOME-Arbeitsumgebung zu laufen.
+    Über die Musik hinaus, die auf Ihrem Rechner gespeichert ist, unterstützt es Netzwerkfreigaben, »Podcasts«, Radiosendungen,
+    tragbare Musikgeräte (auch Telefone) und Internet-Musikdienste wie Last.fm und Magnatune.</p>
+
+    <p>Rhythmbox ist freie Software, basierend auf GTK+ und GStreamer. Es ist mit Zusatzmodulen erweiterbar, die in Python
+    oder C geschrieben sind.</p>
+  oc: >-
+    <p>Rhythmbox es una aplicacion de gestion de musica concebuda per s'integrar armoniosament al burèu GNOME. Amai de la
+    musica emmagazinada sus vòstre ordinator, gerís los partiments ret, los podcasts, los fluxes radiofonics, los lectors
+    àudios portables (incluses los telefòns), e los servicis de musica sus Internet coma Last.fm e Magnatune.</p>
+
+    <p>Rhythmbox es un logicial liure basat sus GTK+ e GStreamer ; es extensible per d'empeutons escriches en Python o en
+    C.</p>
+  pt: >-
+    <p>O Rhytmbox é uma aplicação de gestão de música desenhada para trabalhar bem nos ambientes de trabalho GNOME. Além de
+    armazenar música no seu computador, suporta partilhas de rede, podcasts, fluxos de rádio, dispositivos de música portáteis
+    (incluindo telefones) e serviços de música pela internet, tais como Last.fm e Magnatune.</p>
+
+    <p>Rhytmbox é uma aplicação livre, baseado em GTK+ e GStreamer e é extensivel com extensões escritas em Python ou C.</p>
+  gl: >-
+    <p>Rhythmbox é un aplicativo de xestión musical, deseñado para traballar no escritorio GNOME. Ademais da música gardada
+    no seu computador, tamén acepta comparticións de rede, fluxos de radio, dispositivos portátiles de música (incluídos teléfonos)
+    e servizos de música por internet tales como Last.fm e Magnatune.</p>
+
+    <p>Rhythmbox é software libre, baseado en GTK+ e GStreamer e ampliábel mediante engadidos escritos en Python ou C.</p>
+  pt-BR: >-
+    <p>Rhythmbox é um aplicativo de gerenciamento de músicas, projetado para funcionar bem sob o ambiente GNOME. Além de músicas
+    armazenadas em seu computador, há suporte a compartilhamentos de rede, podcasts, streams de rádio, dispositivos de música
+    portáteis (incluindo telefones), e serviços de músicas na Internet tal como Last.fm e Magnatune.</p>
+
+    <p>Rhythmbox é um software livre, baseado no GTK+ e GStreamer, e é extensível via plug-ins escritos em Python ou C.</p>
+  hr: >-
+    <p>Rhythmbox je aplikacija za upravljanje glazbom, dizajnirana tako da radi u GNOME radnom okruženju. Kao dodatak glazbi
+    spremljenoj na vašem računalu, podržava mrežno dijeljenje, podcaste, radio streamove, prijenosne glazbene uređaje (uključujući
+    mobitele) i internet glazbene usluge poput Last.fm i Magnatune.</p>
+
+    <p>Rhythmbox je slobodan softver, temeljen na GTK+ i GStreameru, i proširiv je putem priključaka napisanim u Pythonu ili
+    C.</p>
+  ru: >-
+    <p>Rhythmbox — это приложение для управления музыкой, предназначенное для работы в среде GNOME. В дополнение к музыке,
+    хранящейся на вашем компьютере, оно поддерживает работу по сети, подкасты, радио, портативные устройства (включая телефоны),
+    а также музыкальные интернет сервисы, такие как Last.fm и Magnatune.</p>
+
+    <p>Rhythmbox — это свободное программное обеспечение, основанное на GTK+ и GStreamer, и расширяемое с помощью модулей
+    написанных на Python или C.</p>
+  el: >-
+    <p>Το Rhythmbox είναι μια εφαρμογή διαχειρίσης της μουσικής σας, σχεδιασμένη να λειτουργεί άριστα στο GNOME. Εκτός από
+    τη μουσική που είναι αποθηκευμένη στον υπολογιστή σας, υποστηρίζει κοινόχρηστα δικτύου, ραδιοφωνικές ροές, φορητές συσκευές
+    μουσικής (και κινητά τηλέφωνα), και διαδικτυακές υπηρεσίες μουσικής όπως τα Last.fm και Magnatune.</p>
+
+    <p>Το Rhythmbox είναι ελεύθερο λογισμικό, βασισμένο στο GTK+ και το GStreamer, και είναι επεκτάσιμο με πρόσθετο γραμμένα
+    σε Python ή C.</p>
+  fr: >-
+    <p>Rhythmbox est une application de gestion de musique conçue pour s’intégrer harmonieusement au bureau GNOME. En plus
+    de la musique stockée sur votre ordinateur, elle gère les partages réseau, les podcasts, les flux radiophoniques, les
+    lecteurs audio portables (y compris les téléphones), et les services de musique sur Internet comme Last.fm et Magnatune.</p>
+
+    <p>Rhythmbox est un logiciel libre basé sur GTK+ et GStreamer ; il est extensible par des greffons écrits en Python ou
+    en C.</p>
+  C: >-
+    <p>
+          Rhythmbox is a music management application, designed to work well under the GNOME
+          desktop. In addition to music stored on your computer, it supports network shares,
+          podcasts, radio streams, portable music devices (including phones), and internet music
+          services such as Last.fm and Magnatune.
+        </p>
+    <p>
+          Rhythmbox is Free software, based on GTK+ and GStreamer, and is extensible via plugins
+          written in Python or C.
+        </p>
+  ro: >-
+    <p>Rhythmbox este o aplicație de administrare a muzicii, concepută pentru a funcționa bine sub mediul de desktop GNOME.
+    Pe lângă muzica stocată pe calculatorul dumneavoastră, suportă partajări de rețea, podcasturi, fluxuri radio, dispozitive
+    portabile de muzică (inclusiv telefoane) și servicii de muzică pe internet cum ar fi Last.fm și Magnatune.</p>
+
+    <p>Rhythmbox este program liber, bazat pe GTK+ și GStreamer, și este extensibil prin module scrise în Python sau C.</p>
+  uk: >-
+    <p>Rhythmbox — програма для керування музичними даними, яку тісно інтегровано до стільниці GNOME. Окрім роботи із музичними
+    файлами, які зберігаються на вашому комп'ютері, у програмі передбачено підтримку роботи зі спільними ресурсами у мережі,
+    подкастами, потоками радіотрансляцій, портативними музичними пристроями (включно із телефонами) та музичними службами
+    у інтернеті, зокрема Last.fm і Magnatune.</p>
+
+    <p>Rhythmbox є вільним програмним забезпеченням, заснованим на GTK+ і GStreamer, можливості якого можна розширити за допомогою
+    додатків мовами Python і C.</p>
+  lt: >-
+    <p>Rhythmbox yra muzikos tvarkymo programa, sukurta taip, kad gerai veiktų GNOME darbalaukyje. Be jūsų kompiuteryje esančios
+    muzikos ji palaiko tinklo viešinius, tiklalaides, radijo srautus, nešiojamus muzikos įrenginius (įskaitant telefonus)
+    bei internetines muzikos tarnybas, tokias kaip Last.fm ir Magnatune.</p>
+
+    <p>Rhythmbox yra laisva programinė įranga, sukurta GTK+ ir GStreamer pagrindu, bei yra plečiama įskiepiais, parašytais
+    Python arba C kalbomis.</p>
+  sv: >-
+    <p>Rhythmbox är ett program för musikhantering, designat för att fungera bra i skrivbordsmiljön GNOME. Förutom musik lagrad
+    på din dator stöder det nätverksutdelningar, poddsändningar, radioströmmar, portabla musikenheter (inklusive mobiler)
+    och musiktjänster på internet som Last.fm och Magnatune.</p>
+
+    <p>Rhythmbox är fri programvara, baserad på GTK+ och GStreamer, och är utökningsbar genom insticksmoduler skrivna i Python
+    eller C.</p>
+  be-Cyrl: >-
+    <p>Rhythmbox — гэта праграма для кіравання музыкай, распрацаваная для працы ў асяроддзі GNOME. У дадатак да музыкі, якая
+    захоўваецца на вашым камп'ютары, падтрымліваюцца сеткавыя рэсурсы, падкасты, радыёперадачы, партатыўныя музычныя прылады
+    (у тым ліку тэлефоны) і разнастайныя музычныя інтэрнэт-сэрвісы, напрыклад, Last.fm і Magnatune.</p>
+
+    <p>Rhythmbox — свабоднае праграмнае забеспячэнне, заснаванае на GTK+ і GStreamer і з магчымасцю падлучэння плагінаў, напісаных
+    на Python або C.</p>
+  sk: >-
+    <p>Rhythmbox je aplikácia na správu hudby navrhnutá tak, aby fungovala bezchybne v prostredí GNOME. Podporuje nielen hudobnú
+    zbierku vo vašom počítači, ale tiež sprístupnenie v sieti, podcasty, rádiové prúdy, prenosné hudobné zariadenia (vrátane
+    telefónov) a internetové hudobné služby ako Last.fm a Magnatune.</p>
+
+    <p>Rhythmbox je slobodný softvér založený na knižnici GTK+ a GStreamer a rozšíriteľný pomocou zásuvných modulov vytvorených
+    v jazyku Python alebo C.</p>
+  ca: >-
+    <p>El Rhytmbox és una aplicació de gestió de música dissenyada per a treballar amb l'escriptori GNOME. A més de gestionar
+    la música que teniu al vostre ordinador, és compatible amb la compartició en xarxa, podcasts, flux de ràdio, dispositius
+    de música portable (inclosos telèfons) i serveis de música d'Internet com Last.fm o Magnatune.</p>
+
+    <p>El Rhythmbox és programari lliure, basat en GTK+ i GStreamer, i és extensible mitjançant connectors escrits en Python
+    o C.</p>
+  da: >-
+    <p>Rhythmbox er et musikhåndteringsprogram som er designet med særligt henblik på GNOME-skrivebordet. Ud over musikken
+    på din computer, understøtter Rhythmbox netværksdelinger, podcast, radiostrømme, transportable musikafspillere (inklusive
+    telefoner) samt internettjenester såsom Last.fm og Magnatune.</p>
+
+    <p>Rhythmbox er fri software baseret på GTK+ og GStreamer, og kan udvides med moduler skrevet i Python eller C.</p>
+  ko: >-
+    <p>리듬박스는 그놈 데스크톱에서 잘 동작하도록 설계한 음악 관리 프로그램입니다. 컴퓨터에 저장한 음악 파일에 대해 네트워크 공유, 팟캐스트, 라디오 스트리밍, 휴대용 음악 재생 장치(폰 포함), Last.fm
+    및 Magnatune과 같은 인터넷 음악 서비스를 지원합니다.</p>
+
+    <p>리듬 박스는 GTK+와 지스트리머를 기반으로 한 자유 소프트웨어이며, 파이썬 또는 C로 작성한 플러그인으로 기능을 확장할 수 있습니다.</p>
+  it: >-
+    <p>Rhythmbox è un'applicazione per la gestione della musica, progettata per integrarsi nell'ambiente grafico GNOME. Oltre
+    alla musica archiviata nel proprio computer, supporta condivisioni di rete, podcast, radio, dispositivi portatili (compresi
+    telefonini) e servizi musicali su Internet come Last.fm e Magnatune.</p>
+
+    <p>Rhythmbox è software libero basato su GTK+ e GStreamer ed è possibile estenderne le funzionalità attraverso plugin
+    scritti in Python o C.</p>
+  es: >-
+    <p>Rhythmbox es una aplicación de gestión de música diseñada para funcionar bien en el escritorio GNOME. Además de la
+    música guardada en su equipo, soporta comparticiones de red, podcasts, flujos de radio, dispositivos de música portátil
+    (incluyendo los teléfonos) y servicios de música por Internet, tales como Last.fm y Magnatune.</p>
+
+    <p>Rhythmbox es software libre, basado en GTK+ y GStreamer, y se puede ampliar mediante complementos escritos en Python
+    o en C.</p>
+  hi: >-
+    <p>रिदमबॉक्स एक संगीत प्रबंधन एप्लिकेशन है, जिसे गनोम डेस्कटॉप के तहत अच्छी तरह से काम करने के लिए डिज़ाइन किया गया है।
+    आपके कंप्यूटर पर संग्रहीत संगीत के अलावा, यह नेटवर्क शेयर, पॉडकास्ट, रेडियो स्ट्रीम, पोर्टेबल संगीत डिवाइस (फोन सहित)
+    और Last.fm और Magnatune जैसी इंटरनेट संगीत सेवाओं का समर्थन करता है।</p>
+
+    <p>रिदमबॉक्स एक निःशुल्क सॉफ्टवेयर है, जो GTK+ और GStreamer पर आधारित है, तथा इसे पायथन या C में लिखे प्लगइन्स के माध्यम
+    से विस्तारित किया जा सकता है।</p>
+  sr-Cyrl: >-
+    <p>Ритам машина је програм за управљање музиком, осмишљен да ради лепо под Гномовом радном површи. Поред музике ускладиштене
+    на вашем рачунару, подржава мрежна дељења, подемисије, радио токове, преносне музичке уређаје (укључујући телефоне), и
+    интернетне услуге музике као што су Ласт.фм и Мегатјун.</p>
+
+    <p>Ритам машина је слободан софтвер, заснован на Гтк+ и Гстримеру, и може се проширити прикључцима писаним у Питону или
+    Ц-у.</p>
+  tr: >-
+    <p>Rhythmbox GNOME masaüstünde iyi çalışmak üzere tasarlanmış müzik yönetim uygulamasıdır. Bilgisayarınzda kayıtlı müziğe
+    ek olarak, ağ paylaşımlarını, ortam akışları, radyo akışlarını, taşınabilir müzik aygıtlarını (telefonlar dahil), ve Last.fm
+    ve Magnatune gibi internet müzik hizmetlerini de destekler.</p>
+
+    <p>Rhythmbox GTK+ ve GStreamer temelli Özgür yazılımdır, ve Python veya C ile yazılan eklentilerle geliştirilebilir.</p>
+  zh-Hans-CN: >-
+    <p>Rhythmbox 是一个音乐管理应用程序，主要用于 GNOME 桌面环境。除了在计算机上存储音乐，也支持网络共享，播客，电台，便携式音乐设备（包括手机），和互联网音乐服务，例如 Last.fm 和 Magnatune。</p>
+
+    <p>Rhythmbox 是自由软件，基于 GTK+ 和 GStreamer 框架，可以通过 Python 或 C 插件扩展。</p>
+  id: >-
+    <p>Rhythmbox adalah sebuah aplikasi manajemen musik, dirancang untuk bekerja baik di bawah desktop GNOME. Selain musik
+    yang disimpan pada komputer Anda, itu mendukung berbagi pakai jaringan, siniar, stream radio, perangkat musik portabel
+    (termasuk telepon), dan layanan musik internet seperti Last.fm dan Magnatune.</p>
+
+    <p>Rhythmbox adalah Perangkat lunak bebas, berbasis pada GTK+ dan GStreamer, dan dapat dikembangkan melalui pengaya yang
+    ditulis dalam Python atau C.</p>
+  sl: >-
+    <p>Rhythmbox je program za upravljanje glasbe, ki je zasnovan tako, da dobro deluje na namizju GNOME. Poleg glasbe, shranjene
+    na računalniku, podpira tudi omrežne mape, poddaje, radijske tokove, prenosne glasbene naprave (vključno s telefoni) in
+    internetne glasbene storitve, kot sta Last.fm in Magnatune.</p>
+
+    <p>Rhythmbox je prosto programje, ki temelji na GTK+ in GStreamer in ki ga je moč nadgrajevati z uporabo vstavkov, napisanih
+    v jezikih Python in C.</p>
+  fi: >-
+    <p>Rytmilaatikko on sovellus musiikin hallintaan. Se tukee paikallisten tiedostojen lisäksi verkkojakoja, podcasteja,
+    radiosuoratoistoja, kannettavia musiikkilaitteita (mukaan lukien puhelimia) ja internetpalveluita kuten Last.fm ja Magnatune.</p>
+
+    <p>Rytmilaatikko on vapaa ja avoin ohjelmisto, joka pohjautuu GTK+:aan ja Gstreameriin. Rytmilaatikko on ohjelmoitu käyttäen
+    Pythonia ja C:tä. Laajennuksilla on mahdollista lisätä toiminnalisuuksia Rytmilaatikkoon.</p>
+  lv: >-
+    <p>Rhythmbox ir mūzikas pārvaldības lietotne, kas veidota darbam GNOME vidē. Tā atbalsta ne tikai uz datora saglabātu
+    mūziku, bet arī tīkla koplietojumus, raidierakstus, radio straumējumus, pārnēsājamās mūzikas ierīces (tai skaitā tālruņus)
+    un interneta mūzikas pakalpojumus, piemēram, Last.fm un Magnatune.</p>
+
+    <p>Rhythmbox ir brīvā programmatūra, kas ir balstīta uz GTK+ un GStreamer, un tā ir paplašināma ar Python un C valodās
+    rakstītiem spraudņiem.</p>
+  hu: >-
+    <p>A Rhythmbox egy GNOME környezetbeli működésre tervezett zenekezelő alkalmazás. A számítógépén tárolt zenén túl támogatja
+    a hálózati megosztásokat, podcastokat, rádióközvetítéseket, hordozható zenelejátszókat (telefonokat is) és olyan internetes
+    zenei szolgáltatásokat, mint a Last.fm és Magnatune.</p>
+
+    <p>A Rhythmbox szabad szoftver, a GTK+ és GStreamer használatával készült, és Python vagy C nyelvű bővítményekkel bővíthető.</p>
+  en-GB: >-
+    <p>Rhythmbox is a music management application, designed to work well under the GNOME desktop. In addition to music stored
+    on your computer, it supports network shares, podcasts, radio streams, portable music devices (including phones), and
+    internet music services such as Last.fm and Magnatune.</p>
+
+    <p>Rhythmbox is Free software, based on GTK+ and GStreamer, and is extensible via plugins written in Python or C.</p>
+  pl: >-
+    <p>Rhythmbox to program do zarządzania muzyką, zaprojektowany do działania w środowisku GNOME. Oprócz muzyki przechowywanej
+    na komputerze obsługuje on także muzykę udostępnianą w sieci, podcasty, radio internetowe, przenośne odtwarzacze muzyki
+    (w tym smartfony) oraz serwisy internetowe Last.fm i Magnatune.</p>
+
+    <p>Rhythmbox jest wolnym oprogramowaniem, opartym na bibliotekach GTK i GStreamer, i jest rozszerzalny dzięki mechanizmowi
+    wtyczek napisanych w językach Python i C.</p>
+  sr-Latn: >-
+    <p>Ritam mašina je program za upravljanje muzikom, osmišljen da radi lepo pod Gnomovom radnom površi. Pored muzike uskladištene
+    na vašem računaru, podržava mrežna deljenja, podemisije, radio tokove, prenosne muzičke uređaje (uključujući telefone),
+    i internetne usluge muzike kao što su Last.fm i Megatjun.</p>
+
+    <p>Ritam mašina je slobodan softver, zasnovan na Gtk+ i Gstrimeru, i može se proširiti priključcima pisanim u Pitonu ili
+    C-u.</p>
+  th: >-
+    <p>Rhythmbox เป็นโปรแกรมจัดการเพลง และออกแบบมาเพื่อทำงานร่วมกับ GNOME นอกเหนือจากการจัดเก็บเพลงแล้ว โปรแกรมดังกล่าวยังสนับสนุนการแชร์บนเครือข่าย
+    พอดแคสต์ วิทยุออนไลน์ รวมไปถึงเครื่องเล่นเพลงแบบพกพา (รวมถึง โทรศัพท์มือถือ) และบริการเพลงบนอินเตอร์เน็ต อย่างเช่น Last.fm
+    และ Magnatune</p>
+
+    <p>Rhythmbox เป็นโปรแกรมฟรี ที่พัฒนาด้วย GTK+ และ GStreamer และสนับสนุนโปรแกรมเสริมที่พัฒนาโดยภาษา Python หรือ C</p>
+  gd: >-
+    <p>Cuiridh tu rian air a' cheòl agad le Rhythmbox 's a chaidh a dhealbhadh ach an obraich e gu ma air an deasg GNOME.
+    A bharrachd air a' cheòl a tha air a' choimpiutair agad, cuiridh e taic ri co-roinneadh lìonraidh, pod-chraoladh, sruthadh
+    rèidio, uidheaman ciùil so-ghiùlan (a' gabhail a-steach fònaichean) agus seirbheisean ciùil air loidhne mar Last.fm agus
+    Magnatune.</p>
+
+    <p>'S e bathar-bog saor a tha sa Rhythmbox 's tha e stèidhichte air GTK+ agus GStreamer. Gabhaidh a leudachadh le plugain
+    a ghabhas sgrìobhadh ann an Python no C.</p>
+  nl: >-
+    <p>Rhythmbox is een muziekbeheerprogramma, ontworpen om goed te werken in de GNOME-werkomgeving. Naast muziek die op uw
+    computer is opgeslagen ondersteunt Rhythmbox in een netwerk gedeelde bestanden, podcasts, radiostreams, draagbare muziekapparaten
+    (inclusief telefoons) en muziekdiensten op het internet zoals Last.fm en Magnatune.</p>
+
+    <p>Rhythmbox is vrije software, gebaseerd op GTK+ en GStreamer, en is uit te breiden via plug-ins geschreven in Python
+    of C.</p>
+  eo: >-
+    <p>Rhythmnox estas muzika mastruma aplikaĵo kiu funkcias bone en la GNOME labortablo. Krom muzikon sur via komputilo,
+    ĝi subtenas retdividejojn, podkastojn, radiofluojn, porteblajn muzikaparatojn (inkluzive telefonojn), kaj retajn muzikservojn
+    kiel Last.fm kaj Magnatune.</p>
+
+    <p>Rhythmbox estas libera programaro, bazita sur GTK+ kaj GStreamer, kaj ĝi estas etendebla per Python- kaj C-kromprogramoj.</p>
+  cs: >-
+    <p>Rhythmbox je aplikace sloužící ke správě hudby a je navržena pro pracovní prostředí GNOME. Mimo hudby uložené ve vašem
+    počítači podporuje také síťové sdílení, podcasty, vysílání rádií, přenosné přehrávače (včetně mobilních telefonů) a internetové
+    hudební služby, jako je Last.fm a Magnatune.</p>
+
+    <p>Rhythmbox je svobodný software používající GTK+ a GStreamer a je rozšiřitelný pomocí zásuvných modulů psaných v jazycích
+    Python nebo C.</p>
+ProjectGroup: GNOME
+Developer:
+  id: org.gnome
+  name:
+    C: The Rhythmbox developers
+Categories:
+- AudioVideo
+- Audio
+- Player
+Keywords:
+  ar_YE:
+  - صوت
+  - صوتيات
+  - اغاني
+  - أغاني
+  - ام بي ثري
+  - إم بي ثري
+  - قرص
+  - قرص مرن
+  - بث صوتي
+  - نشرة صوتية
+  - نشرات صوتية
+  - ايبود
+  - أيبود
+  - قائمة تشغيل
+  - راديو
+  ar_IN:
+  - صوت
+  - صوتيات
+  - اغاني
+  - أغاني
+  - ام بي ثري
+  - إم بي ثري
+  - قرص
+  - قرص مرن
+  - بث صوتي
+  - نشرة صوتية
+  - نشرات صوتية
+  - ايبود
+  - أيبود
+  - قائمة تشغيل
+  - راديو
+  fr_CA:
+  - Audio
+  - chanson
+  - musique
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - liste de lecture
+  - Last.fm
+  - UPnP
+  - DLNA
+  - radio
+  es_MX:
+  - Sonido
+  - Canción
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Lista de reproducción
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  it_CH:
+  - Audio
+  - Suono
+  - Musica
+  - Canzone
+  - Canzoni
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Playlist
+  - last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  fa_IR:
+  - Audio
+  - Song
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Playlist
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  - صدا
+  - آهنگ
+  - سی‌دی
+  - پادکست
+  - فهرست‌پخش
+  - رادیو
+  da_DK:
+  - Lyd
+  - Audio
+  - Sang
+  - Musik
+  - MP3
+  - cd
+  - Podcast
+  - MTP
+  - iPod
+  - Afspilningsliste
+  - Spilleliste
+  - Playlist
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  sl_SI:
+  - zvok
+  - skladbe
+  - pesmi
+  - glasba
+  - MP3
+  - CD
+  - podcast
+  - MTP
+  - iPod
+  - seznam predvajanja
+  - Last.fm
+  - UPnP
+  - DLNA
+  - radio
+  ca_ES:
+  - Audio
+  - Cançó
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Llista de reproducció
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Ràdio
+  es_PR:
+  - Sonido
+  - Canción
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Lista de reproducción
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  nl_BE:
+  - audio
+  - liedje
+  - muziek
+  - mp3
+  - podcast
+  - ipod
+  - afspeellijst
+  - radio
+  - last.fm
+  - cd
+  - upnp
+  - dlna
+  - mtp
+  de_DE:
+  - Audio
+  - Musik
+  - Lied
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Wiedergabeliste
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  ar_SD:
+  - صوت
+  - صوتيات
+  - اغاني
+  - أغاني
+  - ام بي ثري
+  - إم بي ثري
+  - قرص
+  - قرص مرن
+  - بث صوتي
+  - نشرة صوتية
+  - نشرات صوتية
+  - ايبود
+  - أيبود
+  - قائمة تشغيل
+  - راديو
+  C:
+  - Audio
+  - Song
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Playlist
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  de_LU:
+  - Audio
+  - Musik
+  - Lied
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Wiedergabeliste
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  vi_VN:
+  - Audio
+  - âm
+  - am
+  - thanh
+  - nhạc
+  - nhac
+  - Song
+  - Hát
+  - hat
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Playlist
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  - Đài
+  - dai
+  sv_SE:
+  - Ljud
+  - Låt
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Spellista
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  fr_LU:
+  - Audio
+  - chanson
+  - musique
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - liste de lecture
+  - Last.fm
+  - UPnP
+  - DLNA
+  - radio
+  pl_PL:
+  - Dźwięk
+  - Audio
+  - Piosenka
+  - Utwór
+  - MP3
+  - Ogg
+  - Vorbis
+  - FLAC
+  - CD
+  - Płyta
+  - Podcast
+  - Podkasty
+  - MTP
+  - iPod
+  - Playlista
+  - Lista
+  - odtwarzania
+  - M3U
+  - PLS
+  - XSPF
+  - Last.fm
+  - Libre.fm
+  - Lastfm
+  - Librefm
+  - Magnatune
+  - SoundCloud
+  - UPnP
+  - DLNA
+  - DAAP
+  - MPRIS
+  - LIRC
+  - ReplayGain
+  - Radio
+  sv_FI:
+  - Ljud
+  - Låt
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Spellista
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  ca_IT:
+  - Audio
+  - Cançó
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Llista de reproducció
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Ràdio
+  oc_FR:
+  - Àudio
+  - cançon
+  - musica
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - lista de lectura
+  - Last.fm
+  - UPnP
+  - DLNA
+  - ràdio
+  ko_KR:
+  - Audio
+  - 오디오
+  - Song
+  - 노래
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Playlist
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  ar_SA:
+  - صوت
+  - صوتيات
+  - اغاني
+  - أغاني
+  - ام بي ثري
+  - إم بي ثري
+  - قرص
+  - قرص مرن
+  - بث صوتي
+  - نشرة صوتية
+  - نشرات صوتية
+  - ايبود
+  - أيبود
+  - قائمة تشغيل
+  - راديو
+  ar_QA:
+  - صوت
+  - صوتيات
+  - اغاني
+  - أغاني
+  - ام بي ثري
+  - إم بي ثري
+  - قرص
+  - قرص مرن
+  - بث صوتي
+  - نشرة صوتية
+  - نشرات صوتية
+  - ايبود
+  - أيبود
+  - قائمة تشغيل
+  - راديو
+  es_ES:
+  - Sonido
+  - Canción
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Lista de reproducción
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  ms_MY:
+  - Audio
+  - Lagu
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - SenaraiMain
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  es_GT:
+  - Sonido
+  - Canción
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Lista de reproducción
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  ca_FR:
+  - Audio
+  - Cançó
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Llista de reproducció
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Ràdio
+  de_IT:
+  - Audio
+  - Musik
+  - Lied
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Wiedergabeliste
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  ar_BH:
+  - صوت
+  - صوتيات
+  - اغاني
+  - أغاني
+  - ام بي ثري
+  - إم بي ثري
+  - قرص
+  - قرص مرن
+  - بث صوتي
+  - نشرة صوتية
+  - نشرات صوتية
+  - ايبود
+  - أيبود
+  - قائمة تشغيل
+  - راديو
+  br_FR:
+  - Aodio
+  - son
+  - MP3
+  - podskignañ
+  - MTP
+  - iPod
+  - roll lenn
+  - Last.fm
+  - UPnP
+  - DNLA
+  - Skingomz
+  tr_TR:
+  - Ses
+  - Şarkı
+  - Parça
+  - MP3
+  - CD
+  - Podcast
+  - Ortam Akışı
+  - MTP
+  - iPod
+  - Çalma Listesi
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radyo
+  ru_RU:
+  - Аудио
+  - Звук
+  - Песня
+  - Композиция
+  - MP3
+  - CD
+  - Подкаст
+  - MTP
+  - iPod
+  - Плейлист
+  - Список
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Радио
+  eo_US:
+  - Aŭdo
+  - Sono
+  - Kanto
+  - MP3
+  - KD
+  - Podkasto
+  - MTP
+  - iPod
+  - Ludlisto
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  ja_JP:
+  - Audio
+  - Song
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Playlist
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  - オーディオ
+  - 音声
+  - 楽曲
+  - 音楽
+  - ミュージック
+  - 歌
+  - ソング
+  - ポッドキャスト
+  - プレイリスト
+  - ユニバーサルプラグアンドプレイ
+  - ラジオ
+  - musicplayer
+  fur_IT:
+  - Audio
+  - Cjançon
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - liste
+  - musichis
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  es_HN:
+  - Sonido
+  - Canción
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Lista de reproducción
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  sr_RS:
+  - Audio
+  - Song
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Playlist
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  - pesma
+  - zvuk
+  - podkast
+  - spisak numera
+  - ajPod
+  - песма
+  - звук
+  - МП3
+  - ЦД
+  - подкаст
+  - МТП
+  - ајПод
+  - списак нумера
+  - Ласт.фм
+  - УПнП
+  - ДЛНА
+  - радио
+  ar_MA:
+  - صوت
+  - صوتيات
+  - اغاني
+  - أغاني
+  - ام بي ثري
+  - إم بي ثري
+  - قرص
+  - قرص مرن
+  - بث صوتي
+  - نشرة صوتية
+  - نشرات صوتية
+  - ايبود
+  - أيبود
+  - قائمة تشغيل
+  - راديو
+  es_AR:
+  - Sonido
+  - Canción
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Lista de reproducción
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  ar_LB:
+  - صوت
+  - صوتيات
+  - اغاني
+  - أغاني
+  - ام بي ثري
+  - إم بي ثري
+  - قرص
+  - قرص مرن
+  - بث صوتي
+  - نشرة صوتية
+  - نشرات صوتية
+  - ايبود
+  - أيبود
+  - قائمة تشغيل
+  - راديو
+  tr_CY:
+  - Ses
+  - Şarkı
+  - Parça
+  - MP3
+  - CD
+  - Podcast
+  - Ortam Akışı
+  - MTP
+  - iPod
+  - Çalma Listesi
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radyo
+  es_CR:
+  - Sonido
+  - Canción
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Lista de reproducción
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  de_AT:
+  - Audio
+  - Musik
+  - Lied
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Wiedergabeliste
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  es_DO:
+  - Sonido
+  - Canción
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Lista de reproducción
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  ro_RO:
+  - Audio
+  - Song
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Playlist
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  - Piesă
+  - Listă
+  es_NI:
+  - Sonido
+  - Canción
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Lista de reproducción
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  nl_AW:
+  - audio
+  - liedje
+  - muziek
+  - mp3
+  - podcast
+  - ipod
+  - afspeellijst
+  - radio
+  - last.fm
+  - cd
+  - upnp
+  - dlna
+  - mtp
+  fr_FR:
+  - Audio
+  - chanson
+  - musique
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - liste de lecture
+  - Last.fm
+  - UPnP
+  - DLNA
+  - radio
+  de_LI:
+  - Audio
+  - Musik
+  - Lied
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Wiedergabeliste
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  pt_PT:
+  - Áudio
+  - Canção
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Lista de reprodução
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Rádio
+  lt_LT:
+  - Garsas
+  - Daina
+  - MP3
+  - CD
+  - Tinklalaidė
+  - MTP
+  - iPod
+  - Grojaraštis
+  - Last.fm
+  - UpnP
+  - DLNA
+  - Radijas
+  hu_HU:
+  - Hang
+  - Zene
+  - Dal
+  - Szám
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Lejátszólista
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Rádió
+  es_BO:
+  - Sonido
+  - Canción
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Lista de reproducción
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  eo:
+  - Aŭdo
+  - Sono
+  - Kanto
+  - MP3
+  - KD
+  - Podkasto
+  - MTP
+  - iPod
+  - Ludlisto
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  es_CO:
+  - Sonido
+  - Canción
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Lista de reproducción
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  gd_GB:
+  - Audio
+  - Song
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Playlist
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  - fuaime
+  - òran
+  - òrain
+  - pod-chraoladh
+  - rèidio
+  it_IT:
+  - Audio
+  - Suono
+  - Musica
+  - Canzone
+  - Canzoni
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Playlist
+  - last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  es_PE:
+  - Sonido
+  - Canción
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Lista de reproducción
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  es_CU:
+  - Sonido
+  - Canción
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Lista de reproducción
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  gl_ES:
+  - Son
+  - Canción
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Lista de reprodución
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  ar_LY:
+  - صوت
+  - صوتيات
+  - اغاني
+  - أغاني
+  - ام بي ثري
+  - إم بي ثري
+  - قرص
+  - قرص مرن
+  - بث صوتي
+  - نشرة صوتية
+  - نشرات صوتية
+  - ايبود
+  - أيبود
+  - قائمة تشغيل
+  - راديو
+  ar_AE:
+  - صوت
+  - صوتيات
+  - اغاني
+  - أغاني
+  - ام بي ثري
+  - إم بي ثري
+  - قرص
+  - قرص مرن
+  - بث صوتي
+  - نشرة صوتية
+  - نشرات صوتية
+  - ايبود
+  - أيبود
+  - قائمة تشغيل
+  - راديو
+  cs_CZ:
+  - audio
+  - zvuk
+  - skladba
+  - hudba
+  - písnička
+  - MP3
+  - CD
+  - podcast
+  - MTP
+  - přenosný přehrávač
+  - iPod
+  - seznam skladeb
+  - Last.fm
+  - UPnP
+  - DLNA
+  - rádio
+  zh_HK:
+  - Audio
+  - Song
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Playlist
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  - 音訊
+  - 音樂
+  - 歌曲
+  - 歌
+  - 播客
+  - 唱片
+  - 播放清單
+  - 電臺
+  - 電台
+  - 廣播
+  ar_JO:
+  - صوت
+  - صوتيات
+  - اغاني
+  - أغاني
+  - ام بي ثري
+  - إم بي ثري
+  - قرص
+  - قرص مرن
+  - بث صوتي
+  - نشرة صوتية
+  - نشرات صوتية
+  - ايبود
+  - أيبود
+  - قائمة تشغيل
+  - راديو
+  is_IS:
+  - Hljóð
+  - Lag:MP3
+  - CD
+  - Hlaðvarp
+  - MTP
+  - iPod
+  - Lagalisti,Last.fm
+  - UPnP
+  - DLNA
+  - Útvarp
+  zh_CN:
+  - Audio
+  - Song
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Playlist
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  - 音频
+  - 音乐
+  - 歌曲
+  - 光盘
+  - 播客
+  - 播放列表
+  - 电台
+  es_CL:
+  - Sonido
+  - Canción
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Lista de reproducción
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  th_TH:
+  - แฟ้มเสียง
+  - เพลง
+  - MP3
+  - ซีดี
+  - พอดแคสต์
+  - MTP
+  - ไอพอด
+  - คิวเพลง
+  - Last.fm
+  - UPnP
+  - DLNA
+  - วิทยุ
+  es_PA:
+  - Sonido
+  - Canción
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Lista de reproducción
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  si_LK:
+  - ශ්‍රව්‍ය
+  - ගීත
+  - එම්පීත්‍රී
+  - සීඩී
+  - පොඩ්කාස්ට්
+  - MTP
+  - අයිපොඩ්
+  - ' ගීතලැයිස්තුව'
+  - Last.fm
+  - UPnP
+  - DLNA
+  - රේඩියෝ
+  ar_EG:
+  - صوت
+  - صوتيات
+  - اغاني
+  - أغاني
+  - ام بي ثري
+  - إم بي ثري
+  - قرص
+  - قرص مرن
+  - بث صوتي
+  - نشرة صوتية
+  - نشرات صوتية
+  - ايبود
+  - أيبود
+  - قائمة تشغيل
+  - راديو
+  ar_KW:
+  - صوت
+  - صوتيات
+  - اغاني
+  - أغاني
+  - ام بي ثري
+  - إم بي ثري
+  - قرص
+  - قرص مرن
+  - بث صوتي
+  - نشرة صوتية
+  - نشرات صوتية
+  - ايبود
+  - أيبود
+  - قائمة تشغيل
+  - راديو
+  eu_FR:
+  - Audioa
+  - Abestia
+  - MP3
+  - CD
+  - Podcast-a
+  - MTP
+  - iPod
+  - Erreprodukzio-zerrenda
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Irratia
+  ar_DZ:
+  - صوت
+  - صوتيات
+  - اغاني
+  - أغاني
+  - ام بي ثري
+  - إم بي ثري
+  - قرص
+  - قرص مرن
+  - بث صوتي
+  - نشرة صوتية
+  - نشرات صوتية
+  - ايبود
+  - أيبود
+  - قائمة تشغيل
+  - راديو
+  eu_ES:
+  - Audioa
+  - Abestia
+  - MP3
+  - CD
+  - Podcast-a
+  - MTP
+  - iPod
+  - Erreprodukzio-zerrenda
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Irratia
+  be_BY:
+  - Аудыё
+  - Гук
+  - MP3
+  - CD
+  - Падкаст
+  - MTP
+  - iPod
+  - Спіс
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Радыё
+  uk_UA:
+  - Audio
+  - Song
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Playlist
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  - звук
+  - пісня
+  - пісні
+  - мп3
+  - подкаст
+  - іпод
+  - список відтворення
+  - відтворення
+  - ласт.фм
+  - длна
+  - радіо
+  nb_NO:
+  - Lyd
+  - Sang
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Spilleliste
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  ca_ES@valencia:
+  - Audio
+  - Cançó
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Llista de reproducció
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Ràdio
+  fr_CH:
+  - Audio
+  - chanson
+  - musique
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - liste de lecture
+  - Last.fm
+  - UPnP
+  - DLNA
+  - radio
+  lv_LV:
+  - Audio
+  - Dziesma
+  - MP3
+  - CD
+  - Podraide
+  - MTP
+  - iPod
+  - Repertuārs
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  be_BY@latin:
+  - Аудыё
+  - Гук
+  - MP3
+  - CD
+  - Падкаст
+  - MTP
+  - iPod
+  - Спіс
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Радыё
+  es_VE:
+  - Sonido
+  - Canción
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Lista de reproducción
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  nl_NL:
+  - audio
+  - liedje
+  - muziek
+  - mp3
+  - podcast
+  - ipod
+  - afspeellijst
+  - radio
+  - last.fm
+  - cd
+  - upnp
+  - dlna
+  - mtp
+  es_EC:
+  - Sonido
+  - Canción
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Lista de reproducción
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  ar_SY:
+  - صوت
+  - صوتيات
+  - اغاني
+  - أغاني
+  - ام بي ثري
+  - إم بي ثري
+  - قرص
+  - قرص مرن
+  - بث صوتي
+  - نشرة صوتية
+  - نشرات صوتية
+  - ايبود
+  - أيبود
+  - قائمة تشغيل
+  - راديو
+  de_BE:
+  - Audio
+  - Musik
+  - Lied
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Wiedergabeliste
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  es_UY:
+  - Sonido
+  - Canción
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Lista de reproducción
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  ca_AD:
+  - Audio
+  - Cançó
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Llista de reproducció
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Ràdio
+  af_ZA:
+  - Klank
+  - Liedjie
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Speellys
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  fr_BE:
+  - Audio
+  - chanson
+  - musique
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - liste de lecture
+  - Last.fm
+  - UPnP
+  - DLNA
+  - radio
+  pt_BR:
+  - Áudio
+  - Som
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Lista de reprodução
+  - Playlist
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Rádio
+  ar_TN:
+  - صوت
+  - صوتيات
+  - اغاني
+  - أغاني
+  - ام بي ثري
+  - إم بي ثري
+  - قرص
+  - قرص مرن
+  - بث صوتي
+  - نشرة صوتية
+  - نشرات صوتية
+  - ايبود
+  - أيبود
+  - قائمة تشغيل
+  - راديو
+  ru_UA:
+  - Аудио
+  - Звук
+  - Песня
+  - Композиция
+  - MP3
+  - CD
+  - Подкаст
+  - MTP
+  - iPod
+  - Плейлист
+  - Список
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Радио
+  sr_ME:
+  - Audio
+  - Song
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Playlist
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  - pesma
+  - zvuk
+  - podkast
+  - spisak numera
+  - ajPod
+  - песма
+  - звук
+  - МП3
+  - ЦД
+  - подкаст
+  - МТП
+  - ајПод
+  - списак нумера
+  - Ласт.фм
+  - УПнП
+  - ДЛНА
+  - радио
+  el_CY:
+  - Ήχος
+  - Τραγούδι
+  - MP3
+  - Φορητή εκπομπή(Podcast)
+  - iPod
+  - Λίστα αναπαραγωγής
+  - Ράδιο
+  - Audio
+  - Song
+  - CD
+  - Podcast
+  - MTP
+  - Playlist
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  et_EE:
+  - Audio
+  - Laul
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Esitusloend
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Raadio
+  mr_IN:
+  - आवाज
+  - गाणे
+  - MP3
+  - सीडी
+  - पॉडकास्ट
+  - MTP
+  - आयपॉड
+  - प्लेलिस्ट
+  - DLNA
+  - रेडिओ
+  sk_SK:
+  - Audio
+  - Pieseň
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Zoznam piesní
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Rádio
+  - Hudba
+  - Pesničky
+  - Skladby
+  el_GR:
+  - Ήχος
+  - Τραγούδι
+  - MP3
+  - Φορητή εκπομπή(Podcast)
+  - iPod
+  - Λίστα αναπαραγωγής
+  - Ράδιο
+  - Audio
+  - Song
+  - CD
+  - Podcast
+  - MTP
+  - Playlist
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  es_SV:
+  - Sonido
+  - Canción
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Lista de reproducción
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  zh_TW:
+  - Audio
+  - Song
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Playlist
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  - 音訊
+  - 音樂
+  - 歌曲
+  - 歌
+  - 播客
+  - 唱片
+  - 播放清單
+  - 電臺
+  - 電台
+  - 廣播
+  az_AZ:
+  - Səs
+  - Mahnı
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Oxuma siyahısı
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radiyo
+  es_PY:
+  - Sonido
+  - Canción
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Lista de reproducción
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  hr_HR:
+  - Zvuk
+  - Pjesma
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Popis izvođenja
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  ast_ES:
+  - Soníu
+  - Canción
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Llista de reproducción
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  ar_OM:
+  - صوت
+  - صوتيات
+  - اغاني
+  - أغاني
+  - ام بي ثري
+  - إم بي ثري
+  - قرص
+  - قرص مرن
+  - بث صوتي
+  - نشرة صوتية
+  - نشرات صوتية
+  - ايبود
+  - أيبود
+  - قائمة تشغيل
+  - راديو
+  bs_BA:
+  - Zvuk
+  - Pjesma
+  - MP3
+  - CD
+  - Podemisija
+  - MTP
+  - iPod
+  - Spisak pjesama
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  de_CH:
+  - Audio
+  - Musik
+  - Lied
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Wiedergabeliste
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  ar_IQ:
+  - صوت
+  - صوتيات
+  - اغاني
+  - أغاني
+  - ام بي ثري
+  - إم بي ثري
+  - قرص
+  - قرص مرن
+  - بث صوتي
+  - نشرة صوتية
+  - نشرات صوتية
+  - ايبود
+  - أيبود
+  - قائمة تشغيل
+  - راديو
+  fi_FI:
+  - Audio
+  - Song
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Playlist
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  - ääni
+  - kappale
+  - raita
+  - biisi
+  - soittolista
+  sr_RS@latin:
+  - Audio
+  - Song
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Playlist
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  - pesma
+  - zvuk
+  - podkast
+  - spisak numera
+  - ajPod
+  - pesma
+  - zvuk
+  - MP3
+  - CD
+  - podkast
+  - MTP
+  - ajPod
+  - spisak numera
+  - Last.fm
+  - UPnP
+  - DLNA
+  - radio
+  id_ID:
+  - Audio
+  - Lagu
+  - MP3
+  - CD
+  - siniar
+  - MTP
+  - iPod
+  - Daftar putar
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  es_US:
+  - Sonido
+  - Canción
+  - MP3
+  - CD
+  - Podcast
+  - MTP
+  - iPod
+  - Lista de reproducción
+  - Last.fm
+  - UPnP
+  - DLNA
+  - Radio
+  ar_SS:
+  - صوت
+  - صوتيات
+  - اغاني
+  - أغاني
+  - ام بي ثري
+  - إم بي ثري
+  - قرص
+  - قرص مرن
+  - بث صوتي
+  - نشرة صوتية
+  - نشرات صوتية
+  - ايبود
+  - أيبود
+  - قائمة تشغيل
+  - راديو
+Url:
+  homepage: https://gnome.pages.gitlab.gnome.org/rhythmbox/
+  bugtracker: https://gitlab.gnome.org/GNOME/rhythmbox/issues
+  help: https://help.gnome.org/users/rhythmbox/stable/
+  vcs-browser: https://gitlab.gnome.org/GNOME/rhythmbox
+  translate: https://l10n.gnome.org/module/rhythmbox/
+  donation: https://www.gnome.org/donate/
+Icon:
+  cached:
+  - name: rhythmbox_org.gnome.Rhythmbox3.png
+    width: 48
+    height: 48
+  - name: rhythmbox_org.gnome.Rhythmbox3.png
+    width: 64
+    height: 64
+  - name: rhythmbox_org.gnome.Rhythmbox3.png
+    width: 128
+    height: 128
+  remote:
+  - url: org/gnome/Rhythmbox3.desktop/c94c33a550bba08b5ad83b4cb026b23a/icons/128x128/rhythmbox_org.gnome.Rhythmbox3.png
+    width: 128
+    height: 128
+  stock: org.gnome.Rhythmbox3
+Launchable:
+  desktop-id:
+  - org.gnome.Rhythmbox3.desktop
+Provides:
+  ids:
+  - rhythmbox.desktop
+  mediatypes:
+  - application/x-ogg
+  - application/ogg
+  - audio/x-vorbis+ogg
+  - audio/vorbis
+  - audio/x-vorbis
+  - audio/x-scpls
+  - audio/x-mp3
+  - audio/x-mpeg
+  - audio/mpeg
+  - audio/x-mpegurl
+  - audio/x-flac
+  - audio/mp4
+  - audio/x-it
+  - audio/x-mod
+  - audio/x-s3m
+  - audio/x-stm
+  - audio/x-xm
+Screenshots:
+- default: true
+  caption:
+    de: Hauptfenster
+    sv: Huvudfönster
+    lv: Galvenais logs
+    da: Hovedvindue
+    be-Cyrl: Галоўнае акно
+    ca: Finestra principal
+    pt: Janela principal
+    zh-Hans-CN: 主窗口
+    it: Finestra principale
+    zh-Hant-TW: 主視窗
+    tr: Ana Pencere
+    lt: Pagrindinis langas
+    pl: Główne okno
+    fr: Fenêtre principale
+    oc: Fenèstra principala
+    sl: Glavno okno
+    ja: メインウィンドウ
+    C: Main Window
+    uk: Головне вікно
+    hi: मुख्य खिड़की
+    id: Jendela Utama
+    kk-Cyrl: Басты терезе
+    cs: Hlavní okno
+    pt-BR: Janela principal
+    ro: Fereastră principală
+    hu: Főablak
+    ka: მთავარი ფანჯარა
+    nl: Hoofdvenster
+    ru: Главное окно
+    fi: Pääikkuna
+  thumbnails:
+  - url: org/gnome/Rhythmbox3.desktop/c94c33a550bba08b5ad83b4cb026b23a/screenshots/image-1_752x519@1.png
+    width: 752
+    height: 519
+  - url: org/gnome/Rhythmbox3.desktop/c94c33a550bba08b5ad83b4cb026b23a/screenshots/image-1_624x430@1.png
+    width: 624
+    height: 430
+  - url: org/gnome/Rhythmbox3.desktop/c94c33a550bba08b5ad83b4cb026b23a/screenshots/image-1_224x154@1.png
+    width: 224
+    height: 154
+  source-image:
+    url: org/gnome/Rhythmbox3.desktop/c94c33a550bba08b5ad83b4cb026b23a/screenshots/image-1_orig.png
+    width: 995
+    height: 687
+Languages:
+- locale: af
+  percentage: 99
+- locale: ar
+  percentage: 88
+- locale: as
+  percentage: 53
+- locale: ast
+  percentage: 94
+- locale: be
+  percentage: 93
+- locale: be@latin
+  percentage: 47
+- locale: bg
+  percentage: 84
+- locale: bn
+  percentage: 80
+- locale: br
+  percentage: 73
+- locale: bs
+  percentage: 97
+- locale: ca
+  percentage: 98
+- locale: ca@valencia
+  percentage: 85
+- locale: cs
+  percentage: 99
+- locale: cy
+  percentage: 28
+- locale: da
+  percentage: 100
+- locale: de
+  percentage: 99
+- locale: dz
+  percentage: 38
+- locale: el
+  percentage: 94
+- locale: en_US
+  percentage: 100
+- locale: eo
+  percentage: 97
+- locale: es
+  percentage: 100
+- locale: et
+  percentage: 98
+- locale: eu
+  percentage: 98
+- locale: fa
+  percentage: 70
+- locale: fi
+  percentage: 99
+- locale: fr
+  percentage: 98
+- locale: fur
+  percentage: 31
+- locale: gd
+  percentage: 96
+- locale: gl
+  percentage: 99
+- locale: gu
+  percentage: 54
+- locale: he
+  percentage: 84
+- locale: hi
+  percentage: 55
+- locale: hr
+  percentage: 98
+- locale: hu
+  percentage: 99
+- locale: id
+  percentage: 99
+- locale: is
+  percentage: 62
+- locale: it
+  percentage: 100
+- locale: ja
+  percentage: 98
+- locale: kab
+  percentage: 34
+- locale: kk
+  percentage: 33
+- locale: kn
+  percentage: 54
+- locale: ko
+  percentage: 98
+- locale: lt
+  percentage: 98
+- locale: lv
+  percentage: 97
+- locale: mk
+  percentage: 45
+- locale: mr
+  percentage: 58
+- locale: ms
+  percentage: 97
+- locale: my
+  percentage: 44
+- locale: nb
+  percentage: 97
+- locale: ne
+  percentage: 42
+- locale: nl
+  percentage: 98
+- locale: nn
+  percentage: 67
+- locale: oc
+  percentage: 98
+- locale: pa
+  percentage: 88
+- locale: pl
+  percentage: 100
+- locale: pt
+  percentage: 98
+- locale: pt_BR
+  percentage: 98
+- locale: ro
+  percentage: 98
+- locale: ru
+  percentage: 100
+- locale: si
+  percentage: 89
+- locale: sk
+  percentage: 98
+- locale: sl
+  percentage: 97
+- locale: sq
+  percentage: 100
+- locale: sr
+  percentage: 98
+- locale: sr@latin
+  percentage: 97
+- locale: sv
+  percentage: 99
+- locale: ta
+  percentage: 62
+- locale: te
+  percentage: 78
+- locale: th
+  percentage: 95
+- locale: tr
+  percentage: 100
+- locale: ug
+  percentage: 81
+- locale: uk
+  percentage: 100
+- locale: vi
+  percentage: 98
+- locale: zh_CN
+  percentage: 98
+- locale: zh_HK
+  percentage: 91
+- locale: zh_TW
+  percentage: 98
+Releases:
+- version: 3.4.9
+  type: stable
+  unix-timestamp: 1760227200
+  description:
+    C: "<p>\n\t  This version replaces the crossfading player backend and fixes Python plugin\n\t  compatibility with new
+      libpeas/pygobject versions.\n        </p>"
+- version: 3.4.8
+  type: stable
+  unix-timestamp: 1730592000
+  description:
+    C: "<p>\n\t  This new version fixes some bugs and improves handling of Android devices.\n        </p>"
+- version: 3.4.7
+  type: stable
+  unix-timestamp: 1681603200
+  description:
+    C: "<p>\n\t  This new version fixes some bugs and switches to libsoup 3.\n        </p>"
+- version: 3.4.6
+  type: stable
+  unix-timestamp: 1655856000
+  description:
+    C: "<p>\n\t  This new version fixes some bugs and repairs support for translations,\n\t  which was broken in the previous
+      release.\n        </p>"
+ContentRating:
+  oars-1.1: {}
+---
+Type: addon
+ID: org.kde.okular-md
+Package: okular-extra-backends
+Extends:
+- org.kde.okular.desktop
+ProjectLicense: GPL-2.0+ and GFDL-1.3
+Name:
+  he: Markdown
+  ml: മാർക്ഡൗൺ
+  eu: Markdown
+  vi: Markdown
+  sr-ijekavianlatin: Markdown
+  ka: Markdown
+  az: Markdown
+  sr-ijekavian: Маркдаун
+  de: Markdown
+  zh-TW: Markdown
+  ia: Markdown
+  sl: Markdown
+  be: Markdown
+  gl: Markdown
+  ga: Markdown
+  nn: Markdown
+  pt: Markdown
+  zh-CN: Markdown
+  pt-BR: Markdown
+  el: Markdown
+  C: Markdown
+  fr: Markdown
+  is: Markdown
+  ru: Markdown
+  lt: Markdown
+  ca: Markdown
+  sk: Markdown
+  ro: Markdown
+  sv: Markdown
+  ast: Markdown
+  uk: Markdown
+  it: Markdown
+  es: Markdown
+  ar: مارك‌داون
+  bg: Markdown
+  hi: मार्कडाउन
+  sa: मार्कडाउन
+  ko: Markdown
+  cs: Markdown
+  ta: Markdown
+  sr: Маркдаун
+  fi: Markdown
+  et: Markdown
+  lv: Markdown
+  en-GB: Markdown
+  ca-valencia: Markdown
+  pl: Markdown
+  hu: Markdown
+  ie: Markdown
+  eo: Markdown
+  nl: Markdown
+  tr: Markdown
+  sr-Latn: Markdown
+Summary:
+  he: מוסיף תמיכה בקריאת מסמכי Markdown
+  ml: മാർക്ഡൗൺ പ്രമാണങ്ങൾ വായിക്കുന്നതിനുള്ള പിന്തുണ ചേർക്കുന്നു
+  eu: Markdown dokumentuak irakurtzeko euskarria gehitzen du
+  vi: Thêm hỗ trợ đọc tài liệu Markdown
+  sr-ijekavianlatin: Podrška za čitanje Markdown dokumenata
+  az: Markdown sənədlərini oxumaq üçün dəstək əlavə edir
+  ka: Markdown -ის დოკუმენტების კითხვის მხარდაჭერის დამატება
+  sr-ijekavian: Подршка за читање маркдаун докумената
+  de: Bietet Unterstützung zum Lesen von Markdown-Dokumenten
+  zh-TW: 增加讀取 Markdown 文件的支援
+  ia: Adde supporto per leger documentos Markdown
+  sl: Doda podporo za branje dokumentov Markdown
+  be: Падтрымка чытання дакументаў Markdown
+  gl: Engade a posibilidade de ler documentos Markdown
+  ga: Cuireann sé tacaíocht leis chun doiciméid Markdown a léamh
+  nn: Legg til støtte for å lesa Markdown-dokument
+  pt: Adiciona o suporte para a leitura de documentos em Markdown
+  zh-CN: 增加对 Markdown 文档的阅读支持
+  pt-BR: Adiciona o suporte para leitura de documentos em Markdown
+  el: Προσθέτει υποστήριξη για ανάγνωση Markdown εγγράφων
+  C: Adds support for reading Markdown documents
+  fr: Permet la lecture des documents Markdown
+  is: Bætir við stuðningi til að lesa Markdown-skjöl
+  ru: Поддержка чтения документов Markdown
+  lt: Prideda palaikymą Markdown dokumentų skaitymui
+  ca: Afegeix la implementació per a llegir documents en Markdown
+  sk: Pridá podporu pre čítanie Markdown dokumentov
+  ro: Adaugă suport pentru citirea documentelor Markdown
+  sv: Lägger till stöd för att läsa Markdown-dokument
+  uk: Додає підтримку читання документів Markdown
+  bg: Добавя поддръжка за четене на Markdown документи
+  es: Permite la lectura de documentos Markdown
+  ar: يضيف دعم لقراءة مستندات مارك‌داون
+  it: Aggiunge il supporto per la lettura di documenti Markdown
+  hi: मार्कडाउन दस्तावेज़ पढ़ने के लिए समर्थन जोड़ता है
+  sa: Markdown दस्तावेजान् पठितुं समर्थनं योजयति
+  ko: Markdown 문서 읽기 지원 추가
+  cs: Přidává podporu pro čtení dokumentů Markdown
+  ta: Markdown ஆவணங்களைப் படிப்பதற்கான ஆதரவை சேர்க்கும்
+  sr: Подршка за читање маркдаун докумената
+  fi: Lisää Markdown-tiedostojen lukutuen
+  et: Markdowni dokumentide lugemise toetuse lisamine
+  lv: Pievieno atbalstu „Markdown“ dokumentu lasīšanai
+  en-GB: Adds support for reading Markdown documents
+  ca-valencia: Afig la implementació per a llegir documents en Markdown
+  pl: Dodaje obsługę dokumentów Markdown
+  hu: Támogatás Markdown dokumentumok olvasásához
+  ie: Adjunte li supporte de letion de documentes Markdown
+  eo: Aldonas subtenon por legi Markdown-dokumentojn
+  nl: Voegt ondersteuning voor lezen van Markdown-documenten toe
+  tr: Markdown belgelerini okuma desteği ekler
+  sr-Latn: Podrška za čitanje Markdown dokumenata
+Url:
+  homepage: https://okular.kde.org
+Provides:
+  mediatypes:
+  - text/markdown
+Releases:
+- version: 25.12.3
+  type: stable
+  unix-timestamp: 1772668800
+- version: 25.12.2
+  type: stable
+  unix-timestamp: 1770249600
+- version: 25.12.1
+  type: stable
+  unix-timestamp: 1767830400
+- version: 25.12.0
+  type: stable
+  unix-timestamp: 1765411200
+---
+Type: desktop-application
+ID: org.musicbrainz.Picard
+Package: picard
+ProjectLicense: GPL-2.0-or-later
+Name:
+  es: MusicBrainz Picard
+  ja: MusicBrainz Picard
+  pt: MusicBrainz Picard
+  it: MusicBrainz Picard
+  zh-Hant-TW: MusicBrainz Picard
+  tr: MusicBrainz Picard
+  lt: „MusicBrainz Picard“
+  zh-Hans-CN: MusicBrainz Picard
+  fr: MusicBrainz Picard
+  sq: MusicBrainz Picard
+  he: מוזיקבריינז פיקארד
+  C: MusicBrainz Picard
+  cs: MusicBrainz Picard
+  bg: MusicBrainz Picard
+  pl: MusicBrainz Picard
+  ms-MY: Picard MusicBrainz
+  pt-BR: MusicBrainz Picard
+  de: MusicBrainz Picard
+  fi: MusicBrainz Picard
+  nl: MusicBrainz Picard
+  ru: MusicBrainz Picard
+Summary:
+  es: Etiquetador de música MusicBrainz
+  ja: MusicBrain による音楽タグ付けソフトウェア
+  pt: Etiquetador de música do MusicBrainz
+  it: Il tagger musicale di MusicBrainz
+  zh-Hant-TW: MusicBrainz 的音樂標籤管理程式
+  tr: MusicBrainz'in müzik etiketleyicisi
+  lt: „MusicBrainz“ muzikos žymeklis
+  zh-Hans-CN: MusicBrainz 出品的音乐标签软件
+  fr: Le baliseur de fichiers audio de MusicBrainz
+  sq: Etiketues muzike nga MusicBrainz
+  he: מתייג מוזיקה של מיוזיקבריינז
+  C: MusicBrainz's music tagger
+  cs: MusicBrainz's hudební tagger
+  bg: Музикалния тагер на MusicBrainz
+  pl: MusicBrainz Picard służy do edycji metadanych (tagów ID3, znaczników) plików audio
+  ms-MY: Penanda muzik MusicBrainz
+  pt-BR: Marcador de música do MusicBrainz
+  de: MusicBrainz Musik-Tagger
+  fi: MusicBrainzin musiikkitunnisteiden hallintaohjelma
+  nl: MusicBrainz’ muziektagger
+  ru: Редактор тегов от MusicBrainz
+Description:
+  es: >-
+    <p>¿Necesitas ordenar tu biblioteca de música? Picard es un etiquetador de música multiplataforma open source de MusicBrainz.
+    Tiene la capacidad de identificar archivos de audio incluso sin metadatos disponibles.</p>
+
+    <p>Picard lo ayuda a organizar su colección de música cambiando el nombre de sus archivos de música y ordenándolos en
+    una estructura de carpetas exactamente como lo desea. Hay una variedad de complementos disponibles e incluso puedes escribir
+    los tuyos. Picard admite una amplia gama de formatos de audio y también puede buscar un CD completo por ti.</p>
+
+    <p>Etiquetar archivos de música nunca ha sido tan fácil.</p>
+
+    <p>Características:</p>
+
+    <ul>
+      <li>Múltiples formatos: Picard es compatible con todos los formatos de música populares como MP3, FLAC, OGG, M4A, WMA,
+    WAV y más.</li>
+      <li>AcoustID: Picard utiliza las huellas digitales de audio de AcoustID que permiten identificar los archivos de audio
+    incluso si no tienen metadatos.</li>
+      <li>Amplia base de datos: Picard utiliza la base de datos abierta y mantenida por la comunidad MusicBrainz para proporcionar
+    información precisa sobre millones de lanzamientos musicales.</li>
+      <li>Búsqueda de CD: Picard puede buscar un CD de música completo con solo un clic.</li>
+      <li>Compatible con complementos: Elije entre todos los complementos disponibles. O crea uno propio.</li>
+      <li>Secuencias de órdenes: Un lenguaje de secuencias de órdenes flexible pero fácil de aprender: permite especificar
+    exactamente cómo se llamarán sus archivos de música y cómo se verán las etiquetas.</li>
+      <li>Carátula: Picard puede encontrar y descargar la carátula correcta para tus álbumes.</li>
+      <li>Open Source: Picard está licenciado bajo la Licencia Pública General GNU 2.0 o posterior, y está alojado en GitHub,
+    donde lo desarrollan activamente muchos magníficos desarrolladores.</li>
+    </ul>
+  he: >-
+    <p>רוצים לארגן את ספריית המוזיקה שלכם? פיקארד הוא מתייג מוזיקה, שנכתב בקוד פתוח, חוצה מסדות, מאת מיוזיקבריינז. בעל יכולת
+    זיהוי קבצי שמע גם ללא נתוני־על קיימים.</p>
+
+    <p>פיקארד מסייע בארגון אוסף המוזיקה על־ידי שינוי שם קבצי המוזיקה ומיון הקבצים למבנה תיקיות בדיוק לצרכים האישיים. מגוון
+    של מִתְקָעים זמינים, ניתן גם לכתוב מתקעים לבד. פיקארד תומך במגוון רחב של תבניות שמע ויודע לחפש תקליטור שלם.</p>
+
+    <p>תיוג קובצי שמע מעולם לא היה קל יותר.</p>
+
+    <p>תכונות:</p>
+
+    <ul>
+      <li>תבניות מרובות: פיקארד תומך בכל התבניות המוזיקה המקובלות לרבות MP3, FLAC, OGG, M4A, WMA, WAV, ועוד.</li>
+      <li>AcoustID: פיקארד עושה שימוש טביעת אצבע אודיו AcoustID כדי לזהות את הקבצים על־ידי המוזיקה עצמה, גם אם אין להם מטא-נתונים.</li>
+      <li>מסד נתונים מקיף: פיקארד משתמש במסד הנתונים הפתוח המתוחזק על־ידי קהילת מיוזיקבריינז על מנת לספק מידע מדויק על מיליוני
+    הוצאות מוזיקה.</li>
+      <li>חיפוש תקליטורים: פיקארד יכול לחפש תקליטורי מוזיקה שלמים בלחיצת כפתור.</li>
+      <li>תמיכה מִתְקָעים: אם אתם צריכים תכונה מסוימת, תוכלו לבחור מתוך מבחר של מִתְקָעים זמין או לכתוב מִתְקָעים משלכם.</li>
+      <li>תסרוט: שפת תסרוט גמישה אך קלה ללימוד מאפשרת להגדיר כיצד בדיוק קובצי המוזיקה יכונו וכיצד התגים יראו.</li>
+      <li>קוד פתוח: פיקארד מרושה תחת הרישיון הציבורי הכללי של GNU 2.0 ואילך, ומתארח ב־ GitHub, שם הוא מפותח באופן פעיל על־ידי
+    כמה מפתחים מדהימים.</li>
+    </ul>
+  ja: >-
+    <p>音楽ライブラリをクリーンアップする必要がありますか？ Picard は、 MusicBrainz によるオープンソースのクロスプラットフォーム音楽タグ付けソフトウエアです。 既存のメタデータがなくても、オーディオファイルを識別する機能があります。</p>
+
+    <p>Picard は、音楽ファイルの名前を変更し、それらを希望どおりにフォルダー構造に並べ替えることで、音楽コレクションを整理するのに役立ちます。 さまざまなプラグインが利用可能であり、独自のプラグインを作成することもできます。 Picard
+    は、さまざまなオーディオ形式をサポートしており、CD全体を検索することもできます。</p>
+
+    <p>これまでになく容易にオーディオファイルへのタグ付け</p>
+
+    <p>特徴:</p>
+
+    <ul>
+      <li>複数の形式：Picard は MP3, FLAC, OGG, M4A, WMA, WAV などを含むすべての一般的な音楽形式をサポートしています。</li>
+      <li>AcoustID：Picard は AcoustID オーディオフィンガープリントを使用して、メタデータがない場合でも、実際の音楽でファイルを識別できるようにします。</li>
+      <li>包括的なデータベース： Picard は、オープンでコミュニティが管理する MusicBrainz データベースを使用して、何百万もの音楽リリースに関する正確な情報を提供します。</li>
+      <li>CD の検索: Picard ではクリックするだけで音楽CD全体を検索できます。</li>
+      <li>プラグインサポート: 特定の機能が必要な場合は、利用可能なプラグインからの選択か、独自のプラグインを作成できます。</li>
+      <li>スクリプティング: 柔軟かつ容易に学習が可能なスクリプトにより、正確な楽曲ファイルの名前付けやタグの特定が可能になります。</li>
+      <li>オープンソース: Picard は GNU 一般公衆ライセンス 2.0 以降が適用され、何人かの素晴らしい開発者によってアクティブに開発されている GitHub 上でホスティングされています。</li>
+    </ul>
+  sq: >-
+    <p>Keni nevojë të pastroni librarinë tuaj muzikore? Picard është një etiketues muzike, me burim të hapur, ndërplatformësh,
+    nga MusicBrainz. Ka aftësinë të identifikojë kartela audio edhe pa ndonjë tejtëdhënë ekzistuese.</p>
+
+    <p>Picard-i ju ndihmon të sistemoni koleksionin tuaj të muzikës duke riemërtuar kartelat tuaja muzikore dhe duke i renditur
+    në një strukturë dosjeje saktësisht në mënyrën që doni. Ka një larmi shtojcash të gatshme dhe madje mund të shkruani tuajën.
+    Picard-i mbulon një gamë të gjerë formatesh audio dhe mund të kërkojë për ju një CD të tërë.</p>
+
+    <p>Etiketimi i kartelave audio s’ka qenë kurrë më i lehtë se sot.</p>
+
+    <p>Veçori:</p>
+
+    <ul>
+      <li>Formate të shumtë: Picard-i mbulon krejt formatet popullorë të muzikës, përfshi MP3, FLAC, OGG, M4A, WMA, WAV, etj.</li>
+      <li>AcoustID: Picard-i përdor shenja gishtash audio AcoustID, duke lejuar që kartelat të identifikohen nga muzika faktike,
+    madje edhe kur nuk kanë tejtëdhëna.</li>
+      <li>Bazë e plotë të dhënash: për të furnizuar informacion të saktë rreth miliona hedhjesh muzikore në qarkullim, Picard-i
+    përdor bazën e të dhënave MusicBrainz, të hapur dhe të mirëmbajtur nga bashkësia.</li>
+      <li>Kërkim CD-je: Picard-i mund të kërkojë me një klikim për CD të tëra muzikore.</li>
+      <li>Mbulim shtojcash: Nëse ju duhet një veçori, mund të zgjidhni prej një përzgjedhje të shtojcave të gatshme ose të
+    hartoni tuajën.</li>
+      <li>Skriptim: Një gjuhë e zhdërvjellët, por e lehtë për t’u mësuar, ju lejon të specifikoni saktësisht se si do të emërtohen
+    kartelat tuaja muzikore dhe se si do të duken etiketat.</li>
+      <li>Me Burim të Hapur: Picard-i qarkullon sipas licencës GNU General Public License 2.0 ose të mëvonshme, dhe strehohet
+    në GitHub, ku zhvillohet në mënyrë aktive nga disa programues të mrekullueshëm.</li>
+    </ul>
+  zh-Hans-CN: >-
+    <p>您的音乐库需要清理吗? Picard 是一款开源、跨平台的音乐标签软件，由 MusicBrainz 出品。它甚至能够在没有任何元数据的情况下鉴别音频文件。</p>
+
+    <p>Picard通过重命名音乐文件并将其完全按照所需的方式分类到文件夹结构中，从而帮助您组织音乐集。 它提供了各种插件，您甚至可以编写自己的插件。 Picard支持多种音频格式，还可以为您查找整个CD。</p>
+
+    <p>为音频文件添加标签从未如此简单。</p>
+
+    <p>功能:</p>
+
+    <ul>
+      <li>多格式: Picard 支持所有主流音乐格式，包括 MP3, FLAC, OGG, M4A, WMA, WAV 等。</li>
+      <li>AcoustID: Picard 采用 AcoustID 音频指纹算法，可根据音频中实际存在的音乐来鉴别文件，即使文件无元数据信息也能做到。</li>
+      <li>数据库全面: Picard 采用开放的、由社区共同维护的 MusicBrainz 数据库提供数百万张专辑的精确信息。</li>
+      <li>CD 查询: Picard 可一键查询整张音乐 CD。</li>
+      <li>插件支持: 如果您需要特定的功能，可以从现有的插件库中挑选，也可以编写自己的插件。</li>
+      <li>脚本功能: 灵活简便的脚本功能允许您明确地指定音乐文件的命名方式，以及标签的显示方式。</li>
+      <li>专辑封面: Picard 可查询、下载专辑的正确封面。</li>
+      <li>开源: Picard 按照 GNU 通用公共许可证 (GPL) 2.0 或更高版本授权，托管于 GitHub，由许多超赞的开发者共同打造。</li>
+    </ul>
+  tr: >-
+    <p>Müzik kitaplığınızı temizlemeniz mi gerekiyor? Picard, MusicBrainz'in açık kaynaklı, platformlar arası bir müzik etiketleyicisidir.
+    Mevcut herhangi bir meta veri olmadan bile ses dosyalarını tanımlama yeteneğine sahiptir.</p>
+
+    <p>Picard, müzik dosyalarınızı yeniden adlandırarak ve bunları tam istediğiniz gibi bir klasör yapısında sıralayarak müzik
+    koleksiyonunuzu düzenlemenize yardımcı olur. Çeşitli eklentiler mevcuttur ve hatta kendinizinkini bile yazabilirsiniz.
+    Picard çok çeşitli ses biçimlerini destekler ve ayrıca sizin için bir CD'nin tamamını arayabilir.</p>
+
+    <p>Ses dosyalarını etiketlemek hiç bu kadar kolay olmamıştı.</p>
+
+    <p>Özellikler:</p>
+
+    <ul>
+      <li>Çoklu biçim desteği: Picard, MP3, FLAC, OGG, M4A, WMA, WAV ve daha fazlası dahil olmak üzere tüm popüler müzik biçimlerini
+    destekler.</li>
+      <li>AcoustID: Picard, AcoustID ses parmak izlerini kullanarak dosyaların meta verileri olmasa bile müziğin aslı tanımlanmasına
+    olanak tanır.</li>
+      <li>Kapsamlı veri tabanı: Picard, milyonlarca müzik sürümü hakkında doğru bilgi sağlamak için açık ve topluluk tarafından
+    sürdürülen MusicBrainz veri tabanını kullanır.</li>
+      <li>CD aramaları: Picard tek tıklamayla müzik CD'lerinin tamamını arayabilir.</li>
+      <li>Eklenti desteği: Belirli bir özelliğe ihtiyacınız varsa mevcut eklentiler arasından seçim yapabilir veya kendiniz
+    yazabilirsiniz.</li>
+      <li>Komutlar Oluşturma: Esnek ancak öğrenmesi kolay bir komut dili, müzik dosyalarınızın nasıl adlandırılacağını ve
+    etiketlerin nasıl görüneceğini tam olarak belirtmenize olanak tanır.</li>
+      <li>Kapak Görseli: Picard, albümleriniz için doğru kapak görsellerini bulabilir ve indirebilir.</li>
+      <li>Açık Kaynak: Picard, GNU Genel Kamu Lisansı 2.0 veya üzeri kapsamında lisanslanmıştır ve bazı harika geliştiriciler
+    tarafından aktif olarak geliştirildiği GitHub'da barındırılmaktadır.</li>
+    </ul>
+  lt: >-
+    <p>Ar tau reikia sutvarkyti muzikos biblioteką? „Picard“ – tai atvirojo kodo tarpplatforminė muzikos žymeklė, sukurta
+    „MusicBrainz“. Jis turi galimybę identifikuoti garso failus net be jokių esamų metaduomenų.</p>
+
+    <p>„Picard“ padeda tvarkyti muzikos kolekciją pervadinant muzikos failus ir surūšiuojant juos į aplankų struktūrą būtent
+    taip, kaip nori. Galima naudoti įvairius įskiepius ir netgi gali parašyti savo įskiepį. „Picard“ palaiko daugybę garso
+    formatų, taip pat gali peržiūrėti visą CD.</p>
+
+    <p>Žymėti garso failus dar niekada nebuvo taip paprasta.</p>
+
+    <p>Funkcijos:</p>
+
+    <ul>
+      <li>Daugybė formatų: „Picard“ palaiko visus populiarius muzikos formatus, įskaitant MP3, FLAC, OGG, M4A, WMA, WAV ir
+    daugiau.</li>
+      <li>„AcoustID“: „Picard“ naudoja „AcoustID“ garso atspaudus, leidžiančius identifikuoti failus pagal tikrąją muziką,
+    net jei jie neturi metaduomenų.</li>
+      <li>Visapusiška duomenų bazė: „Picard“ naudoja atvirą ir bendruomenės prižiūrimą „MusicBrainz“ duomenų bazę, kad pateiktų
+    tikslią informaciją apie milijonus muzikos leidinių.</li>
+      <li>CD peržiūros: „Picard“ gali vienu paspaudimu peržiūrėti ištisų muzikos CD diskų.</li>
+      <li>Įskiepių palaikymas: jei tau reikia konkrečios funkcijos, gali rinktis iš galimų įskiepių arba parašyti savo.</li>
+      <li>Skriptavimas: lanksti, bet lengvai išmokstama skriptų kalba leidžia tiksliai nurodyti, kaip bus pavadinti tavo muzikos
+    failai ir kaip atrodys žymės.</li>
+      <li>Viršelio apipavidalinimai: „Picard“ gali surasti ir atsisiųsti tinkamą viršelio apipavidalinimus tavo albumams.</li>
+      <li>Atvirojo kodo: „Picard“ licencijuota pagal „GNU General Public“ licenciją 2.0 ar vėlesnę ir talpinama sistemoje
+    „GitHub“, kur ją aktyviai kuria nuostabūs kūrėjai.</li>
+    </ul>
+  pt: >-
+    <p>Precisa de limpar a sua biblioteca de música? O Picard é um etiquetador de música multiplataforma de código aberto
+    do MusicBrainz. Tem a capacidade de identificar ficheiros de áudio mesmo sem metadados existentes.</p>
+
+    <p>Picard te ajuda a organizar sua coleção de músicas ao renomear seus arquivos e organizá-los em uma pasta estruturada
+    do jeito que você preferir. Um variedade de plugins estão disponíveis e você até pode criar o seu. Picard suporta uma
+    grande gama de formatos de áudio e pode também procurar um CD inteiro para você.</p>
+
+    <p>Etiquetar ficheiros de áudio nunca foi tão fácil.</p>
+
+    <p>Funcionalidades:</p>
+
+    <ul>
+      <li>Vários formatos: o Picard suporta vários formatos comuns, incluindo MP3, FLAC, OGG, M4A, WMA, WAV entre outros.</li>
+      <li>AcoustID: o Picard usar as impressões digitais de áudio AcoustID, permitindo que os ficheiros sejam identificados
+    exatamente pela música, mesmo que não contenha metadados.</li>
+      <li>Base de dados abrangente: o Picard usa a base de dados mantida pela comunidade para fornecer informação rigorosa
+    sobre milhões de lançamentos de músicas.</li>
+      <li>Procuras de CD: o Picard pode pesquisar CDs inteiros só com um clique.</li>
+      <li>Suporte a plug-ins: se precisar de uma funcionalidade em particular, pode escolher de uma variada seleção de plug-ins
+    disponíveis ou criar o seu.</li>
+      <li>Scripts: tem disponível uma linguagem de scripts, fácil de aprender, que lhe permite especificar com exatidão como
+    é que serão os nomes dos seus ficheiros de música e como as etiquetas irão aparecer.</li>
+      <li>Código-fonte aberto: o Picard é disponibilizado segundo a Licença Pública Geral GNU 2.0 ou posterior, sendo alojado
+    no GitHub onde é desenvolvido ativamente por alguns programadores fantásticos.</li>
+    </ul>
+  it: >-
+    <p>Vuoi riordinare la tua libreria musicale? Picard è un tagger musicale open-source e multipiattaforma di MusicBrainz.
+    È in grado di identificare file audio anche in assenza di metadati.</p>
+
+    <p>Picard ti aiuta a organizzare la tua collezione musicale rinominando i file e ordinandoli in cartelle secondo la struttura
+    che desideri. Diversi plugin sono già disponibili e puoi persino crearne di nuovi. Picard supporta un'ampia gamma di formati
+    audio ed è anche in grado di cercare un intero CD per te.</p>
+
+    <p>Taggare file audio non è mai stato così facile.</p>
+
+    <p>Funzionalità:</p>
+
+    <ul>
+      <li>Più formati: Picard supporta tutti i formati di musica più popolari, tra cui MP3, FLAC, OGG, M4A, WMA, WAV e altri.</li>
+      <li>AcoustID: Picard usa le impronte digitali audio AcoustID, che permettono di identificare i file a partire dalla
+    musica, anche in assenza di metadati.</li>
+      <li>Database esauriente: Picard usa il database aperto e mantenuto dalla comunità di MusicBrainz per fornire informazioni
+    accurate su milioni di pubblicazioni musicali.</li>
+      <li>Ricerche CD: Picard può cercare interi CD musicali con un clic.</li>
+      <li>Supporto plugin: se hai bisogno di una funzionalità specifica, puoi scegliere da un elenco di plugin disponibili
+    o creare il tuo.</li>
+      <li>Scripting: un linguaggio di scripting flessibile ma facile da imparare ti permette di specificare con esattezza
+    come rinominare i tuoi file musicali e come far apparire i tuoi tag.</li>
+      <li>Copertine: Picard può trovare e scaricare le copertine corrette per i tuoi album.</li>
+      <li>Open source: Picard è rilasciato sotto la licenza GNU General Public License 2.0 o successive ed è ospitato su GitHub,
+    dove è sviluppato attivamente da degli sviluppatori fantastici.</li>
+    </ul>
+  pl: >-
+    <p>Czy chcesz uporządkować swoją bibliotekę muzyczną? Picard to wieloplatformowy, open-source tager muzyki firmy MusicBrainz.
+    Ma zdolność identyfikowania plików audio nawet bez istniejących metadanych.</p>
+
+    <p>Picard pomaga uporządkować Twoją kolekcję muzyki, zmieniając nazwy plików muzycznych i sortując je w strukturę folderów
+    dokładnie tak, jak chcesz. Dostępnych jest wiele wtyczek, można nawet napisać własne. Picard obsługuje szeroką gamę formatów
+    audio i może także wyszukać całą płytę CD.</p>
+
+    <p>Oznaczanie plików audio nigdy nie było łatwiejsze.</p>
+
+    <p>Cechy:</p>
+
+    <ul>
+      <li>Wiele formatów: Picard obsługuje wszystkie popularne formaty muzyczne, w tym MP3, FLAC, OGG, M4A, WMA, WAV i inne.</li>
+      <li>AcoustID: Picard wykorzystuje odciski palców audio AcoustID, umożliwiając identyfikację plików na podstawie rzeczywistej
+    muzyki, nawet jeśli nie zawiera ona metadanych.</li>
+      <li>Kompleksowa baza danych: Picard korzysta z otwartej i utrzymywanej przez społeczność bazy danych MusicBrainz, aby
+    zapewnić dokładne informacje o milionach wydań muzycznych.</li>
+      <li>Sprawdzanie płyt CD: Picard może jednym kliknięciem sprawdzić całą płytę CD z muzyką.</li>
+      <li>Obsługa wtyczek: Jeśli potrzebujesz określonej funkcji, możesz wybierać spośród dostępnych wtyczek lub napisać własną.</li>
+      <li>Skrypty: elastyczny, ale łatwy do nauczenia język skryptowy pozwala dokładnie określić, w jaki sposób będą nazywane
+    twoje pliki muzyczne i jak będą wyglądać tagi.</li>
+      <li>Okładki: Picard może znaleźć i pobrać odpowiednie okładki Twoich albumów.</li>
+      <li>Open Source: Picard jest objęty licencją GNU General Public License 2.0 lub nowszą i jest hostowany na GitHub, gdzie
+    jest aktywnie rozwijany przez kilku niesamowitych programistów.</li>
+    </ul>
+  fr: >-
+    <p>Avez-vous besoin de nettoyer votre collection de musique ? Picard est un baliseur de fichiers musicaux libre et multi-plateformes
+    par MusicBrainz. Il est capable d'identifier les fichiers audio même sans aucune métadonnée existante.</p>
+
+    <p>Picard vous aide à organiser votre collection musicale en renommant vos fichiers audio et en les triant dans une structure
+    de répertoires exactement comme vous le souhaitez. Différents greffons sont disponibles et vous pouvez même créer le vôtre.
+    Picard supporte une grande variété de formats audio et peut aussi rechercher un CD entier pour vous.</p>
+
+    <p>Baliser des fichiers audio n'a jamais été aussi facile.</p>
+
+    <p>Fonctionnalités :</p>
+
+    <ul>
+      <li>Formats multiples : Picard supporte la plupart des formats de fichiers audio courants, entre autres, MP3, FLAC,
+    OGG, M4A, WMA, WAV.</li>
+      <li>AcoustID : Picard utilise les empreintes audio-acoustiques AcoustID, permettant l'identification des fichiers audio
+    par la musique qu'ils contiennent, même s'ils n'ont aucune métadonnée.</li>
+      <li>Base de données riche : Picard utilise la base de données ouverte et maintenue par une communauté de MusicBrainz,
+    pour fournir des informations précises à propos de millions de parutions musicales.</li>
+      <li>Recherche de CD : Picard peut rechercher un CD musical en un clic.</li>
+      <li>Support de greffons : si vous avez besoin d'une fonctionnalité particulière, vous pouvez choisir parmi une sélection
+    de greffons disponibles ou écrire le vôtre.</li>
+      <li>Langage de script : Un langage de script, souple et simple à apprendre, vous permet de spécifier exactement comment
+    vous voulez que vos fichiers soient nommés et à quoi les balises doivent ressembler.</li>
+      <li>Illustrations : Picard peut trouver et télécharger les jaquettes de vos albums.</li>
+      <li>Open Source : Picard est sous licence GNU General Public License 2.0 (ou plus), et est hébergé sur GitHub où il
+    est activement maintenu par de formidables développeurs.</li>
+    </ul>
+  fi: >-
+    <p>Haluaisitko järjestää musiikkikirjastosi? Picard on avoimen lähdekoodin alustariippumaton musiikkitunnisteiden hallintaohjelma
+    MusicBrainzilta. Se pystyy tunnistaamaan äänitiedostoja jopa ilman niiden sisältämää metatietoa.</p>
+
+    <p>Picard auttaa sinua järjestelemään musiikkikirjastosi nimeämällä musiikkitiedostosi ja lajittelemalla ne hakemistorakenteeseen
+    juuri niin kuin itse haluat. Useita liitännäisiä on myös saatavilla, ja voit kirjoittaa omiakin. Picard tukee monia äänitiedostomuotoja
+    ja pystyy etsimään koko CD-levyn tiedotkin.</p>
+
+    <p>Äänitiedostojen tunnisteiden hallitseminen ei ole ollut koskaan näin helppoa.</p>
+
+    <p>Ominaisuudet:</p>
+
+    <ul>
+      <li>Useita tiedostomuotoja: Picard tukee kaikkia suosittuja musiikkitiedostomuotoja, mukaan lukien MP3, FLAC, OGG, M4A,
+    WMA, WAV ja monet muut.</li>
+      <li>AcoustID: Picard käyttää AcoustID-äänitunnisteita, joilla voidaan tunnistaa tiedosto sen sisältämän musiikin perusteella,
+    vaikka tiedostossa ei olisi metatietoja.</li>
+      <li>Kattava tietokanta: Picard hyödyntää avointa ja yhteisön ylläpitämää MusicBrainz-tietokantaa, josta saa tietoa miljoonista
+    musiikkijulkaisuista.</li>
+      <li>CD-haku: Picard voi etsiä koko musiikki-CD:n yhdellä napinpainalluksella.</li>
+      <li>Liitännäiset: Tarvitessasi tiettyä ominaisuutta, voit valita jonkun valmiista liitännäisistä, tai tehdä omasi.</li>
+      <li>Komentojonot: Taipuisa mutta helposti omaksuttava komentojonokieli auttaa määrittämään tarkasti miten haluat musiikkitiedostosi
+    nimettävän ja miltä niiden tiedot näyttävät.</li>
+      <li>Levynkansi: Picard voi etsiä ja ladata oikean levynkannen albumeillesi.</li>
+      <li>Avoin lähdekoodi: Picard on lisensoitu GNU General Public License 2.0 tai uudemmalla lisenssillä, ja se on saatavilla
+    GitHubista, jossa sitä aktiivisesti kehitetään.</li>
+    </ul>
+  C: >-
+    <p>
+          Do you need to clean up your music library? Picard is an open-source
+          cross-platform music tagger by MusicBrainz. It has the ability to
+          identify audio files even without any existing metadata.
+        </p>
+    <p>
+          Picard helps you organize your music collection by renaming your music
+          files and sorting them into a folder structure exactly the way you want
+          it. A variety of plugins are available and you can even write your own.
+          Picard supports a wide range of audio formats and can also lookup an
+          entire CD for you.
+        </p>
+    <p>
+          Tagging audio files has never been easier.
+        </p>
+    <p>Features:</p>
+
+    <ul>
+      <li>
+            Multiple formats: Picard supports all popular music formats,
+            including MP3, FLAC, OGG, M4A, WMA, WAV, and more.
+          </li>
+      <li>
+            AcoustID: Picard uses AcoustID audio fingerprints, allowing files
+            to be identified by the actual music, even if they have no metadata.
+          </li>
+      <li>
+            Comprehensive database: Picard uses the open and
+            community-maintained MusicBrainz database to provide accurate
+            information about millions of music releases.
+          </li>
+      <li>
+            CD lookups: Picard can lookup entire music CDs with a click.
+          </li>
+      <li>
+            Plugin support: If you need a particular feature, you can choose
+            from a selection of available plugins or write your own.
+          </li>
+      <li>
+            Scripting: A flexible but easy to learn scripting language allows
+            you to exactly specify how your music files will be named and how the
+            tags will look like.
+          </li>
+      <li>
+            Cover Art: Picard can find and download the correct cover art for
+            your albums.
+          </li>
+      <li>
+            Open Source: Picard is licensed under the GNU General Public License 2.0
+            or later, and is hosted on GitHub where it is actively
+            developed by some awesome developers.
+          </li>
+    </ul>
+  cs: >-
+    <p>Potřebujete pročistit Vaší hudební knihovnu? Picard je open-source a multiplatformní editor hudebních značek - tagů
+    od MusicBrainz. Je schopný rozpoznat informace o hudebních souborech i když neobsahují žádná jiná metadata.</p>
+
+    <p>Přejmenováním souborů a jejich zařazením do struktury složek Vám Picard pomůže uspořádat Vaší hudební sbírku přesně
+    tak, jak Vy budete chtít. K dispozici je celá řada doplňků a Vy máte možnost si vytvořit - napsat i svoje vlastní. Picard
+    podporuje širokou škálu hudebních formátů a pokud máte nekompletní informace k Vašim CD, umí chybějící údaje dohledat.</p>
+
+    <p>Doplňování informací, metadat či tagů do hudebních souborů nebylo nikdy snažší.</p>
+
+    <p>Funkce:</p>
+
+    <ul>
+      <li>Pestrá škála formátů: Picard podporuje všechny známé hudební formáty vč. MP3, FLAC, OGG, M4A, WMA, WAV a další.</li>
+      <li>AcoustID: Picard používá akustický otisk AcoustID, což umožňuje rozpoznat soubory podle jejich skutečného hudebního
+    obsahu i v případě, že žádné údaje metadat neobsahují.</li>
+      <li>Rozsáhlá databáze: Picard používá otevřenou a komunitou udržovanou databázi MusicBrainz k poskytování přesných informací
+    k miliónům vydání hudebních děl.</li>
+      <li>Dohledávání informací o CD: Picard umí dohledat informace o obsahu hudebního CD na jedno kliknutí.</li>
+      <li>Podpora rozšíření: pokud Vám nestačí standardní funkce a potřebujete něco víc, máte na výběr buď z dostupných rozšíření
+    nebo si můžete vytvořit své vlastní.</li>
+      <li>Skriptování: Přizpůsobivý a snadno pochopitelný skriptovací jazyk Vám umožní přesně určit, jak budou Vaše hudební
+    soubory pojmenovány a jak budou uložená metadata - tagy.</li>
+      <li>Obaly alb: Picard umí nalézt a stáhnout správný obal pro vaše alba.</li>
+      <li>Otevřený zdrojový kód: Picard je licencován pod GNU General Public License 2.0 či novější a je hostován na platformě
+    GitHub, kde je aktivně vyvíjen několika skvělými vývojáři.</li>
+    </ul>
+  bg: >-
+    <p>Трябва ли ви да почистите вашата музикална библиотека? Picard е междуплатформен музикален тагер с отворен код от MusicBrainz.
+    Има способността да идентифицира аудио файлове дори без никакви съществуващи метаданни.</p>
+
+    <p>Picard ви помага да организирате вашата музикална колекция като преименува вашите музикални файлове и ги сортира в
+    папкова структура точно по начина, който искате. Разнообразие от приставки са достъпни и можете дори да напишете свои.
+    Picard поддържа широк обхват от аудио формати и може също да претърси цял CD за вас.</p>
+
+    <p>Тагването на аудио файлове никога не е било по-лесно.</p>
+
+    <p>Допълнения:</p>
+
+    <ul>
+      <li>Множество формати: Picard поддържа всички популярни музикални формати, включително MP3, FLAC, OGG, M4A, WMA, WAV,
+    и други.</li>
+      <li>AcoustID: Picard използва AcoustID аудио отпечатъци, позволявайки файлове да бъдат идентифицирани по действителната
+    музика, дори и те да нямат метаданни.</li>
+      <li>Изчерпателна база данни: Picard използва отворената и обществено поддържаната MusicBrainz база данни да осигури
+    точна информация за милиони музикални издавания.</li>
+      <li>CD претърсвания: Picard може да претърсва цели музикални CDта с едно щракване.</li>
+      <li>Поддръжка на приставки: Ако ви особено допълнение, вие можете да изберете от подбор на достъпни приставки или да
+    напишете свои.</li>
+      <li>Скриптинг: Гъвкав, но лесен за научаване скриптов език ви позволява точно да уточните как вашите музикални файлове
+    ще бъдат именувани как таговете ще изглеждат.</li>
+      <li>Отворен код: Picard е лицензиран под Общият публичен лиценз на GNU 2.0 или по-късно, и се хоства на GitHub, където
+    и активно разработван от някои страхотни разработчици.</li>
+    </ul>
+  de: >-
+    <p>Musst du deine Musik-Sammlung aufräumen? Picard ist ein plattformübergreifender Open Source Musik-Tagger von MusicBrainz.
+    Er kann Audio-Dateien selbst ohne vorhandene Metadaten identifizieren.</p>
+
+    <p>Picard hilft dir, deine Musik-Sammlung zu organisieren, indem es deine Musikdateien genauso wie du es möchtest umbenennt
+    und in Ordner einsortiert. Es steht eine Vielzahl an Plugins zur Verfügung und du kannst sogar deine eigenen schreiben.
+    Picard unterstützt viele Audio-Formate und kann auch die gesamten Daten einer CD abfragen.</p>
+
+    <p>Audio-Dateien zu taggen war nie zuvor einfacher.</p>
+
+    <p>Funktionen:</p>
+
+    <ul>
+      <li>Viele Formate: Picard unterstützt alle populären Musikformate, einschließlich MP3, FLAC, OGG, M4A, WMA, WAV und
+    mehr.</li>
+      <li>AcoustID: Picard verwendet AcoustID Audio-Fingerabdrücke, um Dateien anhand der Musik zu identifizieren, ganz ohne
+    vorhandene Metadaten.</li>
+      <li>Umfassende Datenbank: Picard verwendet die offene und von der Community betriebene MusicBrainz-Datenbank, um akkurate
+    Informationen zu Millionen von Musik-Veröffentlichungen zu bieten.</li>
+      <li>CD-Abfrage: Picard kann mit nur einem Klick die gesamten Daten einer Musik-CD abfragen.</li>
+      <li>Plugin-Unterstützung: Wenn du ein bestimmtes Feature benötigst, kannst du aus einer Vielzahl verfügbarer Plugins
+    wählen oder dein eigenes schreiben.</li>
+      <li>Scripting: Eine flexible aber einfach zu erlernende Scriptsprache erlaubt dir genau festzulegen, wie deine Musikdateien
+    benannt und wie die Tags aussehen werden.</li>
+      <li>Cover-Art: Picard kann das richtige Cover für deine Alben finden und herunterladen.</li>
+      <li>Open Source: Picard ist unter der GNU General Public License 2.0 (oder höher) lizenziert und wird auf GitHub von
+    großartigen Entwicklern weiterentwickelt.</li>
+    </ul>
+  ms-MY: >-
+    <p>Pustaka muzik anda agak bersepah? Picard ialah sebuah penanda muzik sumber terbuka yang rentas pelantar oleh MusicBrainz.
+    Picard mampu mengenal pasti fail audio biarpun tanpa mana-mana data meta yang sedia ada.</p>
+
+    <p>Picard mampu menyusun atur kumpulan muzik anda melalui penamaan semula dan pengisihan fail muzik ke dalam struktur
+    pelipat yang dikehendaki. Anda boleh memilih antara pemalam yang tersedia ataupun menulis pemalam sendiri. Picard menyokong
+    pelbagai jenis format audio. Di samping itu, Picard juga mampu mencari CD lengkap untuk anda.</p>
+
+    <p>Begitu mudah menanda fail-fail audio.</p>
+
+    <p>Ciri-ciri:</p>
+
+    <ul>
+      <li>Beraneka format: Picard menyokong seluruh format muzik tenar. Antaranya termasuklah MP3, FLAC, OGG, M4A, WMA, WAV
+    dan banyak lagi.</li>
+      <li>AcoustID: Picard menggunakan sidikan bunyi AcoustID untuk membolehkan fail-fail dikenal pasti oleh kandungan muziknya
+    biarpun tanpa data meta.</li>
+      <li>Pangkalan data yang tuntas: Picard menggunakan pangkalan data MusicBrainz untuk membekalkan maklumat yang tepat
+    berkenaan jutaan keluaran muzik. MusicBrainz ialah sebuah pangkalan data terbuka yang ditanggung oleh kelompok masyarakat.</li>
+      <li>Carian CD: Picard boleh mencari CD muzik lengkap dengan hanya satu ketikan.</li>
+      <li>Sokongan pemalam: Anda boleh membuat pilihan antara pemalam yang tersedia ataupun tulis sendiri pemalam sekiranya
+    terdapat ciri yang anda ingini.</li>
+      <li>Penskripan: Bahasa penskripan yang digunakan adalah anjal serta mudah dipelajari. Hal ini membolehkan anda menentukan
+    penamaan fail muzik anda serta rupa tandanya.</li>
+      <li>Sumber Terbuka: Picard dilesenkan di bawah Lesen Awam Am GNU 2.0 atau yang terkemudian. Picard juga dihoskan di
+    GitHub serta sedang giat dibangunkan oleh pembangun-pembangun yang hebat.</li>
+    </ul>
+  zh-Hant-TW: >-
+    <p>您需要整理您的音樂收藏庫？Picard 是開放源代碼且跨平臺的音樂標籤管理程式，由 MusicBrainz 製作。就算沒有後設資料參考，它也有能力辨識音訊檔案。</p>
+
+    <p>Picard 依照您指定的方式來重新命名音樂檔案，並整理進資料夾，藉此幫助您整理您的音樂收藏。Picard 有多種插件可使用，您甚至可以撰寫自己的插件。Picard 支援多種音樂格式，也可以為您查找整張 CD。</p>
+
+    <p>管理音訊檔案的標籤從來沒有這麼簡單。</p>
+
+    <p>功能:</p>
+
+    <ul>
+      <li>多種格式: Picard 支援所有流行的音樂格式，包含 MP3、FLAC、OGG、M4A、WMA、WAV，與其他。</li>
+      <li>AcoustID: Picard 使用 AcoustID 音訊特徵碼，來實際辨認音樂本體，即使它們缺少後設資料。</li>
+      <li>綜合資料庫: Picard 使用開放且由社群維護的 MusicBrainz 資料庫來提供上百萬筆音樂發行品的準確資訊。</li>
+      <li>CD 查找: Picard 可以按一下就查找整張音樂 CD。</li>
+      <li>套件支援: 如果您需要特別功能，您可以從預先提供的套件中選擇，或是製作您自己的套件。</li>
+      <li>腳本: 彈性但易學的腳本語言，讓您可以準確指定您的音樂檔案如何命名，與如何上標籤。</li>
+      <li>開放源代碼: Picard 基於 GNU 通用公共授權條款 2.0 或其之後的版本，且在有優秀開發者所開發的 GitHub 上託管。</li>
+    </ul>
+  pt-BR: >-
+    <p>Você precisa limpar sua biblioteca de música? Picard é um marcador de música multiplataforma de código aberto da MusicBrainz.
+    Ele tem a capacidade de identificar arquivos de áudio, mesmo sem qualquer metadado existente.</p>
+
+    <p>Picard te ajuda a organizar sua coleção de músicas ao renomear seus arquivos e organizá-los em uma pasta estruturada
+    do jeito que você preferir. Um variedade de plugins estão disponíveis e você até pode criar o seu. Picard suporta uma
+    grande gama de formatos de áudio e pode também procurar um CD inteiro para você.</p>
+
+    <p>Marcar arquivos de áudio nunca foi tão fácil.</p>
+
+    <p>Características:</p>
+
+    <ul>
+      <li>Vários formatos: O Picard suporta todos os formatos de música populares, incluindo MP3, FLAC, OGG, M4A, WMA, WAV
+    e muito mais.</li>
+      <li>AcoustID: O Picard usa impressões digitais de áudio AcoustID, permitindo que os arquivos sejam identificados pela
+    música real, mesmo que eles não tenham metadados.</li>
+      <li>Banco de dados abrangente: o Picard usa o banco de dados aberto e mantido pela comunidade do MusicBrainz para fornecer
+    informações precisas sobre milhões de lançamentos musicais.</li>
+      <li>Pesquisas de CD: Picard pode procurar CDs de música inteiros com um clique.</li>
+      <li>Suporte a plug-ins: se você precisar de um recurso específico, poderá escolher entre uma seleção de plug-ins disponíveis
+    ou escrever seus próprios.</li>
+      <li>Scripting: Uma linguagem de script flexível, mas fácil de aprender, permite que você especifique exatamente como
+    seus arquivos de música serão nomeados e como serão as etiquetas.</li>
+      <li>Open Source: O Picard é licenciado sob a GNU General Public License 2.0 ou posterior, e é hospedado no GitHub, onde
+    é desenvolvido ativamente por alguns desenvolvedores incríveis.</li>
+    </ul>
+  nl: >-
+    <p>Wil je je muziekbibliotheek opschonen? Picard is een openbrontagger voor meerdere platformen van MusicBrainz. Het kan
+    je audiobestanden zelfs zonder bestaande tags identificeren.</p>
+
+    <p>Met Picard kan je je muziekverzameling beheren door je muziekbestanden naar je eigen voorkeuren te hernoemen en op
+    te slaan in een mappenstructuur. Er zijn veel plug-ins beschikbaar en je kan ook zelf plug-ins schrijven. Picard ondersteunt
+    een breed scala aan audioformaten en kan ook een hele cd voor je opzoeken.</p>
+
+    <p>Audiobestanden taggen was nog nooit zo makkelijk.</p>
+
+    <p>Functies:</p>
+
+    <ul>
+      <li>Veel bestandsformaten: Picard ondersteunt alle populaire muziekformaten, waaronder mp3, FLAC, OGG, M4A, WMA, WAV
+    en nog veel meer.</li>
+      <li>AcoustID: Picard gebruikt AcoustID-vingerafdrukken om bestanden aan de hand van het geluid te identificeren, zelfs
+    als ze geen tags hebben.</li>
+      <li>Uitgebreide databank: dankzij de open en door de gemeenschap onderhouden MusicBrainz-databank geeft Picard je precieze
+    informatie over miljoenen uitgaven.</li>
+      <li>Cd’s opzoeken: Picard kan hele muziek-cd’s met een klik opzoeken.</li>
+      <li>Plug-inondersteuning: als je een bepaalde functie nodig hebt, kan je kiezen uit een brede selectie beschikbare plug-ins
+    of er zelf een schrijven.</li>
+      <li>Scripts: een flexibele maar eenvoudig te leren scripttaal geeft je de mogelijkheid om de bestandsnamen en tags van
+    je muziekbestanden aan je eigen wensen aan te passen.</li>
+      <li>Hoesafbeeldingen: Picard kan de juiste afbeeldingen voor je uitgaven vinden en downloaden.</li>
+      <li>Open bron: Picard heeft een GNU General Public License 2.0-licentie of hoger en wordt gehost op GitHub, waar het
+    door geweldige ontwikkelaars wordt ontwikkeld.</li>
+    </ul>
+  ru: >-
+    <p>Нужно упорядочить свою музыкальную библиотеку? Picard — это кроссплатформенный музыкальный редактор тегов от проекта
+    MusicBrainz. Picard способен распознать даже аудиофайлы, которые не содержат метаданных.</p>
+
+    <p>Picard поможет вам упорядочить вашу музыкальную коллекцию, переименовав музыкальные файлы и рассортировав их по папкам
+    в соответствии с вашими предпочтениями. Доступны разнообразные плагины, и вы даже можете написать свой собственный. Picard
+    поддерживает широкий спектр аудиоформатов, а также может просмотреть весь компакт-диск.</p>
+
+    <p>Разметка аудиофайлов никогда не была такой легкой.</p>
+
+    <p>Возможности:</p>
+
+    <ul>
+      <li>Различные форматы: Picard поддерживает все популярные музыкальные форматы, включая MP3, FLAC, OGG, M4A, WMA, WAV
+    и другие.</li>
+      <li>AcoustID: Picard использует аудио-отпечатки AcoustID, позволяя идентифицировать файлы по самой музыке, даже если
+    у них нет метаданных.</li>
+      <li>Обширная база данных: Picard использует открытую базу данных MusicBrainz, поддерживаемую сообществом, для предоставления
+    точной информации о миллионах музыкальных релизов.</li>
+      <li>Поиск дисков: Picard поможет найти всю информацию о CD в один клик.</li>
+      <li>Поддержка плагинов: Если вам необходима конкретная функция, её можно выбрать из набора доступных плагинов или создать
+    свой.</li>
+      <li>Сценарии: Гибкий, но простой в освоении язык сценариев позволяет вам точно указать, как будут называться ваши музыкальные
+    файлы и как будут выглядеть теги.</li>
+      <li>Обложки: Picard может найти и загрузить правильные обложки для ваших альбомов.</li>
+      <li>Открытый исходный код: Picard находится под лицензией GNU General Public License 2.0 or later и размещен на GitHub,
+    где он активно разрабатывается некоторыми замечательными разработчиками.</li>
+    </ul>
+Developer:
+  name:
+    es: Fundación MetaBrainz
+    ja: MetaBrainz Foundation
+    pt: MetaBrainz Foundation
+    it: MetaBrainz Foundation
+    zh-Hant-TW: MetaBrainz 基金會
+    tr: MetaBrainz Vakfı
+    lt: „MetaBrainz“ fondas
+    zh-Hans-CN: MetaBrainz 基金会
+    fr: Fondation MetaBrainz
+    sq: MetaBrainz Foundation
+    he: קרן מטהבריינז
+    C: MetaBrainz Foundation
+    cs: Sdružení MetaBrainz
+    bg: MetaBrainz фондация
+    pl: MetaBrainz Foundation
+    ms-MY: Yayasan MetaBrainz
+    pt-BR: MetaBrainz Foundation
+    de: MetaBrainz Foundation
+    fi: MetaBrainz-säätiö
+    nl: MetaBrainz Foundation
+    ru: Фонд MetaBrainz
+Categories:
+- AudioVideo
+- Audio
+- AudioVideoEditing
+Url:
+  homepage: https://picard.musicbrainz.org/
+  bugtracker: https://tickets.metabrainz.org/projects/PICARD/issues/
+  help: https://picard-docs.musicbrainz.org/
+  translate: https://translations.metabrainz.org/projects/picard/
+  faq: https://picard-docs.musicbrainz.org/en/faq/faq.html
+  donation: https://metabrainz.org/donate
+Icon:
+  cached:
+  - name: picard_org.musicbrainz.Picard.png
+    width: 48
+    height: 48
+  - name: picard_org.musicbrainz.Picard.png
+    width: 64
+    height: 64
+  - name: picard_org.musicbrainz.Picard.png
+    width: 128
+    height: 128
+  remote:
+  - url: org/musicbrainz/Picard/3faed76f05629aea2d9feeaa74d9e35e/icons/128x128/picard_org.musicbrainz.Picard.png
+    width: 128
+    height: 128
+  stock: org.musicbrainz.Picard
+Launchable:
+  desktop-id:
+  - org.musicbrainz.Picard.desktop
+Recommends:
+- control: keyboard
+- control: pointing
+- display_length: 768
+- internet: always
+Provides:
+  binaries:
+  - picard
+  mediatypes:
+  - application/ogg
+  - application/x-flac
+  - audio/aac
+  - audio/ac3
+  - audio/aiff
+  - audio/ape
+  - audio/dsf
+  - audio/flac
+  - audio/midi
+  - audio/mp4
+  - audio/mpeg
+  - audio/mpeg4
+  - audio/mpg
+  - audio/ogg
+  - audio/vorbis
+  - audio/x-aac
+  - audio/x-aiff
+  - audio/x-ape
+  - audio/x-flac
+  - audio/x-flac+ogg
+  - audio/x-m4a
+  - audio/x-midi
+  - audio/x-mp3
+  - audio/x-mpc
+  - audio/x-mpeg
+  - audio/x-ms-wma
+  - audio/x-ms-wmv
+  - audio/x-musepack
+  - audio/x-oggflac
+  - audio/x-speex
+  - audio/x-speex+ogg
+  - audio/x-tak
+  - audio/x-tta
+  - audio/x-vorbis
+  - audio/x-vorbis+ogg
+  - audio/x-wav
+  - audio/x-wavpack
+  - audio/x-wma
+  - video/x-ms-asf
+  - video/x-theora
+  - video/x-wmv
+Screenshots:
+- default: true
+  thumbnails:
+  - url: org/musicbrainz/Picard/3faed76f05629aea2d9feeaa74d9e35e/screenshots/image-1_752x580@1.png
+    width: 752
+    height: 580
+  - url: org/musicbrainz/Picard/3faed76f05629aea2d9feeaa74d9e35e/screenshots/image-1_624x481@1.png
+    width: 624
+    height: 481
+  - url: org/musicbrainz/Picard/3faed76f05629aea2d9feeaa74d9e35e/screenshots/image-1_224x172@1.png
+    width: 224
+    height: 172
+  source-image:
+    url: org/musicbrainz/Picard/3faed76f05629aea2d9feeaa74d9e35e/screenshots/image-1_orig.png
+    width: 1085
+    height: 837
+- thumbnails:
+  - url: org/musicbrainz/Picard/3faed76f05629aea2d9feeaa74d9e35e/screenshots/image-2_224x229@1.png
+    width: 224
+    height: 229
+  source-image:
+    url: org/musicbrainz/Picard/3faed76f05629aea2d9feeaa74d9e35e/screenshots/image-2_orig.png
+    width: 611
+    height: 626
+- thumbnails:
+  - url: org/musicbrainz/Picard/3faed76f05629aea2d9feeaa74d9e35e/screenshots/image-3_224x229@1.png
+    width: 224
+    height: 229
+  source-image:
+    url: org/musicbrainz/Picard/3faed76f05629aea2d9feeaa74d9e35e/screenshots/image-3_orig.png
+    width: 611
+    height: 626
+- thumbnails:
+  - url: org/musicbrainz/Picard/3faed76f05629aea2d9feeaa74d9e35e/screenshots/image-4_752x580@1.png
+    width: 752
+    height: 580
+  - url: org/musicbrainz/Picard/3faed76f05629aea2d9feeaa74d9e35e/screenshots/image-4_624x481@1.png
+    width: 624
+    height: 481
+  - url: org/musicbrainz/Picard/3faed76f05629aea2d9feeaa74d9e35e/screenshots/image-4_224x172@1.png
+    width: 224
+    height: 172
+  source-image:
+    url: org/musicbrainz/Picard/3faed76f05629aea2d9feeaa74d9e35e/screenshots/image-4_orig.png
+    width: 1085
+    height: 837
+- thumbnails:
+  - url: org/musicbrainz/Picard/3faed76f05629aea2d9feeaa74d9e35e/screenshots/image-5_624x437@1.png
+    width: 624
+    height: 437
+  - url: org/musicbrainz/Picard/3faed76f05629aea2d9feeaa74d9e35e/screenshots/image-5_224x156@1.png
+    width: 224
+    height: 156
+  source-image:
+    url: org/musicbrainz/Picard/3faed76f05629aea2d9feeaa74d9e35e/screenshots/image-5_orig.png
+    width: 665
+    height: 466
+Languages:
+- locale: ar
+  percentage: 28
+- locale: ca
+  percentage: 25
+- locale: cs
+  percentage: 29
+- locale: da
+  percentage: 35
+- locale: de
+  percentage: 100
+- locale: el
+  percentage: 35
+- locale: en_US
+  percentage: 100
+- locale: es
+  percentage: 70
+- locale: et
+  percentage: 62
+- locale: fi
+  percentage: 99
+- locale: fr
+  percentage: 99
+- locale: he
+  percentage: 92
+- locale: hu
+  percentage: 25
+- locale: it
+  percentage: 100
+- locale: ja
+  percentage: 83
+- locale: ko
+  percentage: 59
+- locale: lt
+  percentage: 73
+- locale: ms_MY
+  percentage: 79
+- locale: nb
+  percentage: 60
+- locale: nl
+  percentage: 99
+- locale: pl
+  percentage: 93
+- locale: pt
+  percentage: 44
+- locale: pt_BR
+  percentage: 63
+- locale: ru
+  percentage: 59
+- locale: sk
+  percentage: 26
+- locale: sv
+  percentage: 53
+- locale: tr
+  percentage: 35
+- locale: uk
+  percentage: 41
+- locale: zh_CN
+  percentage: 100
+- locale: zh_TW
+  percentage: 82
+Releases:
+- version: 2.13.3
+  type: stable
+  unix-timestamp: 1739750400
+- version: 2.13.2
+  type: stable
+  unix-timestamp: 1738886400
+- version: 2.13.1
+  type: stable
+  unix-timestamp: 1738713600
+- version: '2.13'
+  type: stable
+  unix-timestamp: 1738627200
+ContentRating:
+  oars-1.1:
+    money-purchasing: mild
+---
+Type: desktop-application
+ID: xournal.desktop
+Package: xournal
+Name:
+  fr: Xournal
+  C: Xournal
+  ca: Xournal
+Summary:
+  fr: Prise de notes manuscrites
+  C: Take handwritten notes
+  ca: Preneu notes a mà
+Description:
+  C: >-
+    <p>Xournal is a GTK+ application for notetaking, sketching and keeping a journal using a stylus. It can also be used to
+    add annotations to PDF files.</p>
+  en: >-
+    <p>Xournal is a GTK+ application for notetaking, sketching and keeping a journal using a stylus. It can also be used to
+    add annotations to PDF files.</p>
+Categories:
+- Utility
+- TextEditor
+Keywords:
+  C:
+  - tablet
+  - annotation
+  - pen
+  - handwritten
+  - notes
+  - overlay
+  - drawing
+Icon:
+  cached:
+  - name: xournal_xournal.png
+    width: 48
+    height: 48
+  - name: xournal_xournal.png
+    width: 64
+    height: 64
+  - name: xournal_xournal.png
+    width: 128
+    height: 128
+  remote:
+  - url: x/xo/xournal.desktop/5f4463b058aee89295db709e40749f1a/icons/128x128/xournal_xournal.png
+    width: 128
+    height: 128
+  stock: xournal
+Launchable:
+  desktop-id:
+  - xournal.desktop
+Provides:
+  mediatypes:
+  - application/x-xoj
+  - application/pdf

@@ -43,6 +43,9 @@ Rules:
               (DP-1; the words come from ./build, CHANDLER_PRIVATE_WORDS). Fails closed when
               the words are missing.
   claude-md   CLAUDE.md links the standard and names the 40-hex commit it conforms to (RP-6).
+  async       every call to a library's `*_async` function passes chandler_async_ready as its
+              callback (src/async.h): the result is dropped, and the call cancelled, when its
+              owner goes first, and the completion is stall-timed (plan §4.2).
   unsequenced one argument of a call hands &x to a nested call while another argument reads
               x: the order the arguments are evaluated in is unspecified, so x may be read
               before the nested call has written it. No compiler warning or analyzer here
@@ -296,6 +299,7 @@ ADAPTER_FILES = {
     "src/packages.c": "the PackageKit adapter (milestone 2)",
     "tests/test-catalog.c": "tests the AppStream adapter against real libappstream",
     "tests/test-packages.c": "tests the PackageKit adapter against the fake daemon",
+    "tests/pk-drive.c": "drives the real daemon for recording its traffic (never shipped)",
 }
 LIBRARY_NAME = re.compile(r"\b(?:as|pk)_[a-z][a-z0-9_]*|\b(?:As|Pk)[A-Z][A-Za-z0-9]*\b"
                           r"|\b(?:AS|PK)_[A-Z][A-Z0-9_]*")
@@ -361,6 +365,31 @@ def fixtures(path, text, words):
     return problems
 
 
+# Calls taking a GAsyncReadyCallback: every *_async, and those whose names don't say so.
+ASYNC_CALL = re.compile(r"\b([a-z_][a-z0-9_]*_async|g_dbus_proxy_call|g_dbus_connection_call|"
+                        r"g_dbus_proxy_call_with_unix_fd_list|g_bus_get|g_task_new|"
+                        r"g_dbus_connection_call_with_unix_fd_list|g_dbus_proxy_new|"
+                        r"g_dbus_proxy_new_for_bus)\s*\(")
+
+
+def async_rule(path, text):
+    if path in ("src/async.c", "src/async.h"):
+        return []
+    code = STRING.sub('""', COMMENT.sub(" ", text))
+    problems = []
+    for m in ASYNC_CALL.finditer(code):
+        if m.group(1).startswith("chandler_async"):
+            continue
+        parsed = top_level_args(code, m.end() - 1)
+        if parsed is None:
+            continue
+        if not any(a.strip() == "chandler_async_ready" for a in parsed[0]):
+            line = code.count("\n", 0, m.start()) + 1
+            problems.append(f"{path}:{line}: {m.group(1)} without chandler_async_ready as its "
+                            "callback: use chandler_async_new (src/async.h)")
+    return problems
+
+
 STANDARD = "https://github.com/odclcslkrpb5k/paranoid-typescript/blob/"
 
 
@@ -387,7 +416,7 @@ def hidden(path, text):
 
 
 RULES = [nodiscard, unsequenced, discarded, suppression, logpath, message, hidden, widening,
-         adapters, nobans, markup]
+         adapters, nobans, markup, async_rule]
 EXEMPT: set[str] = set()
 
 
@@ -403,8 +432,8 @@ def check():
                                                 ".clang-tidy", "CLAUDE.md", "README.md"])
     data = data_files()
     # TS-6: say what was selected, and refuse a selection missing files known to exist.
-    expected = {"src/main.c", "src/prelude.h", "src/window.c", "tests/test-contract.c",
-                "tests/test-window.c"}
+    expected = {"src/main.c", "src/prelude.h", "src/window.c", "src/catalog.c", "src/packages.c",
+                "tests/test-contract.c", "tests/test-window.c", "tests/fuzz/driver.c"}
     if not expected <= set(files):
         sys.exit("check-source: selection misses " + " ".join(sorted(expected - set(files)))
                  + "; run from the repository root")
@@ -513,6 +542,16 @@ EXAMPLES = [
     (markup, "src/x.c", "gtk_tree_view_column_add_attribute (c, r, \"markup\", 0);", 1),
     (nobans, "src/meson.build", "c_args : '-DGBK_LIFETIME_IMPL',", 0),
     (nobans, "src/x.c", "#define GBK_LIFETIME_IMPL", 1),
+    (async_rule, "src/x.c", "as_pool_load_async (pool, c, on_loaded, data);", 1),
+    (async_rule, "src/x.c", "as_pool_load_async (pool, chandler_async_cancellable (a),\n"
+     "                    chandler_async_ready, a);", 0),
+    (async_rule, "src/x.c", "ChandlerAsync *a = chandler_async_new (o, f, d, nullptr);", 0),
+    (async_rule, "src/async.c", "g_file_read_async (f, 0, nullptr, cb, d);", 0),
+    (async_rule, "src/x.c", "/* as_pool_load_async (pool, c, cb, d); */", 0),
+    (async_rule, "src/x.c", "g_task_new (nullptr, c, on_done, data);", 1),
+    (async_rule, "src/x.c", "g_task_new (nullptr, chandler_async_cancellable (a), chandler_async_ready, a);", 0),
+    (async_rule, "src/x.c", "g_dbus_connection_call (c, n, p, i, m, v, t, 0, -1, nullptr, cb, d);", 1),
+    (async_rule, "src/x.c", "g_bus_get (G_BUS_TYPE_SYSTEM, nullptr, cb, d);", 1),
     (nobans, "tests/meson.build", "c_args : '-DGBK_LIFETIME_IMPL',", 1),
     (claude_md, "CLAUDE.md", "Last conformed to commit: " + "a" * 40, 1),
     (claude_md, "CLAUDE.md", STANDARD + "a" * 40 + "/appendices/c-gtk.md\nLast conformed to "
