@@ -20,7 +20,7 @@ RUN apt-get update --error-on=any \
  && apt-get install -y --no-install-recommends \
       gcc libc6-dev meson ninja-build pkgconf \
       clang llvm libclang-rt-dev clang-tidy clang-format cppcheck \
-      desktop-file-utils appstream \
+      desktop-file-utils appstream shellcheck \
       libgtk-3-dev libappstream-dev libpackagekit-glib2-dev \
       python3 python3-dbusmock \
       xvfb xauth dbus-daemon \

@@ -16,7 +16,7 @@
 #                               into out/pk-record-05/ (dbus-monitor's bus.txt goes there too)
 set -uo pipefail
 only=${1:-}
-cd "$(dirname "${BASH_SOURCE[0]}")/.."
+cd "$(dirname "${BASH_SOURCE[0]}")/.." || exit 1
 drive=out/release/tests/pk-drive
 out=out/pk-record${only:+-$only}
 [[ -x $drive ]] || { echo "build first: ./build check (makes $drive)"; exit 1; }

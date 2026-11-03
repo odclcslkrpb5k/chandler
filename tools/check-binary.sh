@@ -44,9 +44,11 @@ check "stack not executable (-z noexecstack)" \
   grep -qE '^ *GNU_STACK .* RW +0x' <<<"$segments"
 if [[ -n $allowed ]]; then
   needed=$(sed -n 's/.*(NEEDED) *Shared library: \[\(.*\)\]/\1/p' <<<"$dynamic")
+  # shellcheck disable=SC2016 # expanded by the inner bash, from its arguments
   check "loads only $allowed ($(wc -w <<<"$needed") libraries)" \
     bash -c '[[ -n $1 ]] && ! grep -vqE "$2" <<<"$1"' _ "$needed" "$allowed"
 fi
+# shellcheck disable=SC2016 # expanded by the inner bash, from its arguments
 check "no text relocations" \
   bash -c '! grep -q TEXTREL <<<"$1"' _ "$dynamic"
 check "stack protector (-fstack-protector-strong)" \

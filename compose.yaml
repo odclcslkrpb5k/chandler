@@ -14,7 +14,7 @@ services:
     user: "${CHANDLER_UID:?run through ./build}:${CHANDLER_GID:?run through ./build}"
     environment:
       HOME: /tmp
-      CHANDLER_VERSION: "${CHANDLER_VERSION:?run through ./build}"
+      CHANDLER_BUILD_HASH: "${CHANDLER_BUILD_HASH:?run through ./build}"
       # Words that must never appear in committed test data (tools/check-source.py fixtures).
       CHANDLER_PRIVATE_WORDS: "${CHANDLER_PRIVATE_WORDS:?run through ./build}"
     volumes:

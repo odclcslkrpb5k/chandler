@@ -1,0 +1,5 @@
+#!/bin/sh
+# chandler-shim: installed by Chandler's install.sh, which updates or removes this file only
+# while this line is here. GTK's "Find New Applications" button runs gnome-software; this
+# runs Chandler instead. Delete this file to undo it.
+exec '@BIN@' "$@"

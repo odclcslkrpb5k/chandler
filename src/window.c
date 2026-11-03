@@ -779,7 +779,7 @@ chandler_window_init (ChandlerWindow *self)
   self->query = g_strdup ("");
   gtk_window_set_title (GTK_WINDOW (self), "Chandler");
   gtk_window_set_default_size (GTK_WINDOW (self), 640, 560);
-  gtk_window_set_icon_name (GTK_WINDOW (self), "system-software-install");
+  gtk_window_set_icon_name (GTK_WINDOW (self), CHANDLER_APP_ID);
 
   GtkBox *box = GTK_BOX (gtk_box_new (GTK_ORIENTATION_VERTICAL, 6));
   g_object_set (box, "margin", 12, nullptr);

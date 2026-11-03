@@ -55,9 +55,10 @@ Write down the date, the build hash (`chandler --version`), and the result of ea
    packages on this machine. A difference means the fake has drifted: record again
    (`tools/record-pk.sh`) before trusting the tests.
 
-## 7. A package that asks a debconf question (once, milestone 4)
+## 7. A package that asks a debconf question (optional)
 
-Only if the owner agrees: it installs Microsoft's font installer and two small dependencies.
+The owner accepted that these may fail (plan §1.2 item 3); this only records what happens.
+It installs Microsoft's font installer and two small dependencies.
 
 1. `chandler ttf-mscorefonts-installer`. Press Install; the row asks to confirm ("also
    installs 2 packages"). Confirm and enter the password.
@@ -65,3 +66,17 @@ Only if the owner agrees: it installs Microsoft's font installer and two small d
    what Chandler shows.
 3. `sudo apt purge ttf-mscorefonts-installer && sudo apt autoremove --dry-run` (check that
    the dry run lists only `cabextract` and `libmspack0t64` before running it for real).
+
+## 8. The installer and the shim
+
+1. `./build install` (or the curl one-liner once a release is published). Expect four files
+   listed, the shim among them; `gnome-software --version` prints `chandler <hash>`.
+2. Log out and in (the menu reads `.desktop` files at login on Xfce). Chandler is in the
+   menu under System, with the candle icon; it opens with an empty search. The open window
+   shows the candle in the panel's task list too (the `.desktop` file's `StartupWMClass`
+   matches the window; if the panel shows a generic icon, say so).
+3. In Quoin, select a PDF, open "Open With…", press **Find New Applications**. Expect
+   Chandler, searching `application/pdf`, above the dialog.
+4. The same with a file Quoin can't type and with two types selected: Chandler opens with
+   an empty search (`application/octet-stream`, plan §6).
+5. `CHANDLER_UNINSTALL=1 ./install.sh` removes the four files; re-install after.

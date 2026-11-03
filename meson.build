@@ -175,6 +175,15 @@ endif
 
 conf = configuration_data()
 conf.set_quoted('CHANDLER_VERSION', meson.project_version())
+# The application ID names the D-Bus name, the .desktop file and the icon (data/, install.sh):
+# one spelling, and configure fails if data/ disagrees.
+app_id = 'io.github.odclcslkrpb5k.Chandler'
+conf.set_quoted('CHANDLER_APP_ID', app_id)
+foreach f : [app_id + '.desktop.in', app_id + '.svg', 'gnome-software.in']
+  if not import('fs').is_file('data' / f)
+    error('data/' + f + ' is missing (the application ID is ' + app_id + ')')
+  endif
+endforeach
 # The Debian architecture Chandler installs for (plan §3.3): a candidate of any other (an i386
 # one on a machine with i386 enabled) is never offered, whatever the daemon's ARCH filter did.
 debian_arch = {'x86_64' : 'amd64', 'aarch64' : 'arm64'}

@@ -8,6 +8,11 @@
 #   ./build format    rewrite the C sources with clang-format (check refuses unformatted ones)
 #   ./build release   check, on a clean tree (the embedded git hash identifies the
 #                     source), then marks the hardened binary as releasable.
+#   ./build install [prefix]
+#                     install the release binary, .desktop file, icon and gnome-software shim
+#                     (default prefix ~/.local); runs `release` first unless it already passed
+#                     for this exact commit.
+#   ./build publish   GitHub release of the release binary for HEAD (what install.sh fetches)
 #   ./build shell     interactive shell in the build image
 #   ./build image     (re)build the build image
 #
@@ -25,13 +30,84 @@ cmd=${1:-}
 verdict=
 trap 'status=$?; [[ -n $verdict || -z $cmd ]] || echo "build: $cmd FAIL (exit $status)"' EXIT
 
-export CHANDLER_UID CHANDLER_GID CHANDLER_VERSION CHANDLER_PRIVATE_WORDS
+export CHANDLER_UID CHANDLER_GID CHANDLER_BUILD_HASH CHANDLER_PRIVATE_WORDS
 CHANDLER_UID=$(id -u)
 CHANDLER_GID=$(id -g)
-CHANDLER_VERSION=unset
+CHANDLER_BUILD_HASH="unset"
 # The user's name and the host's: committed test data must contain neither (DP-1).
 CHANDLER_PRIVATE_WORDS="$(id -un) $(hostname)"
 compose=(docker compose --project-directory "$root" -f "$root/compose.yaml")
+app_id=io.github.odclcslkrpb5k.Chandler
+dist_files=(chandler "$app_id.desktop.in" "$app_id.svg" gnome-software.in)
+
+# Host side: a release build that passed the whole gate for exactly HEAD, staged with
+# what install.sh needs in out/dist/<hash>/. Prints that directory.
+staged_release() {
+  if [[ -n $(git -C "$root" status --porcelain) ]]; then
+    echo "$cmd: working tree is dirty; commit first so the hash means something." >&2
+    exit 1
+  fi
+  local hash bin=$root/out/release/src/chandler stamp=$root/out/release/released
+  hash=$(git -C "$root" rev-parse --short=12 HEAD)
+  if [[ ! -f $stamp || $(<"$stamp") != "$hash" ]]; then
+    echo "$cmd: no passing release for $hash yet; running ./build release" >&2
+    "$0" release >&2
+  fi
+  # Belt and braces: the binary itself must say it is this commit.
+  if [[ $("$bin" --version) != "chandler $hash" ]]; then
+    echo "$cmd: $bin reports '$("$bin" --version)', expected 'chandler $hash'" >&2
+    exit 1
+  fi
+  local dist=$root/out/dist/$hash
+  rm -rf "$dist"
+  mkdir -p "$dist"
+  cp "$bin" "$dist/"
+  local f
+  for f in "${dist_files[@]:1}"; do cp "$root/data/$f" "$dist/"; done
+  (cd "$dist" && sha256sum "${dist_files[@]}" > SHA256SUMS)
+  echo "$dist"
+}
+
+# The one command that writes outside the repo. Same installer as the curl one-liner.
+install_release() {
+  local dist
+  dist=$(staged_release)
+  CHANDLER_FROM=$dist CHANDLER_PREFIX=${1:-$HOME/.local} "$root/install.sh"
+}
+
+# A GitHub release named after the hash, marked latest: what install.sh downloads.
+publish_release() {
+  local dist hash full
+  dist=$(staged_release)
+  hash=$(git -C "$root" rev-parse --short=12 HEAD)
+  full=$(git -C "$root" rev-parse HEAD)
+  git -C "$root" fetch -q origin
+  # HEAD itself, not an older commit: the release is marked latest.
+  if [[ $full != "$(git -C "$root" rev-parse origin/main)" ]]; then
+    echo "publish: $hash isn't origin/main; push first (or check out origin/main)." >&2
+    exit 1
+  fi
+  if gh release view "$hash" >/dev/null 2>&1; then
+    echo "publish: release $hash already exists." >&2
+    exit 1
+  fi
+  gh release create "$hash" --target "$full" --latest --title "Chandler $hash" \
+    --notes "Built from $full on Ubuntu 26.04 (x86_64), hardened release build; the full release gate (sanitizer tests, analyzers, fuzzing, hardened tests) passed.
+
+Install or update: \`curl -fsSL https://raw.githubusercontent.com/odclcslkrpb5k/chandler/main/install.sh | bash\`" \
+    "${dist_files[@]/#/$dist/}" "$dist/SHA256SUMS"
+  # Check what was published rather than trusting it went through: every file there.
+  local have want
+  have=$(gh release view "$hash" --json assets -q '.assets[].name')
+  for want in "${dist_files[@]}" SHA256SUMS; do
+    if ! grep -qxF "$want" <<<"$have"; then
+      echo "publish: release $hash is missing $want" >&2
+      exit 1
+    fi
+  done
+  echo "published $hash with: $(tr '\n' ' ' <<<"$have")"
+  gh release list --limit 1
+}
 
 case "$cmd" in
   check|debug|analyze|release|shell|format|fuzz)
@@ -44,7 +120,9 @@ case "$cmd" in
     fi
     ;;
   image) "${compose[@]}" build build; verdict=PASS; echo "build: image PASS"; exit 0 ;;
-  *) verdict=usage; sed -n '2,13p' "$0" | sed 's/^# \{0,1\}//'; exit 2 ;;
+  install) install_release "${2:-}"; verdict=PASS; echo "build: install PASS"; exit 0 ;;
+  publish) publish_release; verdict=PASS; echo "build: publish PASS"; exit 0 ;;
+  *) verdict=usage; sed -n '2,18p' "$0" | sed 's/^# \{0,1\}//'; exit 2 ;;
 esac
 
 version=$(git -C "$root" rev-parse --short=12 HEAD)
@@ -56,7 +134,7 @@ if [[ -n $(git -C "$root" status --porcelain) ]]; then
   fi
   version+="-dirty"
 fi
-CHANDLER_VERSION=$version
+CHANDLER_BUILD_HASH=$version
 
 # The analyzers' baseline as committed at origin/main (as last fetched): the gate refuses a
 # count above it, so one commit can't raise the baseline and add the finding.
@@ -75,7 +153,7 @@ args=("$@")
 
 status=0
 "${compose[@]}" run --build --quiet-build --rm "${tty[@]}" "$service" "${args[@]}" || status=$?
-verdict=done
+verdict="done"
 if [[ $status -eq 0 ]]; then
   echo "build: $cmd PASS"
 else

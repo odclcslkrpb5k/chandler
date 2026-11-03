@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <!-- Chandler: a candle on its holder, the chandler's ware (and the ship's chandler who
+       supplies what is missing). Drawn as Quoin's sibling: same ground, palette and rounded
+       ends, so it reads on light and dark panels alike. -->
+  <rect x="1" y="1" width="46" height="46" rx="10" fill="#e9eff7" stroke="#1f3b63" stroke-width="1.5"/>
+  <!-- The flame: an outer amber teardrop, a pale core, then the wick. -->
+  <path d="M24 5.5 Q29.5 12 29.5 15.5 Q29.5 19.5 24 19.5 Q18.5 19.5 18.5 15.5 Q18.5 12 24 5.5 Z" fill="#f2a93b"/>
+  <path d="M24 11 Q26.5 14 26.5 16 Q26.5 18 24 18 Q21.5 18 21.5 16 Q21.5 14 24 11 Z" fill="#fff3c4"/>
+  <rect x="23.25" y="17.5" width="1.5" height="4" rx="0.75" fill="#1f3b63"/>
+  <!-- The candle, with light down its face. -->
+  <path d="M17.5 23 Q17.5 21.5 19 21.5 H29 Q30.5 21.5 30.5 23 V36 H17.5 Z" fill="#3f6aa6"/>
+  <path d="M21 21.5 V27 Q21 28.5 22.25 28.5 Q23.5 28.5 23.5 27 V21.5 Z" fill="#e9eff7" opacity="0.55"/>
+  <!-- The holder: a dish with its rim. -->
+  <path d="M9.5 36 H38.5 Q38.5 41 33.5 41 H14.5 Q9.5 41 9.5 36 Z" fill="#1f3b63"/>
+</svg>

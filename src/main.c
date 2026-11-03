@@ -3,8 +3,6 @@
 #include "request.h"
 #include "window.h"
 
-#define APP_ID "io.github.odclcslkrpb5k.Chandler"
-
 /* One Chandler process (plan §3.3): every launch registers the application name; the first
  * keeps it and shows the window, a later one hands its command line to the first through the
  * "request" action and exits. GApplication is never given the arguments themselves (only
@@ -63,7 +61,8 @@ on_activate (GtkApplication *app, void *unused G_GNUC_UNUSED)
 static int
 run_window (int argc, char **argv)
 {
-  g_autoptr (GtkApplication) app = gtk_application_new (APP_ID, G_APPLICATION_DEFAULT_FLAGS);
+  g_autoptr (GtkApplication) app
+      = gtk_application_new (CHANDLER_APP_ID, G_APPLICATION_DEFAULT_FLAGS);
   g_autoptr (GSimpleAction) request
       = g_simple_action_new ("request", G_VARIANT_TYPE_BYTESTRING_ARRAY);
   gbk_connect (G_OBJECT (app), request, "activate", G_CALLBACK (on_request), app);

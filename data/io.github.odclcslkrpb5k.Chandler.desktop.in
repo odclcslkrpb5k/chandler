@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=Chandler
+GenericName=Application Finder
+Comment=Find and install the applications that open a file type
+Icon=io.github.odclcslkrpb5k.Chandler
+StartupWMClass=chandler
+TryExec=@BIN@
+Exec=@BIN@
+Terminal=false
+StartupNotify=true
+Categories=System;GTK;
+Keywords=install;software;file type;open with;

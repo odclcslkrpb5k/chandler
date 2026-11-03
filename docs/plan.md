@@ -138,7 +138,11 @@ These need a person at the display, and come **before** milestone 0 (§5).
      - Whether a GTK debconf dialog appears on this Xubuntu depends on `libgtk3-perl`.
      - Proposed: accept it (Protect). A failed configure shows `BROKEN` ("use Synaptic or
        apt") and removes nothing. Acceptance step 7 tries it once, with the owner's
-       agreement. **Owner to decide.**
+       agreement.
+     - **Decided (owner, 2026-11-03): accept it.** The one real answer, running the install
+       in an embedded terminal, is out of scope for Chandler. Considered higher rungs: refusing
+       such packages (Eliminate) needs simulate to tell, and it can't. The README says these
+       may fail through Chandler and to use apt.
    - **No daemon:** found by the fake rather than the recording. With nothing on the bus,
      `pk_control_get_properties` *succeeds* from defaults. `packages.c` therefore also
      requires `connected` and a version (Engineer; the `no-daemon` scenario pins it).
@@ -543,6 +547,56 @@ sends for several types, and "apps that open arbitrary bytes" is never the quest
   comes early in PATH, so it catches every caller. Flags Chandler doesn't handle get the info
   bar of §3.5, not a silent empty window. It doesn't claim `org.gnome.Software`. Built only if
   needed.
+- **Built in milestone 5 (2026-11-03):**
+  - `data/gnome-software.in` execs the installed binary by absolute path, so PATH order
+    decides only whether the shim is found, never which Chandler runs.
+  - `install.sh` (from Quoin's, same options with a `CHANDLER_` prefix) writes the shim only
+    where it hides nothing. The owner's rule against removing what they rely on applies to
+    the installer too:
+    - It never overwrites or removes a `gnome-software` without its marker line.
+    - It writes none while another `gnome-software` is on PATH, and removes its own shim
+      then. Installing GNOME Software later and re-running the installer undoes the shim.
+    - `CHANDLER_NO_SHIM=1` leaves the shim out; `CHANDLER_UNINSTALL=1` removes exactly
+      what was installed.
+  - These are Engineer controls: `tests/check-install.py` runs the installer into temporary
+    prefixes for each rule and fails if a foreign file changes. The residual: a
+    `gnome-software` installed after Chandler, with the installer never re-run, sits behind
+    the shim. That is Protect (the README says to re-run); the Engineer alternative, a shim
+    that looks for a real one on each run, means guessing which PATH entry is "real", and
+    a wrong guess runs the wrong program.
+  - The application ID is set once in `meson.build` (`CHANDLER_APP_ID`); configure fails
+    unless `data/` has the `.desktop` file and icon named after it (Engineer). `install.sh`
+    can't read meson, so it repeats the ID; the install test pins that spelling.
+  - The window's icon is Chandler's own (`io.github.odclcslkrpb5k.Chandler`, a candle), no
+    longer `system-software-install`.
+  - `shellcheck` joins `./build check` for `build`, `install.sh`, `tools/*.sh` and the shim.
+  - No AppStream metainfo: Chandler isn't distributed through a catalog, so `appstreamcli
+    validate` (§4.3) has nothing to run on.
+  - **Milestone 5 review (sonnet, 2026-11-03):**
+    - Fixed:
+      - `./build install` died at once. The build exported its version stamp as
+        `CHANDLER_VERSION`, which is also the installer's release selector. The build's
+        variable is now `CHANDLER_BUILD_HASH` (Eliminate). The install test passes the
+        installer its whole environment, the build's variables included, and fails if one
+        is missing, so a new clash fails the test (Engineer).
+      - A dangling symlink, a symlink to a shim, or a directory at the shim's path counted
+        as "nothing there" or "ours". Now only a regular file carrying the marker is ours,
+        and anything else there is left alone.
+      - The installer's own shim, reached through another spelling of its directory on
+        PATH, counted as "a real gnome-software" and was removed on the next run. A shim
+        carrying the marker never counts as real.
+      - Downloaded `SHA256SUMS` must list every file.
+      - The test now runs the installer piped through stdin, as from curl, and covers a
+        fresh install beside a real gnome-software, `CHANDLER_NO_SHIM` keeping an existing
+        shim, and the odd files above. It refuses to run if the base PATH has a
+        gnome-software (TS-6).
+      - `./build publish` requires HEAD to be origin/main, so `--latest` never points back.
+    - Accepted:
+      - The download path (curl, checksums, OS check) has no automated test; the container
+        has no network. It is the same code as Quoin's, which has been used; acceptance
+        step 8 runs it once a release exists.
+      - Uninstall removes `chandler`, the `.desktop` file and the icon without an
+        ownership check. They carry Chandler's own names.
 
 ## 7. Not in v1
 

@@ -66,6 +66,12 @@ if not get_option('fuzzing')
   test('version', python,
     args : [meson.current_source_dir() / 'check-version.py', chandler_exe, meson.project_version()],
     env : test_env)
+  # install.sh into temporary prefixes: the files, the shim and its rules (plan §6).
+  test('install', python,
+    args : [meson.current_source_dir() / 'check-install.py',
+            meson.project_source_root() / 'install.sh', chandler_exe,
+            meson.project_source_root() / 'data'],
+    env : test_env, timeout : 120)
   # --list end to end, against the image's decoy catalog (Dockerfile).
   test('list', python, args : [meson.current_source_dir() / 'check-list.py', chandler_exe],
     env : test_env, timeout : 120)

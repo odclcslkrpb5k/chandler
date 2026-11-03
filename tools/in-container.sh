@@ -14,7 +14,7 @@ fi
 setup() {  # setup <dir> <meson options...>
   local dir=$1; shift
   mkdir -p out
-  printf '%s\n' "$CHANDLER_VERSION" > out/VERSION    # meson.build reads it as the project version
+  printf '%s\n' "$CHANDLER_BUILD_HASH" > out/VERSION    # meson.build reads it as the project version
   rm -f "$dir/released"    # any rebuild voids the release stamp until the gate passes again
   if [[ -d $dir/meson-private ]]; then
     meson setup --reconfigure "$dir" "$@" | tail -n 25
@@ -37,6 +37,8 @@ start_x() {
   local bus
   bus=$(dbus-daemon --session --fork --print-address=1 --print-pid=1)
   export DBUS_SESSION_BUS_ADDRESS=${bus%%$'\n'*}
+  # Expanded now, deliberately: `pid` and `bus` are local to this function.
+  # shellcheck disable=SC2064
   trap "kill $pid ${bus##*$'\n'} 2>/dev/null" EXIT
   # No a11y bus or dconf in the container: keep GTK from trying (and warning).
   export NO_AT_BRIDGE=1 GTK_A11Y=none GSETTINGS_BACKEND=memory
@@ -113,6 +115,8 @@ check() {
   echo "== vendored code =="
   python3 tools/check-vendor.py self-test
   python3 tools/check-vendor.py
+  echo "== shell scripts (shellcheck) =="
+  shellcheck build install.sh tools/*.sh data/gnome-software.in
   echo "== formatting (clang-format) =="
   format_files | xargs clang-format --dry-run --Werror
   echo "== source rules =="
@@ -136,7 +140,7 @@ check() {
 
 release() {
   check
-  printf '%s\n' "$CHANDLER_VERSION" > out/release/released
+  printf '%s\n' "$CHANDLER_BUILD_HASH" > out/release/released
   echo
   echo "built: out/release/src/chandler ($(out/release/src/chandler --version))"
 }
